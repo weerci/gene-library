@@ -365,6 +365,7 @@
     <Compile Include="Items\IK2.cs" />
     <Compile Include="Items\IKL.cs" />
     <Compile Include="Items\lin.cs" />
+    <Compile Include="Items\Locuse.cs" />
     <Compile Include="Items\Logon.cs" />
     <Compile Include="Items\Meth.cs" />
     <Compile Include="Items\mvd.cs" />

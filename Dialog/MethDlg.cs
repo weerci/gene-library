@@ -11,6 +11,7 @@ using WFExceptions;
 using GeneLibrary.Items;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using GeneLibrary.Common;
 
 namespace GeneLibrary.Dialog
 {
@@ -55,6 +56,7 @@ namespace GeneLibrary.Dialog
                 _methItem.Open();
             }
             TurningGrid();
+            EnableControls();
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -76,24 +78,18 @@ namespace GeneLibrary.Dialog
                 _id = _methItem.Save();
                 if (OnDataLoad != null)
                     OnDataLoad(_id);
+
+                if (!this.IsEdit)
+                {
+                    this.IsEdit = true;
+                    _methItem.Id = _id;
+                }
             }
             finally
             {
                 this.Cursor = Cursors.Default;
             }
 
-            if (this.IsEdit)
-                this.DialogResult = DialogResult.OK;
-            else
-            {
-                tbName.Clear();
-                textBoxFrequency.Clear();
-                tbDesc.Clear();
-                tbName.Focus();
-                _dict.LoadItem();
-                _methItem = _dict.Item;
-                _methItem.Open();
-            }
         }
         private void textBoxFrequency_TextChanged(object sender, EventArgs e)
         {
@@ -160,12 +156,61 @@ namespace GeneLibrary.Dialog
         {
             e.Control.KeyPress += new KeyPressEventHandler(dgrAllele_KeyPress);
         }
+        private void tsbAddLocus_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void tsbDeleteLocus_Click(object sender, EventArgs e)
+        {
+            if (dgrLocus.Rows.Count == 0)
+                return;
+
+            if (Tools.ShowMessage(Properties.Resources.ConfirmDictDel) == DialogResult.OK)
+            {
+                try
+                {
+                    this.Cursor = Cursors.WaitCursor;
+                    int idx = dgrLocus.CurrentCell.RowIndex;
+                    int sc = dgrLocus.SelectedRows.Count;
+                    _activeDict.Del((from DataGridViewRow dataGridRow in dataGridVocabulary.SelectedRows
+                                     select Convert.ToInt32(dataGridRow.Cells["id"].Value, CultureInfo.InvariantCulture)).ToArray<int>());
+                    _activeDict.Open(dataGridVocabulary);
+
+                    if ((sc == 1) && (idx > 0))
+                        dataGridVocabulary.CurrentCell = this.dataGridVocabulary.Rows[--idx].Cells[dataGridVocabulary.FirstDisplayedCell.ColumnIndex];
+
+                    tstbQuickSearch_TextChanged(tstbQuickSearch, null);
+                    EnableControls();
+                    ThisDeserivalize();
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
+                }
+            }
+
+        }
+
+        private void tsbAddAllele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsbRemoveAllele_Click(object sender, EventArgs e)
+        {
+
+        }
 
         // Properties
         public bool IsEdit { get; set; }
 
         // Private members
+        private void EnableControls()
+        {
+            tsbDeleteLocus.Enabled = dgrLocus.SelectedRows.Count > 0;
+            tsbDeleteAllele.Enabled = dgrAllele.SelectedCells.Count > 0 && dgrAllele.SelectedCells[0].ColumnIndex > 0;
+        }
         private void TurningGrid()
         {
             DataView dw = new DataView(_methItem.DTAllele);
@@ -184,6 +229,8 @@ namespace GeneLibrary.Dialog
             dgrAllele.Columns["val"].HeaderText = resDataNames.freqAlleleTableVal;
             dgrAllele.Columns["val"].ReadOnly = true;
             dgrAllele.Columns["freq"].HeaderText = resDataNames.freqAlleleTableFreq;
+            dgrAllele.AllowUserToResizeColumns = false;
+            dgrAllele.AllowUserToResizeRows = false;
         }
         private MethodItem _methItem;
         private int _id;
@@ -192,6 +239,10 @@ namespace GeneLibrary.Dialog
         // Events
         internal event GeneLibrary.Common.UpdateId OnDataLoad;
 
+        private void dgrLocus_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EnableControls();
+        }
 
 
     }

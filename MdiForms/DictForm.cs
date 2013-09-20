@@ -358,8 +358,6 @@ namespace GeneLibrary.MdiForms
         {
             toolStripButtonEdit.Enabled = dataGridVocabulary.SelectedRows.Count == 1;
             toolStripButtonDelete.Enabled = dataGridVocabulary.SelectedRows.Count > 0;
-            //DataTable dataTable = dataGridVocabulary.DataSource as DataTable;
-            //toolStripButtonExcel.Enabled = dataTable.Rows.Count > 0;
             toolStripButtonExcel.Enabled = dataGridVocabulary.Rows.Count > 0;
         }
 

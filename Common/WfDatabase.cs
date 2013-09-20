@@ -266,6 +266,17 @@ namespace WFDatabase
         }
 
         /// <summary>
+        /// Создание шлюза для списка локусов с их аллелями
+        /// </summary>
+        /// <returns>Шлюз списка локусов с их аллелями</returns>
+        static public LocuseVocabularyGate LocuseVocabularyGate()
+        {
+            if (DbValue == DBVal.Oracle)
+                return new LocuseVocabularyGateOracle();
+            else
+                throw new WFException(ErrType.Critical, Resources.UnknownDB);
+        }
+        /// <summary>
         /// Создание шлюза для списка подразделений экспертов
         /// </summary>
         /// <returns>Шлюз списка подразделений экспертов</returns>
