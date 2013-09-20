@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B60C1554-1138-4294-89C4-D7D96582314C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GeneLibrary</RootNamespace>
+    <AssemblyName>GeneLibrary</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>B5D0CBD7187B241E8CD503CFBC2E9F0FE777C763</ManifestCertificateThumbprint>
+    <ManifestKeyFile>GeneLibrary_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <TargetZone>LocalIntranet</TargetZone>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>16.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>c:\temp\gl\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>\\SERVER\corelib\</UpdateUrl>
+    <TargetCulture>ru-RU</TargetCulture>
+    <PublisherName>Core Lab</PublisherName>
+    <MinimumRequiredVersion>1.0.0.3</MinimumRequiredVersion>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsUrl>\\SERVER\corelib\prerequisite</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\exe\gl\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MdiClientController, Version=1.0.3378.39463, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>outerDLL\MdiClientController.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>outerDLL\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VS2005ToolBox, Version=1.0.3378.41565, Culture=neutral, PublicKeyToken=5f9f209aaca3183e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>outerDLL\VS2005ToolBox.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutGeneLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutGeneLibrary.Designer.cs">
+      <DependentUpon>AboutGeneLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CardFilter.cs" />
+    <Compile Include="Common\Common.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Exceptions.cs" />
+    <Compile Include="Common\GeneLibaryDefault.cs" />
+    <Compile Include="Common\TextBoxId.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\TreeBuilder.cs" />
+    <Compile Include="Common\WfDatabase.cs" />
+    <Compile Include="Dialog\AddEditRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\AddEditRight.Designer.cs">
+      <DependentUpon>AddEditRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\AlleleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\AlleleForm.Designer.cs">
+      <DependentUpon>AlleleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DivisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DivisionForm.Designer.cs">
+      <DependentUpon>DivisionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ErrorForm.Designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ExpertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ExpertForm.Designer.cs">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FileListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FileListForm.Designer.cs">
+      <DependentUpon>FileListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormArchiveComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormArchiveComment.Designer.cs">
+      <DependentUpon>FormArchiveComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormBuildFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormBuildFilter.Designer.cs">
+      <DependentUpon>FormBuildFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormChangePassword.Designer.cs">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormChangeUserPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormChangeUserPassword.Designer.cs">
+      <DependentUpon>FormChangeUserPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormClassIkl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormClassIkl.Designer.cs">
+      <DependentUpon>FormClassIkl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormClassObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormClassObject.Designer.cs">
+      <DependentUpon>FormClassObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormCompareDictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormCompareDictionary.Designer.cs">
+      <DependentUpon>FormCompareDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormError.Designer.cs">
+      <DependentUpon>FormError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormFind.Designer.cs">
+      <DependentUpon>FormFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormPreferences.Designer.cs">
+      <DependentUpon>FormPreferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormSortObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormSortObject.Designer.cs">
+      <DependentUpon>FormSortObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FormStudy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FormStudy.Designer.cs">
+      <DependentUpon>FormStudy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\HistoryDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\HistoryDlg.Designer.cs">
+      <DependentUpon>HistoryDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\LinDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\LinDlg.Designer.cs">
+      <DependentUpon>LinDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\MethDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\MethDlg.Designer.cs">
+      <DependentUpon>MethDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\MvdDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\MvdDlg.Designer.cs">
+      <DependentUpon>MvdDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\OrganizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\OrganizationForm.Designer.cs">
+      <DependentUpon>OrganizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\OrgDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\OrgDlg.Designer.cs">
+      <DependentUpon>OrgDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\PostDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\PostDlg.Designer.cs">
+      <DependentUpon>PostDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\RoleDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\RoleDlg.Designer.cs">
+      <DependentUpon>RoleDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\UkCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\UkCheckForm.Designer.cs">
+      <DependentUpon>UkCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\UKForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\UKForm.Designer.cs">
+      <DependentUpon>UKForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\UserRightDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\UserRightDlg.Designer.cs">
+      <DependentUpon>UserRightDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\WindowErrorProfileFile.xaml.cs">
+      <DependentUpon>WindowErrorProfileFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorsMsg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorsMsg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\CardFilter.cs" />
+    <Compile Include="Filters\FilterConrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters\FilterControlDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters\FilterControlDate.Designer.cs">
+      <DependentUpon>FilterControlDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\FilterControlInteger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters\FilterControlInteger.Designer.cs">
+      <DependentUpon>FilterControlInteger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\FilterControlList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters\FilterControlList.Designer.cs">
+      <DependentUpon>FilterControlList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filters\FilterControlString.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filters\FilterControlString.Designer.cs">
+      <DependentUpon>FilterControlString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\Adjust.cs" />
+    <Compile Include="Items\Archive.cs" />
+    <Compile Include="Items\ClassIkl.cs" />
+    <Compile Include="Items\ClassObject.cs" />
+    <Compile Include="Items\Contents\ResearchContent.cs" />
+    <Compile Include="Items\Division.cs" />
+    <Compile Include="Items\Expert.cs" />
+    <Compile Include="Items\Find\Find.cs" />
+    <Compile Include="Items\Find\FindGridDecorator.cs" />
+    <Compile Include="Items\History.cs" />
+    <Compile Include="Items\IK2.cs" />
+    <Compile Include="Items\IKL.cs" />
+    <Compile Include="Items\lin.cs" />
+    <Compile Include="Items\Logon.cs" />
+    <Compile Include="Items\Meth.cs" />
+    <Compile Include="Items\mvd.cs" />
+    <Compile Include="Items\Organ.cs" />
+    <Compile Include="Items\Post.cs" />
+    <Compile Include="Items\Preferences.cs" />
+    <Compile Include="Items\Profiles.cs" />
+    <Compile Include="Items\Research\Research.cs" />
+    <Compile Include="Items\Research\ResearchExcelDecorator.cs" />
+    <Compile Include="Items\Research\ResearchGridDecorator.cs" />
+    <Compile Include="Items\Role.cs" />
+    <Compile Include="Items\SortObject.cs" />
+    <Compile Include="Items\Study.cs" />
+    <Compile Include="Items\UK.cs" />
+    <Compile Include="Items\Vlcabulary.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\DictForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\DictForm.Designer.cs">
+      <DependentUpon>DictForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\FindCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\FindCards.Designer.cs">
+      <DependentUpon>FindCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormFilter.Designer.cs">
+      <DependentUpon>FormFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\FormGeneTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\FormGeneTable.Designer.cs">
+      <DependentUpon>FormGeneTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\FormHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\FormHistory.Designer.cs">
+      <DependentUpon>FormHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormSetFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\FilterForms\FormSetFilter.Designer.cs">
+      <DependentUpon>FormSetFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\Ik2Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\Ik2Form.Designer.cs">
+      <DependentUpon>Ik2Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiForms\IklForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiForms\IklForm.Designer.cs">
+      <DependentUpon>IklForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutGeneLibrary.resx">
+      <DependentUpon>AboutGeneLibrary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\AddEditRight.resx">
+      <DependentUpon>AddEditRight.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\AlleleForm.resx">
+      <DependentUpon>AlleleForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DivisionForm.resx">
+      <DependentUpon>DivisionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ExpertForm.resx">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FileListForm.resx">
+      <DependentUpon>FileListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormArchiveComment.resx">
+      <DependentUpon>FormArchiveComment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FilterForms\FormBuildFilter.resx">
+      <DependentUpon>FormBuildFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormChangePassword.resx">
+      <DependentUpon>FormChangePassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormChangeUserPassword.resx">
+      <DependentUpon>FormChangeUserPassword.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormClassIkl.resx">
+      <DependentUpon>FormClassIkl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormClassObject.resx">
+      <DependentUpon>FormClassObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormCompareDictionary.resx">
+      <DependentUpon>FormCompareDictionary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormError.resx">
+      <DependentUpon>FormError.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormFind.resx">
+      <DependentUpon>FormFind.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormPreferences.resx">
+      <DependentUpon>FormPreferences.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormSortObject.resx">
+      <DependentUpon>FormSortObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FormStudy.resx">
+      <DependentUpon>FormStudy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\HistoryDlg.resx">
+      <DependentUpon>HistoryDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\LinDlg.resx">
+      <DependentUpon>LinDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\MethDlg.resx">
+      <DependentUpon>MethDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\MvdDlg.resx">
+      <DependentUpon>MvdDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\OrganizationForm.resx">
+      <DependentUpon>OrganizationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\OrgDlg.resx">
+      <DependentUpon>OrgDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\PostDlg.resx">
+      <DependentUpon>PostDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\RoleDlg.resx">
+      <DependentUpon>RoleDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\UkCheckForm.resx">
+      <DependentUpon>UkCheckForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\UKForm.resx">
+      <DependentUpon>UKForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\UserRightDlg.resx">
+      <DependentUpon>UserRightDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorsMsg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorsMsg.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\FilterConrol.resx">
+      <DependentUpon>FilterConrol.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\FilterControlDate.resx">
+      <DependentUpon>FilterControlDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\FilterControlInteger.resx">
+      <DependentUpon>FilterControlInteger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\FilterControlList.resx">
+      <DependentUpon>FilterControlList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filters\FilterControlString.resx">
+      <DependentUpon>FilterControlString.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\DictForm.resx">
+      <DependentUpon>DictForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\FindCards.resx">
+      <DependentUpon>FindCards.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FilterForms\FormFilter.resx">
+      <DependentUpon>FormFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\FormGeneTable.resx">
+      <DependentUpon>FormGeneTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\FormHistory.resx">
+      <DependentUpon>FormHistory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\FilterForms\FormSetFilter.resx">
+      <DependentUpon>FormSetFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\Ik2Form.resx">
+      <DependentUpon>Ik2Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiForms\IklForm.resx">
+      <DependentUpon>IklForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resDataNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>resDataNames.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceStudy.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceStudy.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Db\modern.sql" />
+    <None Include="Db\patch.sql" />
+    <None Include="Model\grants.sql" />
+    <None Include="Model\modern.pdm" />
+    <None Include="Model\modern.sql" />
+    <None Include="Model\patch.pdc" />
+    <None Include="Model\Workspace.sws" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Thumbs.db" />
+    <None Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\vssver2.scc" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReportToExcel.cs" />
+    <Compile Include="resDataNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resDataNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceStudy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceStudy.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialog\WindowErrorProfileFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="16.ico" />
+    <Content Include="Images\ProfileFile.PNG" />
+    <Content Include="Model\modern.pdb" />
+    <Content Include="Model\Перенос базы данных.txt" />
+    <Content Include="Model\Создание новой базы данных.txt" />
+    <Content Include="res\13.ico" />
+    <Content Include="res\16.ico" />
+    <Content Include="res\32.ico" />
+    <Content Include="res\dna1.ico" />
+    <Content Include="res\dna2.ico" />
+    <Content Include="res\GeneLibrary.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Bookmark.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Card.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Folder.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Separator.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Tab.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add to Favourites.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Window 1.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Window 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Address Book.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Advanced Options.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Anchor.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Attach.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back - Previous.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Block Junk Mail.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 1.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 3.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 4.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 1.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 3.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Day.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Month.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Multiweek.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Week.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Chat 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Chat.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Contacts.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Copy.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Cut.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Delete.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Download.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email App Icon.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email Display.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email Envelope.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\empty.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Extensions.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Favourites.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\File.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 1.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward - Next.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward Email.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\General Options.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Get Mail.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Go.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\H. Line.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Link.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\List.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Move.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Doc.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Folder.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Window.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Paste.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Print.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Properties.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Publish.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Quote 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Quote.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Refresh.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Rename - Edit.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Reply to All.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Reply.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Save.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\SaveAndGo.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Search.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Security.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send Later.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Spell.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Table 1.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Themes 2.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Themes.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\UnSecurity.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\View Doc.ico" />
+    <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Write.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Шаблоны\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties StartDate="20100103" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

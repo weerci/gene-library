@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="btnOK" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="ChangeCardProfile" xml:space="preserve">
+    <value>Изменение профиля карточки {0}, список выбранных аллелей {1}</value>
+  </data>
+  <data name="cndBetween" xml:space="preserve">
+    <value>В диапазоне</value>
+  </data>
+  <data name="cndConsist" xml:space="preserve">
+    <value>Содержит</value>
+  </data>
+  <data name="cndEndWith" xml:space="preserve">
+    <value>Заканчивается</value>
+  </data>
+  <data name="cndEq" xml:space="preserve">
+    <value>Равно</value>
+  </data>
+  <data name="cndGt" xml:space="preserve">
+    <value>Больше</value>
+  </data>
+  <data name="cndLt" xml:space="preserve">
+    <value>Меньше</value>
+  </data>
+  <data name="cndStartWith" xml:space="preserve">
+    <value>Начинается с</value>
+  </data>
+  <data name="divTableAddress" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="divTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="divTableName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="divTablePhone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="expTableDevision" xml:space="preserve">
+    <value>Подразделение</value>
+  </data>
+  <data name="expTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="expTableName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="expTablePatronic" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="expTablePost" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="expTableSign" xml:space="preserve">
+    <value>Подпись</value>
+  </data>
+  <data name="expTableSurname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="freqAlleleTableFreq" xml:space="preserve">
+    <value>Частота</value>
+  </data>
+  <data name="freqAlleleTableName" xml:space="preserve">
+    <value>Аллель</value>
+  </data>
+  <data name="freqAlleleTableVal" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="freqLocusTableName" xml:space="preserve">
+    <value>Локусы</value>
+  </data>
+  <data name="freqTableDefFreq" xml:space="preserve">
+    <value>Част. по умолчанию</value>
+  </data>
+  <data name="freqTableDesc" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="freqTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="freqTableName" xml:space="preserve">
+    <value>Метод</value>
+  </data>
+  <data name="ik2TableCardNum" xml:space="preserve">
+    <value>№ ИК-2</value>
+  </data>
+  <data name="ik2TableCrimNum" xml:space="preserve">
+    <value>№ Уголовного дела</value>
+  </data>
+  <data name="ik2TableDateIns" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="ik2TableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="ik2TableVictim" xml:space="preserve">
+    <value>Потерпевший</value>
+  </data>
+  <data name="iklTableCardNum" xml:space="preserve">
+    <value>№ ИКЛ</value>
+  </data>
+  <data name="iklTableCrimNum" xml:space="preserve">
+    <value>№ Уголовного дела</value>
+  </data>
+  <data name="iklTableDateIns" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="iklTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="iklTablePerson" xml:space="preserve">
+    <value>Проверяемое лицо</value>
+  </data>
+  <data name="linTableCode" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="linTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="linTableOrgan" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="mvdTableCode" xml:space="preserve">
+    <value>Код МВД</value>
+  </data>
+  <data name="mvdTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="mvdTableName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="mvdTableShortName" xml:space="preserve">
+    <value>Краткое имя</value>
+  </data>
+  <data name="noteTableName" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="orgTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="orgTableName" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="postTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="postTableName" xml:space="preserve">
+    <value>Название должности</value>
+  </data>
+  <data name="roleTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="roleTableName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="ukTableArtcle" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="ukTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="ukTableName" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="shortState" xml:space="preserve">
+    <value>ст.</value>
+  </data>
+  <data name="emptyComboBox" xml:space="preserve">
+    <value>--Нет данных--</value>
+  </data>
+  <data name="shortPart" xml:space="preserve">
+    <value>ч.</value>
+  </data>
+  <data name="shortPoint" xml:space="preserve">
+    <value>п.</value>
+  </data>
+  <data name="findCoincidenceCount" xml:space="preserve">
+    <value>Количество несовпадений</value>
+  </data>
+  <data name="findCoincidenceProfile" xml:space="preserve">
+    <value>Номер профиля</value>
+  </data>
+  <data name="findCoincidenceCardType" xml:space="preserve">
+    <value>Тип карточки</value>
+  </data>
+  <data name="openDialogAllFiles" xml:space="preserve">
+    <value>Все файлы</value>
+  </data>
+  <data name="openDialogProfileFiles" xml:space="preserve">
+    <value>Файлы профилей</value>
+  </data>
+  <data name="openDialogProfiliesTitle" xml:space="preserve">
+    <value>Открыть файл содержащий профили</value>
+  </data>
+  <data name="profilesFromFile" xml:space="preserve">
+    <value>Профили найденные в файле "{0}"</value>
+  </data>
+  <data name="formFindProfileFrom" xml:space="preserve">
+    <value>Профиль карточки {0}</value>
+  </data>
+  <data name="formFindProfileTo" xml:space="preserve">
+    <value>Профиль совпавшей карточки {0}</value>
+  </data>
+  <data name="formFindCountOnHeader" xml:space="preserve">
+    <value>  ( {0} )</value>
+  </data>
+  <data name="formFindText" xml:space="preserve">
+    <value>Поиск по карточке {0}</value>
+  </data>
+  <data name="findCoincidenceCardNumber" xml:space="preserve">
+    <value>Номер карты</value>
+  </data>
+  <data name="findCoincidenceExamNumber" xml:space="preserve">
+    <value>Номер экспертизы</value>
+  </data>
+  <data name="findLocusCount" xml:space="preserve">
+    <value>Количество локусов учета</value>
+  </data>
+  <data name="sortTableID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="sortTableName" xml:space="preserve">
+    <value>Вид объекта</value>
+  </data>
+  <data name="sortTableShortName" xml:space="preserve">
+    <value>Вид</value>
+  </data>
+  <data name="ik2" xml:space="preserve">
+    <value>ИК-2</value>
+  </data>
+  <data name="ikl" xml:space="preserve">
+    <value>ИКЛ</value>
+  </data>
+  <data name="CardItemMessage" xml:space="preserve">
+    <value>Для карточки {0} будут установлены совпадения
+со следюущими карточками: 
+{1}</value>
+  </data>
+  <data name="iklOrik2TableCardNum" xml:space="preserve">
+    <value>Номер карточки</value>
+  </data>
+  <data name="GeneTableHeader" xml:space="preserve">
+    <value>Результаты типирования локусов, установленные генотипы</value>
+  </data>
+  <data name="cndInCollection" xml:space="preserve">
+    <value>Из списка</value>
+  </data>
+  <data name="formIk2" xml:space="preserve">
+    <value>Карточка ИК-2 ({0})</value>
+  </data>
+  <data name="formIkl" xml:space="preserve">
+    <value>Карточка ИКЛ ({0})</value>
+  </data>
+  <data name="formsList" xml:space="preserve">
+    <value>Список форм</value>
+  </data>
+  <data name="rightAllList" xml:space="preserve">
+    <value>Все права</value>
+  </data>
+  <data name="rightForAccept" xml:space="preserve">
+    <value>Досупные права</value>
+  </data>
+  <data name="filterID" xml:space="preserve">
+    <value>КИН</value>
+  </data>
+  <data name="filterName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
+  <data name="filterText" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="CombineReport" xml:space="preserve">
+    <value>Сводный отчет</value>
+  </data>
+  <data name="archive" xml:space="preserve">
+    <value>Архив</value>
+  </data>
+  <data name="listOfCards" xml:space="preserve">
+    <value>Список {0}</value>
+  </data>
+  <data name="ident" xml:space="preserve">
+    <value>Идентифицированные карточки</value>
+  </data>
+  <data name="AvailableToIkl" xml:space="preserve">
+    <value>Доступно для карточки ИКЛ</value>
+  </data>
+  <data name="resultDirect" xml:space="preserve">
+    <value>Результат прямого поиска</value>
+  </data>
+  <data name="resultHalf" xml:space="preserve">
+    <value>Результат поиска 1/2</value>
+  </data>
+  <data name="resultOneParent" xml:space="preserve">
+    <value>Результат поиска для ребенка и одного родителя</value>
+  </data>
+  <data name="resultPairParent" xml:space="preserve">
+    <value>Результат поиска для двух родителей</value>
+  </data>
+  <data name="treeViewCard" xml:space="preserve">
+    <value>Список карточек</value>
+  </data>
+  <data name="allExperts" xml:space="preserve">
+    <value>Все эксперты</value>
+  </data>
+  <data name="allFields" xml:space="preserve">
+    <value>Все поля</value>
+  </data>
+  <data name="historyTableAction" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="historyTableDate" xml:space="preserve">
+    <value>Дата/Время</value>
+  </data>
+  <data name="historyTableExpert" xml:space="preserve">
+    <value>Эксперт</value>
+  </data>
+</root>

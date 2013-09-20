@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GeneLibrary.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="dbase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">oracle</Value>
+    </Setting>
+    <Setting Name="defLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">auth</Value>
+    </Setting>
+    <Setting Name="defPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Ijf34nfD</Value>
+    </Setting>
+    <Setting Name="defServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">XE</Value>
+    </Setting>
+    <Setting Name="startYear" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2006</Value>
+    </Setting>
+    <Setting Name="CodePage" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1251</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

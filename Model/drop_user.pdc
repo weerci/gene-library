@@ -1,0 +1,12 @@
+drop user modern cascade;
+create user modern identified by "XXXXX";
+grant resource, dba, connect to modern;
+
+drop user auth cascade;
+create user auth identified by "Ijf34nfD";
+grant resource, dba, connect to auth;
+
+grant execute on dbms_crypto to modern;
+grant select on sys.DBA_CONSTRAINTS to modern;
+grant select on sys.DBA_CONSTRAINTS to system;
+

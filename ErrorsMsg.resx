@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EmptyMvdCodeField" xml:space="preserve">
+    <value>Поле "Код МВД" не должно быть пустым</value>
+  </data>
+  <data name="EmptyMvdNameField" xml:space="preserve">
+    <value>Поле "Имя" не должно быть пустым</value>
+  </data>
+  <data name="EmptyMvdShortNameField" xml:space="preserve">
+    <value>Поле "Краткое имя" не должно быть пустым</value>
+  </data>
+  <data name="errDbViolated" xml:space="preserve">
+    <value>Удаление не возможно, так как имеются элементы в 
+базе данных использующие эту запись</value>
+  </data>
+  <data name="NonSelectRow" xml:space="preserve">
+    <value>Не выбраны записи</value>
+  </data>
+  <data name="EmptyLinCodeField" xml:space="preserve">
+    <value>Поле "Код райлиноргана" не должно быть пустым</value>
+  </data>
+  <data name="EmptyLinOrganField" xml:space="preserve">
+    <value>Поле "Описание" не должно быть пустым</value>
+  </data>
+  <data name="EmptyLogin" xml:space="preserve">
+    <value>Поле "Имя пользователя" не должно быть пустым</value>
+  </data>
+  <data name="EmptyPassword" xml:space="preserve">
+    <value>Поле "Пароль" не заполнено. 
+Продолжить сохранение данных?</value>
+  </data>
+  <data name="EmptyServer" xml:space="preserve">
+    <value>Поле "Сервер" не должно быть пустым</value>
+  </data>
+  <data name="ConnectError" xml:space="preserve">
+    <value>Ошибка соединения с базой. Возможно неправильно введен логин,
+пароль или имя сервера баз данных. Проверьте также, не  включен ли 
+CapsLock на клавиатуре.</value>
+  </data>
+  <data name="EmptyDivAddrField" xml:space="preserve">
+    <value>Поле "Адрес" не должно быть пустым</value>
+  </data>
+  <data name="EmptyDivNameField" xml:space="preserve">
+    <value>Поле "Название" не должно быть пустым</value>
+  </data>
+  <data name="EmptyDivPhoneField" xml:space="preserve">
+    <value>Поле "Телефон" не должно быть пустым</value>
+  </data>
+  <data name="EmptyPostNameField" xml:space="preserve">
+    <value>Поле "Название должности" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpDivField" xml:space="preserve">
+    <value>Поле "Подразделение" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpLoginField" xml:space="preserve">
+    <value>Поле "Логин" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpNameField" xml:space="preserve">
+    <value>Поле "Имя" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpPasswordField" xml:space="preserve">
+    <value>Поле "Пароль" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpPatronicField" xml:space="preserve">
+    <value>Поле "Отчество" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpPostField" xml:space="preserve">
+    <value>Поле "Должность" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpSurnameField" xml:space="preserve">
+    <value>Поле "Фамилия" не должно быть пустым</value>
+  </data>
+  <data name="EmptyExpSignField" xml:space="preserve">
+    <value>Поле "Подпись" не должно быть пустым</value>
+  </data>
+  <data name="EmptyFreqDescField" xml:space="preserve">
+    <value>Поле "Описание" не должно быть пустым</value>
+  </data>
+  <data name="EmptyFreqFreqField" xml:space="preserve">
+    <value>Поле "Частота по умолчанию" не должно быть пустым</value>
+  </data>
+  <data name="EmptyFreqNameField" xml:space="preserve">
+    <value>Поле "Название" не должно быть пустым</value>
+  </data>
+  <data name="EmptyUKArtclField" xml:space="preserve">
+    <value>Поле "Номер" не должно быть пустым</value>
+  </data>
+  <data name="EmptyUKNoteField" xml:space="preserve">
+    <value>Поле "Описание" не должно быть пустым</value>
+  </data>
+  <data name="EmptyUKTextField" xml:space="preserve">
+    <value>Поле "Текст" не должно быть пустым</value>
+  </data>
+  <data name="NotValidFindSimbol" xml:space="preserve">
+    <value>Не допустимый символ в строке поиска</value>
+  </data>
+  <data name="ErrorFieldVal" xml:space="preserve">
+    <value>В полях ввода представлены не допустимые значения</value>
+  </data>
+  <data name="EmptyRoleNameField" xml:space="preserve">
+    <value>Название роли не должно быть пустым</value>
+  </data>
+  <data name="NotRealizeVirtualMethod" xml:space="preserve">
+    <value>Не реализован виртуальный метод</value>
+  </data>
+  <data name="NotFoundValue" xml:space="preserve">
+    <value>Не найдено соответствующее значение</value>
+  </data>
+  <data name="IklAlleleCount" xml:space="preserve">
+    <value>Количество аллелей для локуса в карточке ИКЛ не может быть более двух</value>
+  </data>
+  <data name="EmptyIklCardNumberField" xml:space="preserve">
+    <value>Поле "№ ИКЛ" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIklCaseNumberField" xml:space="preserve">
+    <value>Поле "№ уголовного дела" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIklOrganizationField" xml:space="preserve">
+    <value>Поле "Орган назначивший экспертизу" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIklSuspectField" xml:space="preserve">
+    <value>Поле "Проверяемое лицо" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2AddressField" xml:space="preserve">
+    <value>Поле "Адрес(место проишествия)" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2CardNumberField" xml:space="preserve">
+    <value>Поле "№ ИК-2" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2CaseNumberField" xml:space="preserve">
+    <value>Поле "№ Угол. дела" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2VictimField" xml:space="preserve">
+    <value>Поле "Потерпевший" не должно быть пустым</value>
+  </data>
+  <data name="NotNumber" xml:space="preserve">
+    <value>В поле "{0}" могут содержаться только цифры 
+или знак десятичного разделителя - точка</value>
+  </data>
+  <data name="ErrorFormat" xml:space="preserve">
+    <value>Неправильный формат ввода</value>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>Файл {0} не найден</value>
+  </data>
+  <data name="NotValidFileFormat" xml:space="preserve">
+    <value>Не допустимый формат файла</value>
+  </data>
+  <data name="EmptyIklUkField" xml:space="preserve">
+    <value>Поле "Статья и часть УК" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2UkField" xml:space="preserve">
+    <value>Поле "Статья и часть УК" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2OrganField" xml:space="preserve">
+    <value>Поле "Орган назначивший экспертизу" не должно быть пустым</value>
+  </data>
+  <data name="NotConfirmPassword" xml:space="preserve">
+    <value>Пароль подтврежден не правильно</value>
+  </data>
+  <data name="NotValidPassword" xml:space="preserve">
+    <value>Введен не верный пароль</value>
+  </data>
+  <data name="EmptySortObjectNameField" xml:space="preserve">
+    <value>Поле "Вид объекта" не должно быть пустым</value>
+  </data>
+  <data name="EmptyClassObjectNameField" xml:space="preserve">
+    <value>Поле "Категория объекта" не может быть пустым</value>
+  </data>
+  <data name="NotValidCardKind" xml:space="preserve">
+    <value>Не определен тип карточки</value>
+  </data>
+  <data name="EmptyComment" xml:space="preserve">
+    <value>Поле "Комментарий" не может быть пустым</value>
+  </data>
+  <data name="EmptyIklClassField" xml:space="preserve">
+    <value>Поле "Категория" не может быть пустым</value>
+  </data>
+  <data name="EmptyIk2ClassField" xml:space="preserve">
+    <value>Поле "Категория" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2LinField" xml:space="preserve">
+    <value>Поле "Код горрайлинограна" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2MvdField" xml:space="preserve">
+    <value>Поле "Код МВД, ГУВД, УВД субъекта федерации" 
+не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2SortField" xml:space="preserve">
+    <value>Поле "Вид объекта" не должно быть пустым</value>
+  </data>
+  <data name="EmptyIk2YearField" xml:space="preserve">
+    <value>Поле "Год постановки объекта на учет" не должно быть пустым</value>
+  </data>
+  <data name="EmptyFilterName" xml:space="preserve">
+    <value>Не указано имя фильтра</value>
+  </data>
+  <data name="ErrorIntBetween" xml:space="preserve">
+    <value>Диапазон для поля "{0}" должен быть 
+представлен двумя числовыми значениями</value>
+  </data>
+  <data name="ErrorIntValue" xml:space="preserve">
+    <value>Значение поля "{0}" должно быть числом</value>
+  </data>
+  <data name="ErrorDateBetween" xml:space="preserve">
+    <value>Диапазаон должен быть представлен значениями даты</value>
+  </data>
+  <data name="ErrorDateUserValue" xml:space="preserve">
+    <value>Значение должно быть правильной датой</value>
+  </data>
+  <data name="NotSelectedReportFIeld" xml:space="preserve">
+    <value>Не выбранны поля для отображения в отчете</value>
+  </data>
+  <data name="NotInstallExcel" xml:space="preserve">
+    <value>Для получения отчетности, необходимо иметь установить
+ на компьютере пользователя программный продукт 
+Microsoft Excel (версии 2000-20007)</value>
+  </data>
+  <data name="ErrorIntList" xml:space="preserve">
+    <value>Значения списка для поля "{0}" должны быть числовыми</value>
+  </data>
+  <data name="ErrorDateValue" xml:space="preserve">
+    <value>Значение поля {0} должно быть датой</value>
+  </data>
+  <data name="ErrorStringBetween" xml:space="preserve">
+    <value>Диапазон для поля "{0}" должен быть 
+представлен двумя значениями</value>
+  </data>
+  <data name="ErrorDateList" xml:space="preserve">
+    <value>Значения списка {0} должны быть датами</value>
+  </data>
+  <data name="ListNotConsistIk2" xml:space="preserve">
+    <value>Список должен содержать хотя бы одну карточку ИК-2</value>
+  </data>
+  <data name="EmptyOneParent" xml:space="preserve">
+    <value>Номер карточки родителя должен быть указан</value>
+  </data>
+  <data name="NotInteger" xml:space="preserve">
+    <value>В поле "{0}" могут содержаться только цифры</value>
+  </data>
+  <data name="NotValidOneParent" xml:space="preserve">
+    <value>Поле "КИН известного родителя"не должно быть 
+пустым и может содержать только цифры</value>
+  </data>
+  <data name="NotValidChild" xml:space="preserve">
+    <value>Поле "КИН карточки" не может быть пустым 
+и должно содержать только цифры</value>
+  </data>
+  <data name="NotValidSecondParent" xml:space="preserve">
+    <value>Поле "КИН второго родителя" не должно быть пустым
+и может содержать только цифры</value>
+  </data>
+  <data name="ValueIsNull" xml:space="preserve">
+    <value>Значение переменной {0} не должно быть Null</value>
+  </data>
+  <data name="NotFindBlend" xml:space="preserve">
+    <value>Карточка смеси должна быть выбрана в 
+результатах поиска</value>
+  </data>
+  <data name="NotCardFound" xml:space="preserve">
+    <value>Карточка {0} не найдена в базе данных</value>
+  </data>
+  <data name="VocabulareCompared" xml:space="preserve">
+    <value>Элементы справочника успешно сопоставленны</value>
+  </data>
+  <data name="VocabulareNotCompared" xml:space="preserve">
+    <value>При сопоставлении элементов справочника,произошла ошибка! Все внесенные изменения были отменены, и справочник остался в прежнем состоянии.</value>
+  </data>
+  <data name="DublicateCardNumIKL" xml:space="preserve">
+    <value>№ ИКЛ "{0}" уже существует в базе. 
+Номер ИКЛ должен быть уникальным. </value>
+  </data>
+  <data name="DublicateCardNumIKL2" xml:space="preserve">
+    <value>№ ИК-2 "{0}" уже существует в базе. 
+Номер ИК-2 должен быть уникальным. </value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Неизвестная ошибка.</value>
+  </data>
+  <data name="LocusesListIsEmpty" xml:space="preserve">
+    <value>Для представленных карточек, не найдены совпадающие локусы.
+Такое возможно, если у одной из карточек не заполнен профиль
+или карточки с заданным номером не существует.</value>
+  </data>
+  <data name="NotValueInEnum" xml:space="preserve">
+    <value>В перечислении {0}, не найдено значение {1}</value>
+  </data>
+  <data name="NotValidIntegerEnum" xml:space="preserve">
+    <value>В поле {0} могут содержаться только цифры и запятые с пробелами, их разделяющие</value>
+  </data>
+  <data name="NotDate" xml:space="preserve">
+    <value>В поле "{0}" должна находиться дата. Формат даты "ДД.ММ.ГГГГ"</value>
+  </data>
+  <data name="ErrorTwoBlend1" xml:space="preserve">
+    <value>Количество несовпадающих аллелей - {0}. Количество аллелей в следе, должно быть {1} или {2}</value>
+  </data>
+</root>
