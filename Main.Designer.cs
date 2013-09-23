@@ -72,6 +72,7 @@
             this.mdiClientController1 = new Slusser.Components.MdiClientController();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tvMdi = new System.Windows.Forms.TreeView();
+            this.toolStripMenuItemLocuses = new System.Windows.Forms.ToolStripMenuItem();
             this.tspBottom.SuspendLayout();
             this.ssMain.SuspendLayout();
             this.tspTop.SuspendLayout();
@@ -283,7 +284,8 @@
             this.toolStripMenuItemKindObject,
             this.toolStripMenuItemClassObject,
             this.toolStripMenuItemKindIkl,
-            this.toolStripMenuItemOrgan});
+            this.toolStripMenuItemOrgan,
+            this.toolStripMenuItemLocuses});
             this.tsmDictionary.Name = "tsmDictionary";
             this.tsmDictionary.Size = new System.Drawing.Size(184, 22);
             this.tsmDictionary.Text = "Справочники";
@@ -381,6 +383,7 @@
             this.ToolStripPreferences.Name = "ToolStripPreferences";
             this.ToolStripPreferences.Size = new System.Drawing.Size(184, 22);
             this.ToolStripPreferences.Text = "Настройки...";
+            this.ToolStripPreferences.Visible = false;
             this.ToolStripPreferences.Click += new System.EventHandler(this.ToolStripPreferences_Click);
             // 
             // helpToolStripMenuItem
@@ -433,6 +436,13 @@
             this.tvMdi.Size = new System.Drawing.Size(206, 466);
             this.tvMdi.TabIndex = 4;
             this.tvMdi.DoubleClick += new System.EventHandler(this.tvMdi_DoubleClick);
+            // 
+            // toolStripMenuItemLocuses
+            // 
+            this.toolStripMenuItemLocuses.Name = "toolStripMenuItemLocuses";
+            this.toolStripMenuItemLocuses.Size = new System.Drawing.Size(202, 22);
+            this.toolStripMenuItemLocuses.Text = "Локусы";
+            this.toolStripMenuItemLocuses.Click += new System.EventHandler(this.toolStripMenuItemLocuses_Click);
             // 
             // Main
             // 
@@ -507,6 +517,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmHelp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLocuses;
     }
 }
 

@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CoreLab")]
 [assembly: AssemblyProduct("Gene Library")]
-[assembly: AssemblyCopyright("Copyright © CoreLab 2009")]
+[assembly: AssemblyCopyright("Copyright © CoreLab 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

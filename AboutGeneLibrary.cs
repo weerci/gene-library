@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
+using WFExceptions;
 
 namespace GeneLibrary
 {
@@ -54,11 +58,18 @@ namespace GeneLibrary
             get
             {
                 object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-                if (attributes.Length == 0)
+                if (attributes.Length != 0)
                 {
-                    return "";
+                    StringBuilder s = new StringBuilder(((AssemblyDescriptionAttribute)attributes[0]).Description + "\r\n\r\n" + "Список ресурсов:\r\n");
+
+                    foreach (var refAsmName in Assembly.GetEntryAssembly().GetReferencedAssemblies())
+                    {
+                        s.Append(Assembly.Load(refAsmName).FullName + "\r\n");
+                    }
+                    return s.ToString();
                 }
-                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
+                else
+                    return "";
             }
         }
 
@@ -101,5 +112,20 @@ namespace GeneLibrary
             }
         }
         #endregion
+
+        private void btnVersion_Click(object sender, EventArgs e)
+        {
+            string filePath = Path.ChangeExtension(Application.ExecutablePath, ".ver");
+            try
+            {
+                Process.Start("notepad.exe", filePath);
+            }
+            catch
+            {
+                throw new WFException(ErrType.Message, String.Format(ErrorsMsg.FileNotFound, filePath));
+            }
+        }
+
+ 
     }
 }

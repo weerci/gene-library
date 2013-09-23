@@ -774,6 +774,9 @@
     <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\UnSecurity.ico" />
     <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\View Doc.ico" />
     <Content Include="res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Write.ico" />
+    <None Include="GeneLibrary.ver">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

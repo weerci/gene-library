@@ -476,6 +476,17 @@ namespace WFDatabase
         }
 
         /// <summary>
+        /// Создание шлюза элемента списка локусов
+        /// </summary>
+        /// <returns>Элемент списка локусов</returns>
+        static public LocuseItemGate LocuseItemGate()
+        {
+            if (DbValue == DBVal.Oracle)
+                return new LocuseItemGateOracle();
+            else
+                throw new WFException(ErrType.Critical, Resources.UnknownDB);
+        }
+        /// <summary>
         /// Создание шлюза элемента списка подразделений
         /// </summary>
         /// <returns>Элемент списка подраздлений</returns>

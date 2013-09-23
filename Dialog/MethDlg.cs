@@ -56,7 +56,6 @@ namespace GeneLibrary.Dialog
                 _methItem.Open();
             }
             TurningGrid();
-            EnableControls();
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -156,61 +155,10 @@ namespace GeneLibrary.Dialog
         {
             e.Control.KeyPress += new KeyPressEventHandler(dgrAllele_KeyPress);
         }
-        private void tsbAddLocus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbDeleteLocus_Click(object sender, EventArgs e)
-        {
-            if (dgrLocus.Rows.Count == 0)
-                return;
-
-            if (Tools.ShowMessage(Properties.Resources.ConfirmDictDel) == DialogResult.OK)
-            {
-                try
-                {
-                    this.Cursor = Cursors.WaitCursor;
-                    int idx = dgrLocus.CurrentCell.RowIndex;
-                    int sc = dgrLocus.SelectedRows.Count;
-                    _activeDict.Del((from DataGridViewRow dataGridRow in dataGridVocabulary.SelectedRows
-                                     select Convert.ToInt32(dataGridRow.Cells["id"].Value, CultureInfo.InvariantCulture)).ToArray<int>());
-                    _activeDict.Open(dataGridVocabulary);
-
-                    if ((sc == 1) && (idx > 0))
-                        dataGridVocabulary.CurrentCell = this.dataGridVocabulary.Rows[--idx].Cells[dataGridVocabulary.FirstDisplayedCell.ColumnIndex];
-
-                    tstbQuickSearch_TextChanged(tstbQuickSearch, null);
-                    EnableControls();
-                    ThisDeserivalize();
-                }
-                finally
-                {
-                    this.Cursor = Cursors.Default;
-                }
-            }
-
-        }
-
-        private void tsbAddAllele_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsbRemoveAllele_Click(object sender, EventArgs e)
-        {
-
-        }
 
         // Properties
         public bool IsEdit { get; set; }
 
-        // Private members
-        private void EnableControls()
-        {
-            tsbDeleteLocus.Enabled = dgrLocus.SelectedRows.Count > 0;
-            tsbDeleteAllele.Enabled = dgrAllele.SelectedCells.Count > 0 && dgrAllele.SelectedCells[0].ColumnIndex > 0;
-        }
         private void TurningGrid()
         {
             DataView dw = new DataView(_methItem.DTAllele);
@@ -239,11 +187,14 @@ namespace GeneLibrary.Dialog
         // Events
         internal event GeneLibrary.Common.UpdateId OnDataLoad;
 
-        private void dgrLocus_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgrAllele_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            EnableControls();
+            if (this.dgrAllele.Columns[e.ColumnIndex].Name.ToUpper() == "freq".ToUpper())
+            {
+                if (String.IsNullOrEmpty(e.Value.ToString()))
+                    e.Value = "По умолчанию";
+            }
         }
-
 
     }
 }

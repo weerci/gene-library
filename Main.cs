@@ -492,6 +492,20 @@ namespace GeneLibrary
                 OpenMdiForm(dictForm);
             }
         }
+        private void toolStripMenuItemLocuses_Click(object sender, EventArgs e)
+        {
+            DictionaryForm dictForm = ChekOpenDictionary("Локусы");
+            if (dictForm != null)
+            {
+                dictForm.Activate();
+                return;
+            }
+            else
+            {
+                dictForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Organization, "Локусы", "tviOrg");
+                OpenMdiForm(dictForm);
+            }
+        }
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutGeneLibrary().ShowDialog();

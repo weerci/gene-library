@@ -1,5 +1,13 @@
-alter table modern.ukitem add (state_name nvarchar2(32));
-create table modern.temp as
-select id, parent_id, hash, modern.get_state(id) state from modern.ukitem;
-update modern.ukitem ui set ui.state_name = (select state from modern.temp where id = ui.id);
-drop table modern.temp;
+create sequence MODERN.LOCUS_SEQ
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 1
+increment by 1
+cache 20;
+
+insert into modern.history_group(id, name) values (3, 'История локусов');
+
+insert into modern.history_action(id, name, group_id) values (13, 'Создание нового локуса', 3);
+insert into modern.history_action(id, name, group_id) values (14, 'Изменение локуса', 3);
+insert into modern.history_action(id, name, group_id) values (15, 'Изменение аллелей локуса', 3);
+insert into modern.history_action(id, name, group_id) values (16, 'Удаление локуса', 3);

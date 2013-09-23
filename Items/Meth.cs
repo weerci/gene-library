@@ -236,7 +236,7 @@ namespace GeneLibrary.Items
             }
 
             OracleWork.OracleSqlById(
-                " select a.id, a.locus_id, a.name, a.val, nvl(to_char(af.freq), 'По умолчанию') freq" +
+                " select a.id, a.locus_id, a.name, a.val, af.freq" +
                 " from modern.allele a left join modern.allele_freq af on a.id = af.allele_id and af.method_id = :id",
                 freqItem.DTAllele, "id", freqItem.Id);
 

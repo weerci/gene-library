@@ -1045,7 +1045,7 @@ namespace GeneLibrary.Common
     /// <summary>
     /// Список словарей
     /// </summary>
-    public enum DictionaryKind { Mvd, Lin, Division, Post, Exp, Method, UK, Role, Organization, Sort, ClassObject, ClassIkl };
+    public enum DictionaryKind { Mvd, Lin, Division, Post, Exp, Method, UK, Role, Organization, Sort, ClassObject, ClassIkl, Locus };
     public enum CardKind { none, ikl, ik2, archive, ident };
 
     public static class GeneLibraryConst
