@@ -57,7 +57,7 @@ namespace GeneLibrary.Items
             StringBuilder sql = new StringBuilder(
                 "select h.obj_id, nvl(c.card_num, 'Удалена') name " +
                 "from modern.history h left join modern.card c on h.obj_id = c.id, modern.history_action ha " +
-                "where ha.group_id = 1 ");
+                "where ha.group_id = 1 and h.HIS_TYPE_ID = 1");
 
             prepareWhere(filterFields, sql, command);
             sql.Append("group by h.obj_id, c.card_num  order by h.obj_id");
@@ -102,7 +102,7 @@ namespace GeneLibrary.Items
                 " (select surname||' '||name||' '||patronic from modern.expert where id = h.expert_id) expert,"+
                 " (select name from modern.history_action where id = h.action_id) action"+
                 " from modern.history h connect by prior h.parent_id = h.id start with "+
-                " h.id = (select max(id) from modern.history where obj_id = :p_id) order by id";
+                " h.id = (select max(id) from modern.history where obj_id = :p_id and HIS_TYPE_ID = 1) order by id";
 
             command.CommandText = sql;
             WFOracle.AddInParameter("p_id", OracleType.Number, cardId, command, false);

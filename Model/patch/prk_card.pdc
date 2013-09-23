@@ -1,0 +1,709 @@
+-----------------------------------------------------
+-- Export file for user MODERN                     --
+-- Created by Администратор on 24.09.2013, 5:29:22 --
+-----------------------------------------------------
+
+spool prk_card.log
+
+prompt
+prompt Creating package PKG_CARD
+prompt =========================
+prompt
+create or replace package modern.PKG_CARD is
+
+  -- Функции поиска
+  function find(a_profile_id in number, a_allele_count in number, a_locus_count in number) return tbl_find_result pipelined;
+  function find_half(a_profile_id in number, a_locus_count in number, a_accuracy in int := 0) return tbl_find_result pipelined;
+  function find_half_one_parent(a_profile_child_id in number, a_profile_parent_id in number, a_locus_count in number) return tbl_find_result pipelined;
+  function find_child_by_parents(a_profile_parent_one in number, a_profile_parent_second in number, a_locus_count in number) return tbl_find_result pipelined;
+  function profile_by_child_and_parent(a_profile_child_id in number, a_profile_parent_id in number) return tbl_pair_number pipelined;
+  function find_ik2_by_two_ikl(a_profile_ikl1 in number, a_profile_ikl2 in number, a_allele_count in number, a_locus_count in number) return tbl_find_result pipelined;
+
+
+  -- Получение следующего номера история карточки
+  function set_card_history(a_id in number, history_action in number, expert_id in number,
+    note in nvarchar2) return number;
+
+  -- Изменение номера истории карточки
+  procedure updHistory(a_card_id in number, a_hist_id in number);
+
+  -- Удаление карточки ИКЛ
+  procedure ikl_del(a_id in number, curr_user in number);
+  -- Создание карточки ИКЛ
+  function ikl_ins(a_card_num in nvarchar2, a_class_id in number, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date date,
+    a_exam_note in nvarchar2, a_date_ins in date, a_person in nvarchar2,
+    a_ancillary in nvarchar2, curr_user in number) return number;
+  -- Изменение карточки ИКЛ
+  procedure ikl_upd (a_id in number, a_class_id in number, a_card_num in nvarchar2, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date date,
+    a_exam_note in nvarchar2, a_date_ins in date, a_person in nvarchar2,
+    a_ancillary in nvarchar2, curr_user in number);
+
+  -- Удаление карточки ИК-2
+  procedure ik2_del(a_id in number, curr_user in number);
+  -- Создание карточки ИК-2
+  function ik2_ins(a_card_num in nvarchar2, a_class_id in number, a_sort_id in number, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date in date,
+    a_date_ins in date, a_mvd_id in number, a_lin_id in number,
+    a_date_crim in date, a_victim in nvarchar2, a_sn_dna in nvarchar2, a_obj in nvarchar2,
+    a_spotsize in nvarchar2, a_concent in nvarchar2, a_amount in nvarchar2, a_address_crim in nvarchar2,
+    a_year_state in number, curr_user in number) return number;
+  -- Обновление карточки ИК-2
+  procedure ik2_upd(a_id in number, a_class_id in number, a_sort_id in number, a_card_num in nvarchar2, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date in date,
+    a_date_ins in date, a_mvd_id in number, a_lin_id in number,
+    a_date_crim in date, a_victim in nvarchar2, a_sn_dna in nvarchar2, a_obj in nvarchar2,
+    a_spotsize in nvarchar2, a_concent in nvarchar2, a_amount in nvarchar2, a_address_crim in nvarchar2,
+    a_year_state in number, curr_user in number);
+
+  -- Обновление профиля
+  procedure UpdataProfile(a_profile_id in number);
+
+  -- Добавление аллели в профиль
+  procedure AddAllele(a_profile_id in number, a_locus_id in number, a_allele_id in number);
+
+  -- Получение названия статьи уголовного кодекса
+  function UkState(a_id in number) return nvarchar2;
+
+  -- Добавление уголовной статьи к карточке
+  procedure uk_ins(a_card_id in number, a_uk_id in number);
+  -- Удаление уголовный статей из карточки
+  procedure uk_del(a_card_id in number);
+
+  -- Идентификация карточки
+  procedure ident(a_ik2 in number, a_card in number, a_curr_user in number);
+  procedure un_ident(a_ik2 in number, a_card in number, a_curr_user in number);
+  procedure un_ident_all(a_ik2 in number, a_curr_user in number);
+  function card_kind(a_id in number) return number;
+
+  -- Архив
+  procedure remove_to_archive (a_id in number,curr_user in number,note in nclob);
+  procedure extract_from_archive (a_id in number,curr_user in number,note in nclob);
+end;
+/
+
+prompt
+prompt Creating package body PKG_CARD
+prompt ==============================
+prompt
+create or replace package body modern.PKG_CARD is
+  -- Получаем историю карточки
+  function set_card_history(a_id in number, history_action in number, expert_id in number,
+    note in nvarchar2) return number is
+      hist_id number;
+      new_hist_id number;
+  begin
+    select nvl(max(id), 0) into hist_id  from modern.history where obj_id = a_id and his_type_id = 1;
+
+    select modern.history_seq.nextval into new_hist_id from dual;
+    if (hist_id > 0) then
+      insert into modern.history(id, expert_id, action_id, DATE_INSERT, note, parent_id, obj_id, his_type_id)
+      values (new_hist_id, expert_id, history_action, sysdate, note, hist_id, a_id, 1);
+      update modern.card c set c.history_id = new_hist_id where c.id = a_id;
+    else
+      insert into modern.history(id, expert_id, action_id, DATE_INSERT, note, obj_id, his_type_id)
+      values (new_hist_id, expert_id, history_action, sysdate, note, a_id, 1);
+    end if;
+
+    return new_hist_id;
+  end;
+
+  -- Изменение номера истории карточки
+  procedure updHistory(a_card_id in number, a_hist_id in number) is
+  begin
+    update modern.card c set c.history_id = a_hist_id where c.id = a_card_id;
+  end;
+
+  -- Карточка ИКЛ
+  procedure ikl_del(a_id in number, curr_user in number) is
+    hist_id number;
+  begin
+    hist_id := set_card_history(a_id, 5, curr_user, 'Удаление карточки ИКЛ ID='||a_id);
+    delete from modern.chk_allele ca where ca.profile_id = a_id;
+    delete from modern.profile p where p.id = a_id;
+    delete from modern.ikl where id = a_id;
+    delete from modern.card_ukitem where card_id = a_id;
+    delete from modern.correct_uk where id = a_id;
+    delete from modern.card where id = a_id;
+  end;
+
+  function ikl_ins(a_card_num in nvarchar2, a_class_id in number, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date date,
+    a_exam_note in nvarchar2, a_date_ins in date, a_person in nvarchar2,
+    a_ancillary in nvarchar2, curr_user in number) return number is
+    card_id  number;
+    hist_id number;
+  begin
+    select modern.card_seq.nextval into card_id from dual;
+
+    -- Заводим историю карточки
+    hist_id := set_card_history(card_id, 1, curr_user,
+       'Создание карточки ИКЛ ID="'||card_id||'" Номер="'||a_card_num||'"');
+
+    -- Сохраняем данные по карточке
+    insert into modern.card(id, card_num, crim_num,org_id, expert_id, exam_num, exam_date,
+      exam_note, date_ins, history_id, hash, kind_id) values
+      (card_id, a_card_num, a_crim_num, a_org_id, a_expert_id, a_exam_num, a_exam_date,
+      a_exam_note, a_date_ins, hist_id, upper(card_id||a_card_num||a_crim_num||a_person||a_date_ins), 1);
+    insert into modern.ikl(id, person, ancillary, class_id) values (card_id, a_person, a_ancillary, a_class_id);
+
+    return card_id;
+  end;
+
+  procedure ikl_upd (a_id in number, a_class_id in number, a_card_num in nvarchar2, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date date,
+    a_exam_note in nvarchar2, a_date_ins in date, a_person in nvarchar2,
+    a_ancillary in nvarchar2, curr_user in number) is
+    hist_id number;
+  begin
+    hist_id := set_card_history(a_id, 3, curr_user,
+      ' Изменение данных для карточки ИКЛ ID="'||a_id||'" Номер="'||a_card_num||'"'||
+      ' Новые данные: a_card_num='||a_card_num||' a_class_id='||a_class_id||' a_crim_num='||a_crim_num||' a_org_id='||a_org_id||' a_expert_id='||a_expert_id||
+      ' a_exam_num='||a_exam_num||' a_exam_date='||a_exam_date||' a_exam_note='||a_exam_note||
+      ' a_date_ins='||a_date_ins||' a_person='||a_person||' a_ancillary='||a_ancillary);
+
+    update modern.card c
+      set
+        c.card_num = a_card_num, c.crim_num = a_crim_num,
+        c.org_id = a_org_id, c.expert_id = a_expert_id, c.exam_num = a_exam_num,
+        c.exam_date = a_exam_date, c.exam_note = a_exam_note, c.date_ins = a_date_ins,
+        c.history_id = hist_id,
+        c.hash = upper(a_id||a_card_num||a_crim_num||a_person||a_date_ins)
+      where
+        c.id = a_id;
+
+    update modern.ikl i
+      set
+        i.person = a_person,
+        i.ancillary = a_ancillary,
+        i.class_id = a_class_id
+      where
+        i.id = a_id;
+  end;
+
+  function ik2_ins(a_card_num in nvarchar2, a_class_id in number, a_sort_id in number, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date in date,
+    a_date_ins in date, a_mvd_id in number, a_lin_id in number,
+    a_date_crim in date, a_victim in nvarchar2, a_sn_dna in nvarchar2, a_obj in nvarchar2,
+    a_spotsize in nvarchar2, a_concent in nvarchar2, a_amount in nvarchar2, a_address_crim in nvarchar2,
+    a_year_state in number, curr_user in number) return number is
+      card_id  number;
+      hist_id number;
+    begin
+      select modern.card_seq.nextval into card_id from dual;
+
+      -- Заводим историю карточки
+      hist_id := set_card_history(card_id, 2, curr_user,
+         'Создание карточки ИК-2 ID="'||card_id||'" Номер="'||a_card_num||'"');
+
+      -- Сохраняем данные по карточке
+      insert into modern.card(id, card_num, crim_num, org_id, expert_id, exam_num, exam_date,
+        exam_note, date_ins, history_id, hash, kind_id) values
+        (card_id, a_card_num, a_crim_num, a_org_id, a_expert_id, a_exam_num, a_exam_date,
+        '', a_date_ins, hist_id, upper(card_id||a_card_num||a_crim_num||a_victim||a_date_ins), 2);
+      insert into modern.ik2(id, class_id, sort_id, mvd_id, lin_id, year_state, address_crime, victim, sn_dna,
+        obj, spotsize, concent, amount, date_crime) values (card_id, a_class_id, a_sort_id, a_mvd_id, a_lin_id, a_year_state,
+        a_address_crim, a_victim, a_sn_dna, a_obj, a_spotsize, a_concent, a_amount, a_date_crim);
+      return card_id;
+    end;
+
+    -- Удаление карточки ИК-2
+  procedure ik2_del(a_id in number, curr_user in number) is
+    hist_id number;
+  begin
+    hist_id := set_card_history(a_id, 6, curr_user, 'Удаление карточки ИК-2 ID='||a_id);
+    delete from modern.chk_allele ca where ca.profile_id = a_id;
+    delete from modern.profile p where p.id = a_id;
+    delete from modern.ik2 i where i.id = a_id;
+    delete from modern.card_ukitem where card_id = a_id;
+    delete from modern.correct_uk where id = a_id;
+    delete from modern.card c where c.id = a_id;
+  end;
+
+  procedure UpdataProfile(a_profile_id in number) is
+    cnt number;
+  begin
+    select count(*) into cnt from modern.profile p where p.id = a_profile_id;
+    if (cnt = 0) then
+      insert into modern.profile(id) values (a_profile_id);
+    else
+      delete from modern.chk_allele ca where ca.profile_id = a_profile_id;
+    end if;
+  end;
+
+  procedure ik2_upd(a_id in number, a_class_id in number, a_sort_id in number, a_card_num in nvarchar2, a_crim_num in nvarchar2,
+    a_org_id in number, a_expert_id in number, a_exam_num in nvarchar2, a_exam_date in date,
+    a_date_ins in date, a_mvd_id in number, a_lin_id in number,
+    a_date_crim in date, a_victim in nvarchar2, a_sn_dna in nvarchar2, a_obj in nvarchar2,
+    a_spotsize in nvarchar2, a_concent in nvarchar2, a_amount in nvarchar2, a_address_crim in nvarchar2,
+    a_year_state in number, curr_user in number) is
+      card_id  number;
+      hist_id number;
+    begin
+    hist_id := set_card_history(a_id, 4, curr_user,
+      'Изменение данных для карточки ИК-2 ID="'||a_id||'" Номер="'||a_card_num||'"  '||
+      'Новые данные: a_card_num='||a_card_num||' a_crim_num='||a_crim_num||' a_org_id='||a_org_id||' a_expert_id='||a_expert_id||
+      ' a_exam_num='||a_exam_num||' a_date_ins='||a_date_ins||' a_mvd_id='||a_mvd_id||
+      ' a_lin_id='||a_lin_id||' a_date_crim='||a_date_crim||' a_victim='||a_victim||' a_sn_dna='||a_sn_dna||
+      ' a_obj='||a_obj||' a_spotsize='||a_spotsize||' a_concent='||a_concent||' a_amount='||a_amount||
+      ' a_address_crim='||a_address_crim||'a_year_state='||a_year_state
+      );
+
+    update modern.card c
+      set
+        c.card_num = a_card_num,
+        c.crim_num = a_crim_num,
+        c.org_id = a_org_id,
+        c.expert_id = a_expert_id,
+        c.exam_num = a_exam_num,
+        c.exam_date = a_exam_date,
+        c.date_ins = a_date_ins,
+        c.history_id = hist_id,
+        c.hash = upper(a_id||a_card_num||a_crim_num||a_victim||a_date_ins)
+      where
+        c.id = a_id;
+
+    update modern.ik2 i
+      set
+        i.mvd_id = a_mvd_id,
+        i.lin_id = a_lin_id,
+        i.year_state = a_year_state,
+        i.address_crime = a_address_crim,
+        i.victim = a_victim,
+        i.sn_dna= a_sn_dna,
+        i.obj = a_obj,
+        i.spotsize = a_spotsize,
+        i.concent = a_concent,
+        i.date_crime = a_date_crim,
+        i.amount = a_amount,
+        i.class_id = a_class_id,
+        i.sort_id = a_sort_id
+      where
+        i.id = a_id;
+  end;
+
+
+  procedure AddAllele(a_profile_id in number, a_locus_id in number, a_allele_id in number) is
+  begin
+    insert into modern.chk_allele(profile_id, locus_id,allele_id)
+      values(a_profile_id, a_locus_id, a_allele_id);
+  end;
+
+  function UkState(a_id in number) return nvarchar2 as
+    result nvarchar2(512);
+  begin
+    for c in (
+      select artcl, note from (
+      select id, artcl, note, (select parent_id from modern.ukitem where id = ua.id) parent_id from modern.ukarticl ua
+      union all
+      select id, to_nchar('0'), note, (select parent_id from modern.ukitem where id = ut.id) parent_id  from modern.uktext ut)
+      connect by prior parent_id = id start with  id = a_id order by parent_id
+    )
+    loop
+      if (c.artcl = '0') then
+        return c.note;
+      else
+        if (result is not null) then
+          result := result||';'||c.artcl;
+        else
+          result := c.artcl;
+        end if;
+      end if;
+    end loop;
+    return result;
+  end;
+
+  procedure uk_ins(a_card_id in number, a_uk_id in number) as
+  begin
+    insert into modern.card_ukitem(card_id, ukitem_id) values (a_card_id, a_uk_id);
+  end;
+
+  procedure uk_del(a_card_id in number) as
+  begin
+    delete from modern.card_ukitem where card_id = a_card_id;
+  end;
+
+  function find(a_profile_id in number, a_allele_count in number, a_locus_count in number) return tbl_find_result pipelined is
+    cnt number default 0;
+  begin
+    select count(*) into cnt from modern.ikl ikl where ikl.id = a_profile_id;
+
+    if (cnt = 0) then -- карта ик-2
+      for rec in (
+        select prf as profile_id, count(*)-sum(chk) cnt,
+               case when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
+                then 1
+                else 0
+               end card_type,
+               (select card_num from modern.card where id = prf) card_num,
+               (select exam_num from modern.card where id = prf) exam_num
+          from (select a.profile_id as prf,
+                       locus_id,
+                       case
+                         when a.allele_id in
+                              (select allele_id
+                                 from modern.chk_allele
+                                where profile_id = a_profile_id) then
+                          1
+                         else
+                          0
+                       end chk
+                  from modern.chk_allele a
+                 where a.locus_id in (select locus_id
+                                        from modern.chk_allele
+                                       where profile_id = a_profile_id) and a.profile_id <> a_profile_id) t
+         group by prf
+        having (count(*)-sum(chk) < a_allele_count) and modern.locus_cnt(a_profile_id, prf) > a_locus_count
+      ) loop
+        pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+      end loop;
+    else -- карта ИКЛ
+      for rec in (
+        select prf as profile_id, c-sum(chk) cnt,
+               case
+                 when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
+                   then 1
+                   else 0
+                 end card_type,
+               (select card_num from modern.card where id = prf) card_num,
+               (select exam_num from modern.card where id = prf) exam_num
+          from (select a.profile_id as prf,
+                       locus_id,
+                       (select count(*)
+                          from modern.chk_allele
+                         where profile_id = a_profile_id
+                           and locus_id in
+                               (select locus_id
+                                  from modern.chk_allele
+                                 where profile_id = a.profile_id)) c,
+                       case
+                         when a.allele_id in
+                              (select allele_id
+                                 from modern.chk_allele
+                                where profile_id = a_profile_id) then
+                          1
+                         else
+                          0
+                       end chk
+                  from modern.chk_allele a
+                 where a.locus_id in (select locus_id
+                                        from modern.chk_allele
+                                       where profile_id = a_profile_id) and a.profile_id <> a_profile_id) t
+         group by prf
+        having (c - sum(chk) < a_allele_count) and modern.locus_cnt(a_profile_id, prf) > a_locus_count
+      ) loop
+        pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+      end loop;
+    end if;
+
+  end;
+
+  function find_half(a_profile_id in number, a_locus_count in number, a_accuracy in int := 0) return tbl_find_result pipelined is
+  begin
+    for rec in (
+      select prf as profile_id, count(locus_id) cnt,
+               case
+                 when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
+                   then 1
+                   else 0
+                 end card_type,
+               (select card_num from modern.card where id = prf) card_num,
+               (select exam_num from modern.card where id = prf) exam_num
+       from (
+        select a.profile_id as prf, locus_id, round(avg(case
+           when a.allele_id in (select allele_id from modern.chk_allele where profile_id = a_profile_id) then
+           1 else 0 end)) chk
+      from modern.chk_allele a
+      where a.locus_id in (select locus_id from modern.chk_allele where profile_id = a_profile_id)
+      and a.profile_id <> a_profile_id group by a.profile_id, locus_id) group by prf
+      having sum(chk) between count(locus_id) - a_accuracy and count(locus_id) and count(locus_id) > a_locus_count
+    ) loop
+      pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+    end loop;
+  end;
+
+  function find_half_one_parent(a_profile_child_id in number, a_profile_parent_id in number, a_locus_count in number) return tbl_find_result pipelined is
+  begin
+    for rec in (
+      select prf as profile_id, count(locus_id)-1 cnt,
+               case
+                 when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
+                   then 1
+                   else 0
+                 end card_type,
+               (select card_num from modern.card where id = prf) card_num,
+               (select exam_num from modern.card where id = prf) exam_num
+       from (
+        select a.profile_id as prf, locus_id, round(avg(case
+           when a.allele_id in (
+
+        select allele_id from modern.chk_allele where profile_id = a_profile_child_id
+        and locus_id in (
+          select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and locus_id not in (select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+            ))
+          union all
+          select allele_id from modern.chk_allele where profile_id = a_profile_child_id
+           and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+
+             ) then
+           1 else 0 end)) chk
+      from modern.chk_allele a
+      where a.locus_id in (
+
+        select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+        and locus_id in (
+          select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and locus_id not in (select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+            ))
+          union all
+          select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+           and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+      )
+      and a.profile_id <> a_profile_child_id group by a.profile_id, locus_id) group by prf
+      having count(locus_id) = sum(chk) and count(locus_id) > a_locus_count
+    ) loop
+      pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+    end loop;
+  end;
+
+  function find_child_by_parents(a_profile_parent_one in number, a_profile_parent_second in number, a_locus_count in number) return tbl_find_result pipelined is
+  begin
+    for rec in (
+        select profile_id,
+               cnt,
+               case
+                 when (select count(*) from modern.ikl ikl where ikl.id = profile_id) = 0 then
+                  1
+                 else
+                  0
+               end card_type,
+               (select card_num from modern.card where id = profile_id) card_num,
+               (select exam_num from modern.card where id = profile_id) exam_num
+          from (
+            select profile_id, count(locus_id) cnt from
+            (select profile_id, locus_id, max(profile1) * max(profile2) * min(mult) cnt
+              from (select t.*, greatest(t.profile1, t.profile2) mult
+                      from (select a.profile_id,
+                                   a.locus_id,
+                                   case
+                                     when a.allele_id in
+                                          (select allele_id
+                                             from modern.chk_allele
+                                            where profile_id = a_profile_parent_one) then
+                                      1
+                                     else
+                                      0
+                                   end profile1,
+                                   case
+                                     when a.allele_id in
+                                          (select allele_id
+                                             from modern.chk_allele
+                                            where profile_id = a_profile_parent_second) then
+                                      1
+                                     else
+                                      0
+                                   end profile2
+                              from modern.chk_allele a
+                             where a.locus_id in (select locus_id
+                                                    from modern.chk_allele
+                                                   where profile_id = a_profile_parent_one
+                                                  intersect
+                                                  select locus_id
+                                                    from modern.chk_allele
+                                                   where profile_id = a_profile_parent_second)
+                               and a.profile_id not in (a_profile_parent_one, a_profile_parent_second)) t) tt
+             group by profile_id, locus_id
+             )
+             group by profile_id
+             having count(locus_id) = sum(cnt) and count(locus_id) > a_locus_count)
+
+    ) loop
+      pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+    end loop;
+  end;
+
+  function profile_by_child_and_parent(a_profile_child_id in number, a_profile_parent_id in number) return tbl_pair_number pipelined is
+  begin
+    for rec in (
+      select allele_id, locus_id from modern.chk_allele where profile_id = a_profile_child_id
+        and locus_id in (
+          select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and locus_id not in (select locus_id from modern.chk_allele where profile_id = a_profile_child_id
+            and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+            ))
+          union all
+          select allele_id, locus_id from modern.chk_allele where profile_id = a_profile_child_id
+           and allele_id not in (select allele_id from modern.chk_allele where profile_id = a_profile_parent_id)
+    ) loop
+      pipe row(t_pair_number(rec.allele_id, rec.locus_id));
+    end loop;
+  end;
+
+  function find_ik2_by_two_ikl(a_profile_ikl1 in number, a_profile_ikl2 in number, a_allele_count in number, a_locus_count in number) return tbl_find_result pipelined is
+  begin
+      for rec in (
+        select prf as profile_id, count(*)-sum(chk) cnt,
+               case when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
+                then 1
+                else 0
+               end card_type,
+               (select card_num from modern.card where id = prf) card_num,
+               (select exam_num from modern.card where id = prf) exam_num
+          from (select a.profile_id as prf,
+                       locus_id,
+                       case
+                         when a.allele_id in
+                              (select allele_id
+                                 from modern.chk_allele
+                                where profile_id in (a_profile_ikl1, a_profile_ikl2)) then
+                          1
+                         else
+                          0
+                       end chk
+                  from modern.chk_allele a
+                 where a.locus_id in (select locus_id
+                                        from modern.chk_allele
+                                       where profile_id in (a_profile_ikl1, a_profile_ikl2))
+                                       and a.profile_id not in (a_profile_ikl1, a_profile_ikl2)) t
+         group by prf
+        having (count(*)-sum(chk) < a_allele_count) and modern.locus_cnt(a_profile_ikl1, prf) > a_locus_count
+                and modern.locus_cnt(a_profile_ikl2, prf) > a_locus_count
+      ) loop
+        pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
+      end loop;
+  end;
+
+  -- Идентификация карточки
+  procedure ident(a_ik2 in number, a_card in number, a_curr_user in number) is
+    hist_id number;
+    cnt number;
+    p_group_id number;
+  begin
+    hist_id := set_card_history(a_ik2, 11, a_curr_user, 'Карточка ID='||a_ik2||' идентифицирована с карточкой'||a_card);
+    begin
+      select id into p_group_id from modern.v_card_ident where card_id = a_ik2;
+    exception
+      when no_data_found then
+        select modern.card_ident_seq.nextval into p_group_id from dual;
+        insert into modern.card_ident(card_id, id) values (a_ik2, p_group_id);
+    end;
+    insert into modern.card_ident(card_id, id) values (a_card, p_group_id);
+
+    select count(*) into cnt from modern.ikl where id = a_card;
+    if (cnt > 0) then
+      update modern.ik2 i set i.ident = 1 where i.id in
+      (select card_id from modern.v_card_ident ci, modern.ik2 i2
+      where ci.card_id = i2.id and ci.id = p_group_id);
+    end if;
+
+  end;
+  procedure un_ident(a_ik2 in number, a_card in number, a_curr_user in number) is
+    hist_id number;
+    cnt number;
+    p_group_id number;
+  begin
+    hist_id := set_card_history(a_ik2, 12, a_curr_user, 'Идентификация для карточки ID='||a_ik2||' с карточкой'||a_card||' отменена.');
+    select id into p_group_id from modern.v_card_ident where card_id = a_ik2;
+
+    select count(*) into cnt from modern.ikl where id = a_card;
+    if (cnt = 0) then
+      update modern.ik2 i set i.ident = 0 where i.id = a_card;
+    end if;
+
+    delete from modern.card_ident where card_id = a_card and id = p_group_id;
+
+    select count(*) into cnt from modern.ikl where id in (select card_id from
+      modern.v_card_ident where id = p_group_id);
+    if (cnt = 0) then
+      update modern.ik2 i set i.ident = 0 where i.id in
+      (select card_id from modern.v_card_ident ci, modern.ik2 i2
+      where ci.card_id = i2.id and ci.id = p_group_id);
+    end if;
+    select count(*) into cnt from modern.v_card_ident where id = p_group_id;
+    if (cnt = 1) then -- Удаляется последняя запись, потому, что одна запись не может коррелировать сама с собой
+      delete from modern.card_ident where id = p_group_id;
+    end if;
+  end;
+  function card_kind(a_id in number) return number is
+    cnt number;
+  begin
+    select  nvl(i.id, -1) into cnt from modern.card c
+           left join modern.ikl i on c.id = i.id where c.id = a_id;
+    if (cnt = -1) then
+      return 1;
+    else
+      return 0;
+    end if;
+  exception
+    when no_data_found then
+      return -1;
+  end;
+  procedure un_ident_all(a_ik2 in number, a_curr_user in number) is
+    hist_id number;
+    ids varchar2(512);
+  begin
+    hist_id := set_card_history(a_ik2, 12, a_curr_user, 'Идентификация для карточки ID='||a_ik2||' с карточками: '||ids||' отменена.');
+    delete from modern.card_ident where id = (select id from
+      modern.card_ident where card_id = a_ik2);
+    update modern.ik2 i set i.ident = 0 where i.id = a_ik2;
+  end;
+  -- Архив
+  procedure remove_to_archive (a_id in number,curr_user in number,note in nclob) is
+    hist_id number;
+    cnt number default 0;
+  begin
+    hist_id := set_card_history(a_id, 9, curr_user, note);
+    -- добавление в архив
+    insert into modern.card_arch select * from modern.card where id = a_id;
+    insert into modern.card_ident_arch select * from modern.card_ident where card_id = a_id;
+    insert into modern.card_ukitem_arch select * from modern.card_ukitem where card_id = a_id;
+    insert into modern.profile_arch select * from modern.profile where id = a_id;
+    insert into modern.chk_allele_arch select * from modern.chk_allele where profile_id = a_id;
+    insert into modern.ikl_arch select * from modern.ikl where id = a_id;
+    insert into modern.ik2_arch select * from modern.ik2 where id = a_id;
+
+    -- удаление записей из базы
+    delete from modern.ik2 where id = a_id;
+    delete from modern.ikl where id = a_id;
+    delete from modern.chk_allele where profile_id = a_id;
+    delete from modern.profile where id = a_id;
+    delete from modern.correct_uk where id = a_id;
+    delete from modern.card_ukitem where card_id = a_id;
+    delete from modern.card_ident where card_id = a_id;
+    delete from modern.card where id = a_id;
+  end;
+  procedure extract_from_archive (a_id in number,curr_user in number, note in nclob) is
+    hist_id number;
+    cnt number default 0;
+  begin
+    -- добавление в архив
+    insert into modern.card select * from modern.card_arch where id = a_id;
+    insert into modern.card_ident select * from modern.card_ident_arch where card_id = a_id;
+    insert into modern.card_ukitem select * from modern.card_ukitem_arch where card_id = a_id;
+    insert into modern.profile select * from modern.profile_arch where id = a_id;
+    insert into modern.chk_allele select * from modern.chk_allele_arch where profile_id = a_id;
+    insert into modern.ikl select * from modern.ikl_arch where id = a_id;
+    insert into modern.ik2 select * from modern.ik2_arch where id = a_id;
+
+    hist_id := set_card_history(a_id, 10, curr_user, note);
+
+    -- удаление записей из базы
+    delete from modern.ik2_arch where id = a_id;
+    delete from modern.ikl_arch where id = a_id;
+    delete from modern.chk_allele_arch where profile_id = a_id;
+    delete from modern.profile_arch where id = a_id;
+    delete from modern.card_ukitem_arch where card_id = a_id;
+    delete from modern.card_ident_arch where card_id = a_id;
+    delete from modern.card_arch where id = a_id;
+
+  end;
+
+end;
+/
+
+
+spool off

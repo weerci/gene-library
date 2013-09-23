@@ -1,0 +1,35 @@
+create sequence MODERN.LOCUS_SEQ
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 100
+increment by 1
+cache 20;
+
+insert into modern.history_group(id, name) values (3, 'История локусов');
+
+insert into modern.history_action(id, name, group_id) values (13, 'Создание нового локуса', 3);
+insert into modern.history_action(id, name, group_id) values (14, 'Изменение локуса', 3);
+insert into modern.history_action(id, name, group_id) values (15, 'Изменение аллелей локуса', 3);
+insert into modern.history_action(id, name, group_id) values (16, 'Удаление локуса', 3);
+
+insert into modern.protect_function(id, name, note, caption) values (24, 'LocusList', 'Список локусов', 'Локусы');
+insert into modern.controls(id, name, func_id, parent_id, caption, sort_ord) values (23, 'tviLocus', 24, 6, 'Локусы', 113);
+insert into modern.action_group(id, res_id, func_id) values (1, 23, 24);
+
+create table MODERN.HISTORY_TYPE  (
+   ID                   NUMBER(10)                      not null,
+   NAME                 NVARCHAR2(512)                  not null,
+   constraint PK_HISTORY_TYPE primary key (ID)
+);
+
+comment on table MODERN.HISTORY_TYPE is
+'Таблица типов истории';
+
+insert into modern.history_type(id, name) values (1, 'Карточки');
+insert into modern.history_type(id, name) values (2, 'Локусы');
+
+alter table MODERN.HISTORY add his_type_id NUMBER(10) default 1 not null;
+create index MODERN.HIST_TYPE_FX on MODERN.HISTORY (his_type_id);
+alter table MODERN.HISTORY
+  add constraint HISTORY_TYPE_FK foreign key (HIS_TYPE_ID)
+  references MODERN.history_type (ID);

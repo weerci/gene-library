@@ -266,53 +266,49 @@ namespace GeneLibrary.Items
         }
         public override int Insert(LocuseItem roleItem)
         {
-            //string sql = "begin :res := modern.prk_tab.role_ins(:a_name); end;";
-            //OracleParameter prmRes;
+            string sql = "begin :res := modern.prk_tab.locus_ins(:a_name, :curr_user); end;";
+            OracleParameter prmRes;
 
-            //WFOracle.DB.StartTransaction();
-            //try
-            //{
-            //    // Создание новой роли
-            //    OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
-            //    cmd.CommandType = CommandType.Text;
-            //    WFOracle.AddInParameter("a_name", OracleType.NVarChar, roleItem.Name, cmd, false);
-            //    prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
-            //    cmd.ExecuteNonQuery();
+            WFOracle.DB.StartTransaction();
+            try
+            {
+                // Создание нового локуса
+                OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
+                cmd.CommandType = CommandType.Text;
+                WFOracle.AddInParameter("a_name", OracleType.NVarChar, roleItem.Name, cmd, false);
+                WFOracle.AddInParameter("curr_user", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
+                cmd.ExecuteNonQuery();
 
-            //    // Назначение прав роли
-            //    LoadRightInDb(roleItem, Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture));
-            //    WFOracle.DB.Commit();
-            //}
-            //catch
-            //{
-            //    WFOracle.DB.Rollback();
-            //    throw;
-            //}
-            //return Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
-            return 1;
+                WFOracle.DB.Commit();
+            }
+            catch
+            {
+                WFOracle.DB.Rollback();
+                throw;
+            }
+            return Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
         }
-        public override void Update(LocuseItem roleItem)
+        public override void Update(LocuseItem locusItem)
         {
-            //string sql = "modern.prk_tab.role_upd";
-            //try
-            //{
-            //    WFOracle.DB.StartTransaction();
-            //    OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
-            //    cmd.CommandType = CommandType.StoredProcedure;
-            //    WFOracle.AddInParameter("a_id", OracleType.Number, roleItem.Id, cmd, false);
-            //    WFOracle.AddInParameter("a_name", OracleType.NVarChar, roleItem.Name, cmd, false);
-            //    cmd.ExecuteNonQuery();
+            string sql = "modern.prk_tab.locus_upd";
+            try
+            {
+                WFOracle.DB.StartTransaction();
+                OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
+                cmd.CommandType = CommandType.StoredProcedure;
+                WFOracle.AddInParameter("a_id", OracleType.Number, locusItem.Id, cmd, false);
+                WFOracle.AddInParameter("a_name", OracleType.NVarChar, locusItem.Name, cmd, false);
+                WFOracle.AddInParameter("curr_user", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                cmd.ExecuteNonQuery();
 
-            //    // Назначение прав роли
-            //    LoadRightInDb(roleItem, roleItem.Id);
-
-            //    WFOracle.DB.Commit();
-            //}
-            //catch
-            //{
-            //    WFOracle.DB.Rollback();
-            //    throw;
-            //}
+                WFOracle.DB.Commit();
+            }
+            catch
+            {
+                WFOracle.DB.Rollback();
+                throw;
+            }
         }
     }
 
