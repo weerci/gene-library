@@ -150,7 +150,7 @@ namespace GeneLibrary.Items
             WFOracle.DB.StartTransaction();
             try
             {
-                OracleWork.OracleDeleteSimple("modern.prk_tab.role_del", ids, "a_id");
+                OracleWork.OracleDeleteSimple("modern.prk_tab.locus_del", ids, "a_id");
                 WFOracle.DB.Commit();
             }
             catch
@@ -245,18 +245,18 @@ namespace GeneLibrary.Items
         //}
 
         // Public interface
-        public override void Open(LocuseItem roleItem)
+        public override void Open(LocuseItem locusItem)
         {
             String sql = "select id, name from modern.locus where id = :id";
             OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection);
-            WFOracle.AddInParameter("id", OracleType.Number, roleItem.Id, cmd, false);
+            WFOracle.AddInParameter("id", OracleType.Number, locusItem.Id, cmd, false);
 
             using (OracleDataReader rdr = cmd.ExecuteReader())
             {
                 if (rdr.Read())
                 {
-                    roleItem.Id = Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture);
-                    roleItem.Name = rdr["name"].ToString();
+                    locusItem.Id = Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture);
+                    locusItem.Name = rdr["name"].ToString();
                 }
             }
 

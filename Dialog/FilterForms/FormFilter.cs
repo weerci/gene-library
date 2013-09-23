@@ -44,7 +44,7 @@ namespace GeneLibrary.MdiForms
         public DataGridView DataGridFilter { get { return this.dataGridViewFilter; } }
 
         // Events
-        internal event FormInTree OnCloseForm;
+        new internal event FormInTree OnCloseForm;
 
     }
 

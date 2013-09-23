@@ -303,6 +303,10 @@ namespace GeneLibrary
                     case "tviFilter":
                         toolStripMenuItemSelect_Click(null, null);
                         break;
+                    case "tviLocus":
+                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Locus, tvMdi.SelectedNode.Text, "tviLocusOpen");
+                        OpenMdiForm(newForm);
+                        break;
                     default:
                         return;
                 }
@@ -502,7 +506,7 @@ namespace GeneLibrary
             }
             else
             {
-                dictForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Organization, "Локусы", "tviOrg");
+                dictForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Locus, "Локусы", "tviLocus");
                 OpenMdiForm(dictForm);
             }
         }
@@ -558,7 +562,8 @@ namespace GeneLibrary
             toolStripMenuItemKindObject.Visible = logonBase.HashSet.Any(n => n == 19);
             toolStripMenuItemClassObject.Visible = logonBase.HashSet.Any(n => n == 20);
             toolStripMenuItemKindIkl.Visible = logonBase.HashSet.Any(n => n == 21);
-            toolStripMenuItemOrgan.Visible = logonBase.HashSet.Any(n => n == 14); 
+            toolStripMenuItemOrgan.Visible = logonBase.HashSet.Any(n => n == 14);
+            toolStripMenuItemLocuses.Visible = logonBase.HashSet.Any(n => n == 24); 
             #endregion
 
             // Отображение разделителей меню

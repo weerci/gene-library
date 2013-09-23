@@ -780,7 +780,7 @@ namespace GeneLibrary.Dialog
         public DataGridView ActiveGridViewFind { get; set; }
 
         // Events
-        internal event FormInTree OnCloseForm;
+        new internal event FormInTree OnCloseForm;
 
         // Fields
         private Panel activeContent;

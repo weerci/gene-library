@@ -79,6 +79,9 @@ namespace GeneLibrary.MdiForms
                 case DictionaryKind.ClassIkl:
                     _activeDict = new ClassIklVocabulary();
                     break;
+                case DictionaryKind.Locus:
+                    _activeDict = new LocuseVocabulary();
+                    break;
             }
             _activeDict.Open(dataGridVocabulary);
             this.Text = _dictName;
@@ -150,6 +153,11 @@ namespace GeneLibrary.MdiForms
                     formClassIkl.OnDataLoad += new UpdateId(RefreshForm);
                     formClassIkl.ShowDialog();
                     break;
+                case DictionaryKind.Locus:
+                    LocusForm formLocus = new LocusForm(_activeDict);
+                    formLocus.OnDataLoad += new UpdateId(RefreshForm);
+                    formLocus.ShowDialog();
+                    break;
             }
         }
         private void OnOpenDict(object sender, EventArgs e)
@@ -208,6 +216,11 @@ namespace GeneLibrary.MdiForms
                     OrganForm orgDlg = new OrganForm(_activeDict, Convert.ToInt32(dataGridVocabulary.CurrentRow.Cells["id"].Value, CultureInfo.InvariantCulture));
                     orgDlg.OnDataLoad += new GeneLibrary.Common.UpdateId(RefreshForm);
                     orgDlg.ShowDialog();
+                    break;
+                case DictionaryKind.Locus:
+                    LocusForm locusDlg = new LocusForm(_activeDict, Convert.ToInt32(dataGridVocabulary.CurrentRow.Cells["id"].Value, CultureInfo.InvariantCulture));
+                    locusDlg.OnDataLoad += new GeneLibrary.Common.UpdateId(RefreshForm);
+                    locusDlg.ShowDialog();
                     break;
                 case DictionaryKind.ClassObject:
                     FormClassObject formClassObject = new FormClassObject(_activeDict, Convert.ToInt32(dataGridVocabulary.CurrentRow.Cells["id"].Value, CultureInfo.InvariantCulture));

@@ -88,8 +88,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.buttonFind);
             this.groupBox2.Controls.Add(this.comboBoxCardFields);
             this.groupBox2.Controls.Add(this.textBoxFindString);
@@ -115,8 +115,8 @@
             // 
             // comboBoxCardFields
             // 
-            this.comboBoxCardFields.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxCardFields.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCardFields.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCardFields.FormattingEnabled = true;
             this.comboBoxCardFields.Location = new System.Drawing.Point(68, 40);
@@ -126,8 +126,8 @@
             // 
             // textBoxFindString
             // 
-            this.textBoxFindString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxFindString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFindString.Location = new System.Drawing.Point(68, 15);
             this.textBoxFindString.Name = "textBoxFindString";
             this.textBoxFindString.Size = new System.Drawing.Size(317, 20);
@@ -336,9 +336,8 @@
             this.treeViewCard.Name = "treeViewCard";
             this.treeViewCard.Size = new System.Drawing.Size(243, 308);
             this.treeViewCard.TabIndex = 0;
+            this.treeViewCard.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCard_AfterSelect);
             this.treeViewCard.DoubleClick += new System.EventHandler(this.treeView_DoubleClick);
-            this.treeViewCard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView_MouseDown);
-            this.treeViewCard.Click += new System.EventHandler(this.treeViewCard_Click);
             // 
             // tabPageFind
             // 
@@ -359,9 +358,8 @@
             this.treeViewFind.Name = "treeViewFind";
             this.treeViewFind.Size = new System.Drawing.Size(243, 308);
             this.treeViewFind.TabIndex = 0;
+            this.treeViewFind.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCard_AfterSelect);
             this.treeViewFind.DoubleClick += new System.EventHandler(this.treeView_DoubleClick);
-            this.treeViewFind.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView_MouseDown);
-            this.treeViewFind.Click += new System.EventHandler(this.treeViewCard_Click);
             // 
             // dgvHistory
             // 
@@ -437,8 +435,8 @@
             this.Name = "FormHistory";
             this.ShowInTaskbar = false;
             this.Text = "История карточек";
-            this.Load += new System.EventHandler(this.FormHistory_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormHistory_FormClosed);
+            this.Load += new System.EventHandler(this.FormHistory_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

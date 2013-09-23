@@ -411,4 +411,7 @@ Microsoft Excel (версии 2000-20007)</value>
   <data name="ErrorTwoBlend1" xml:space="preserve">
     <value>Количество несовпадающих аллелей - {0}. Количество аллелей в следе, должно быть {1} или {2}</value>
   </data>
+  <data name="EmptyLocusField" xml:space="preserve">
+    <value>Поле "Локус" не должно быть пустым</value>
+  </data>
 </root>

@@ -256,6 +256,12 @@
     <Compile Include="Dialog\LinDlg.Designer.cs">
       <DependentUpon>LinDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\LocusDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\LocusDlg.Designer.cs">
+      <DependentUpon>LocusDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -520,6 +526,9 @@
     <EmbeddedResource Include="Dialog\LinDlg.resx">
       <DependentUpon>LinDlg.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\LocusDlg.resx">
+      <DependentUpon>LocusDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

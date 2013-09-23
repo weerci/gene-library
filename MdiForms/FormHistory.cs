@@ -62,46 +62,62 @@ namespace GeneLibrary.MdiForms
         }
         private void buttonFilter_Click(object sender, EventArgs e)
         {
-            List<FilterHistoryField> fields = new List<FilterHistoryField>();
-
-            // Добавляем фильтр по дате
-            fields.Add(new FilterHistoryField("h", HistoryFields.date_ins, dtpFrom.Value.ToShortDateString(),
-                        dtpTo.Value.ToShortDateString(), OracleType.DateTime));
-
-            // Добавляем фильтр по типу карточки
-            if (!checkBoxIkl.Checked && !checkBoxIk2.Checked)
-                fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 0, OracleType.Number));
-            else if (checkBoxIkl.Checked && checkBoxIk2.Checked) { }
-            else if (checkBoxIkl.Checked)
-                fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 1, OracleType.Number));
-            else if (checkBoxIk2.Checked)
-                fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 2, OracleType.Number));
-
-            // Добавляем фильтр по эксперту
-            if (comboBoxExpert.SelectedIndex != 0)
-                fields.Add(new FilterHistoryField("h", HistoryFields.expert, ((ComboBoxItem)comboBoxExpert.SelectedItem).Id,
-                    OracleType.Number));
-
-            // Добавляем фильтр по карточкам
-            if (!String.IsNullOrEmpty(textBoxCardsId.Text))
+            this.Cursor = Cursors.WaitCursor;
+            try
             {
-                string[] cards = textBoxCardsId.Text.Split(',');
-                if (cards.Count() > 1)
-                    fields.Add(new FilterHistoryField("h", HistoryFields.id, cards, OracleType.Number));
-                else
-                    fields.Add(new FilterHistoryField("h", HistoryFields.id, textBoxCardsId.Text, OracleType.Number));
+                ClearDataGid();
+
+                List<FilterHistoryField> fields = new List<FilterHistoryField>();
+
+                // Добавляем фильтр по дате
+                fields.Add(new FilterHistoryField("h", HistoryFields.date_ins, dtpFrom.Value.ToShortDateString(),
+                            dtpTo.Value.ToShortDateString(), OracleType.DateTime));
+
+                // Добавляем фильтр по типу карточки
+                if (!checkBoxIkl.Checked && !checkBoxIk2.Checked)
+                    fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 0, OracleType.Number));
+                else if (checkBoxIkl.Checked && checkBoxIk2.Checked) { }
+                else if (checkBoxIkl.Checked)
+                    fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 1, OracleType.Number));
+                else if (checkBoxIk2.Checked)
+                    fields.Add(new FilterHistoryField("c", HistoryFields.kind_id, 2, OracleType.Number));
+
+                // Добавляем фильтр по эксперту
+                if (comboBoxExpert.SelectedIndex != 0)
+                    fields.Add(new FilterHistoryField("h", HistoryFields.expert, ((ComboBoxItem)comboBoxExpert.SelectedItem).Id,
+                        OracleType.Number));
+
+                // Добавляем фильтр по карточкам
+                if (!String.IsNullOrEmpty(textBoxCardsId.Text))
+                {
+                    string[] cards = textBoxCardsId.Text.Split(',');
+                    if (cards.Count() > 1)
+                        fields.Add(new FilterHistoryField("h", HistoryFields.id, cards, OracleType.Number));
+                    else
+                        fields.Add(new FilterHistoryField("h", HistoryFields.id, textBoxCardsId.Text, OracleType.Number));
+                }
+
+                history.GetFilteredCards(fields.ToArray());
+                SaveToTreeViewCard();
+
+                if (comboBoxExpert.SelectedIndex != 0)
+                {
+                    WFSerialize.Serialize(Path.GetDirectoryName(Application.ExecutablePath) + "\\history.dmp", SaveContextMenu(saveListExpert, comboBoxExpert));
+                    FillContextMenu(contextMenuExpert, ref saveListExpert);
+                }
+
+                tabControlResult.SelectTab(0);
             }
-
-            history.GetFilteredCards(fields.ToArray());
-            SaveToTreeViewCard();
-
-            if (comboBoxExpert.SelectedIndex != 0)
+            finally
             {
-                WFSerialize.Serialize(Path.GetDirectoryName(Application.ExecutablePath) + "\\history.dmp", SaveContextMenu(saveListExpert, comboBoxExpert));
-                FillContextMenu(contextMenuExpert, ref saveListExpert);
+                this.Cursor = Cursors.Default;
             }
+        }
 
-            tabControlResult.SelectTab(0);
+        private void ClearDataGid()
+        {
+            dgvHistory.DataSource = null;
+            dgvHistory.Columns.Clear();
         }
         private void textBoxCardsId_TextChanged(object sender, EventArgs e)
         {
@@ -122,49 +138,59 @@ namespace GeneLibrary.MdiForms
         }
         private void buttonFind_Click(object sender, EventArgs e)
         {
-            if (!checkInputFormat())
-                return;
-            
-            if (comboBoxCardFields.SelectedIndex == 0)
-                history.GetSearchedCards(
-                    new FilterHistoryField[] { 
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                if (!checkInputFormat())
+                    return;
+
+                ClearDataGid();
+
+                if (comboBoxCardFields.SelectedIndex == 0)
+                    history.GetSearchedCards(
+                        new FilterHistoryField[] { 
                         new FilterHistoryField("c", HistoryFields.note, textBoxFindString.Text.Trim(), OracleType.NVarChar) 
                     },
-                    CardFields.none
-                 );
-            else
-            {
-                FilterHistoryField filterField = new FilterHistoryField();
-                filterField.FilterType = TypeHistoryFilter.single;
-                filterField.prefix = "c";
-                filterField.Value.Add(textBoxFindString.Text.Trim());
-                switch (comboBoxCardFields.SelectedIndex)
+                        CardFields.none
+                     );
+                else
                 {
-                    case 1:
-                        filterField.Name = HistoryFields.id;
-                        filterField.OracleType = OracleType.Number;
-                        break;
-                    case 2:
-                        filterField.Name = HistoryFields.card_num;
-                        filterField.OracleType = OracleType.NVarChar;
-                        break;
-                    case 3:
-                        filterField.Name = HistoryFields.card_num;
-                        filterField.OracleType = OracleType.NVarChar;
-                        break;
-                    case 4:
-                        filterField.Name = HistoryFields.date_ins;
-                        filterField.OracleType = OracleType.DateTime;
-                        break;
-                    default:
-                        break;
-                }
-                history.GetSearchedCards(new FilterHistoryField[] { filterField },
-                    CardFieldsFromComboBox(comboBoxCardFields.SelectedIndex));
+                    FilterHistoryField filterField = new FilterHistoryField();
+                    filterField.FilterType = TypeHistoryFilter.single;
+                    filterField.prefix = "c";
+                    filterField.Value.Add(textBoxFindString.Text.Trim());
+                    switch (comboBoxCardFields.SelectedIndex)
+                    {
+                        case 1:
+                            filterField.Name = HistoryFields.id;
+                            filterField.OracleType = OracleType.Number;
+                            break;
+                        case 2:
+                            filterField.Name = HistoryFields.card_num;
+                            filterField.OracleType = OracleType.NVarChar;
+                            break;
+                        case 3:
+                            filterField.Name = HistoryFields.card_num;
+                            filterField.OracleType = OracleType.NVarChar;
+                            break;
+                        case 4:
+                            filterField.Name = HistoryFields.date_ins;
+                            filterField.OracleType = OracleType.DateTime;
+                            break;
+                        default:
+                            break;
+                    }
+                    history.GetSearchedCards(new FilterHistoryField[] { filterField },
+                        CardFieldsFromComboBox(comboBoxCardFields.SelectedIndex));
 
+                }
+                tabControlResult.SelectTab(1);
+                SaveToTreeFindCard();
             }
-            tabControlResult.SelectTab(1);
-            SaveToTreeFindCard();
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
         }
         private void textBoxFindString_KeyDown(object sender, KeyEventArgs e)
         {
@@ -191,38 +217,7 @@ namespace GeneLibrary.MdiForms
         }
         private void treeViewCard_Click(object sender, EventArgs e)
         {
-            if (mySelectedNode != null)
-            {
-                try
-                {
-                    history.GetCardHistory(Convert.ToInt32(mySelectedNode.Name));
-                }
-                catch 
-                {
-                    // Отлов ошибки при клике вне элемента дерева поднятие ошибки наверх не нужно
-                    return;
-                }
-
-                dgvHistory.Columns.Clear();
-                dgvHistory.DataSource = history.HT;
-
-                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-                buttonColumn.Text = "...";
-                buttonColumn.HeaderText = "";
-                buttonColumn.Name = "Text";
-                buttonColumn.UseColumnTextForButtonValue = true;
-                buttonColumn.Width = 32;
-                dgvHistory.Columns.Add(buttonColumn);
-
-                foreach (DataColumn dc in history.HT.Columns)
-                {
-                    dgvHistory.Columns[dc.ColumnName].HeaderText = dc.Caption;
-                    dgvHistory.Columns[dc.ColumnName].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                }
-                dgvHistory.Columns["ID"].Visible = false;
-                dgvHistory.Columns["NOTE"].Visible = false;
-
-            }
+            
         }
         private void dgvHistory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -243,7 +238,7 @@ namespace GeneLibrary.MdiForms
         }
 
         // Events
-        internal event FormInTree OnCloseForm;
+        new internal event FormInTree OnCloseForm;
 
         // Private methods
         private void SaveToTreeViewCard()
@@ -409,14 +404,46 @@ namespace GeneLibrary.MdiForms
         private ExpertVocabulary experts = new ExpertVocabulary();
         private SaveList saveListExpert;
 
-        private void treeView_MouseDown(object sender, MouseEventArgs e)
+        private void treeViewCard_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
-            TreeView treeView = sender as TreeView;
-            if (treeView != null)
-                mySelectedNode = treeView.GetNodeAt(e.X, e.Y);
+            ClearDataGid();
         }
 
-        private TreeNode mySelectedNode;
+        private void treeViewCard_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Name != null)
+            {
+                try
+                {
+                    history.GetCardHistory(Convert.ToInt32(e.Node.Name));
+                }
+                catch
+                {
+                    // Отлов ошибки при клике вне элемента дерева поднятие ошибки наверх не нужно
+                    return;
+                }
+
+                dgvHistory.Columns.Clear();
+                dgvHistory.DataSource = history.HT;
+
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                buttonColumn.Text = "...";
+                buttonColumn.HeaderText = "";
+                buttonColumn.Name = "Text";
+                buttonColumn.UseColumnTextForButtonValue = true;
+                buttonColumn.Width = 32;
+                dgvHistory.Columns.Add(buttonColumn);
+
+                foreach (DataColumn dc in history.HT.Columns)
+                {
+                    dgvHistory.Columns[dc.ColumnName].HeaderText = dc.Caption;
+                    dgvHistory.Columns[dc.ColumnName].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }
+                dgvHistory.Columns["ID"].Visible = false;
+                dgvHistory.Columns["NOTE"].Visible = false;
+
+            }
+        }
 
     }
 }
