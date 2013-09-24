@@ -1,6 +1,6 @@
 -----------------------------------------------------
 -- Export file for user MODERN                     --
--- Created by Администратор on 24.09.2013, 5:29:39 --
+-- Created by Администратор on 25.09.2013, 5:28:57 --
 -----------------------------------------------------
 
 spool prk_tab.log
@@ -55,9 +55,9 @@ create or replace package modern.prk_tab is
     -- Справочник "Список локусов"
     function locus_ins(a_name in nvarchar2, curr_user in number) return number;
     procedure locus_upd(a_id in number, a_name in nvarchar2, curr_user in number);
-    procedure locus_del(a_id in number);
-    function allele_ins(a_name in nvarchar2, a_short_name in nvarchar2) return number;
-    procedure allele_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2);
+    procedure locus_del(a_id in number, curr_user in number);
+    function allele_ins(a_locus_id in number, a_name in nvarchar2, a_val in number) return number;
+    procedure allele_upd(a_id in number, a_name in nvarchar2, a_val in number);
     procedure allele_del(a_id in number);
 
     -- Справочник "Статьи УК"
@@ -346,13 +346,10 @@ create or replace package body modern.prk_tab is
     end;
     
     procedure locus_upd(a_id in number, a_name in nvarchar2, curr_user in number) is
-      locus_name modern.locus.name%type;
       hist_id number;
     begin
-      select l.name into locus_name from modern.locus l where l.id = a_id;
-
       hist_id := set_locus_history(a_id, 14, curr_user, 
-      ' Изменение локуса ID="'||a_id||'" Наименование="'||locus_name||'"'||' Новые данные: Наименование= "'||a_name||'"');
+      ' Изменение локуса ID="'||a_id||' Новые данные: Наименование= "'||a_name||'"');
 
     update modern.locus l
       set
@@ -361,21 +358,32 @@ create or replace package body modern.prk_tab is
         l.id = a_id;
     end;
     
-    procedure locus_del(a_id in number) is
+    procedure locus_del(a_id in number, curr_user in number) is
+      hist_id number;
     begin
-      return;              
+      hist_id := set_locus_history(a_id, 16, curr_user, 'Удаление локуса ID='||a_id);           
+      delete from modern.allele a where a.locus_id = a_id;
+      delete from modern.locus l where l.id = a_id;
 		end;
-    function allele_ins(a_name in nvarchar2, a_short_name in nvarchar2) return number is
+    
+    function allele_ins(a_locus_id in number, a_name in nvarchar2, a_val in number) return number is
+      allele_id number;
     begin
-      return -1;
+      select modern.allele_seq.nextval into allele_id from dual;
+      insert into modern.allele(id, locus_id, name, val, history_id, old_allele_id) values (allele_id, a_locus_id, a_name, a_val, -1000, -100);      
+      return allele_id;
     end;
-    procedure allele_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2) is
+
+    procedure allele_upd(a_id in number, a_name in nvarchar2, a_val in number) is
     begin
-      return;
+      update modern.allele a 
+      set a.name = a_name, a.val = a.val
+      where a.id = a_id;
     end;
+
     procedure allele_del(a_id in number) is
     begin
-      return;
+      delete from modern.allele a where a.id = a_id;
     end;
 
     -- Справочник "Статьи УК"

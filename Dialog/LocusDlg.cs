@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WFExceptions;
 
@@ -38,6 +40,7 @@ namespace GeneLibrary.Dialog
                     _item = _dict.Item;
                     _item.Open();
                     this.tbLocus.Text = _item.Name;
+                    LoadAlleliesToGrid();
                 }
                 finally
                 {
@@ -50,13 +53,27 @@ namespace GeneLibrary.Dialog
                 _item = _dict.Item;
             }
         }
+
+        private void LoadAlleliesToGrid()
+        {
+            dgvAllelies.Rows.Clear();
+            foreach (ChangedAllele item in _item.Allelies)
+            {
+                dgvAllelies.Rows.Add(item.Id, item.Name, item.Val);
+            }
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             // Проверка заполненности полей
             if (String.IsNullOrEmpty(tbLocus.Text.Trim()))
                 throw new WFException(ErrType.Message, ErrorsMsg.EmptyLocusField);
 
-            _item.Name = tbLocus.Text.Trim();
+            if (_item.Name != tbLocus.Text.Trim())
+            {
+                _item.Name = tbLocus.Text.Trim();
+                _item.LocusNameIsChanged = true;            
+            }
+            SetChangeAllelies();
 
             try
             {
@@ -71,10 +88,46 @@ namespace GeneLibrary.Dialog
                     _item.Id = _id;
                 }
 
+                _item.LocusNameIsChanged = false;
+                LoadAlleliesToGrid();
+
             }
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void SetChangeAllelies()
+        {
+            ChangedAllele[] alleliesFromGrid = dgvAllelies.Rows.Cast<DataGridViewRow>().Select(n => new ChangedAllele() {
+                Id = n.Cells["ID"].Value == null ? 0 : Convert.ToInt32(n.Cells["ID"].Value, CultureInfo.InvariantCulture),
+                Name = n.Cells["NAME"].Value == null ? "" : n.Cells["NAME"].Value.ToString(),
+                Val = n.Cells["VAL"].Value == null ? 0 : Convert.ToDouble(n.Cells["VAL"].Value, CultureInfo.InvariantCulture),
+                }).ToArray();
+
+            ChangedAllele[] onlyExists = alleliesFromGrid.Where(n => n.Id != 0).ToArray();
+            foreach (ChangedAllele item in _item.Allelies)
+            {
+                ChangedAllele[] cha = onlyExists.Where(n => n.Id == item.Id).ToArray();
+                ChangedAllele ch = cha.Count() == 0 ? null : cha.ElementAt(0);
+
+                if (ch == null) // Аллель удалена
+                    item.State = ChangedLocusState.Deleted;
+                else if (ch.Name != item.Name || ch.Val != item.Val) // Если аллель находится в наборе и не изменилась - пропускаем
+                {
+                    item.State = ChangedLocusState.Edited;
+                    item.Name = ch.Name;
+                    item.Val = ch.Val;
+                }
+                else
+                    continue;
+            }
+            // Добавляем новые элементы
+            foreach (ChangedAllele item in alleliesFromGrid.Where(n => n.Id == 0 && (!String.IsNullOrEmpty(n.Name) || n.Val != 0 )).ToArray())
+            {
+                item.State = ChangedLocusState.Added;
+                _item.Allelies.Add(item);
             }
 
         }
@@ -89,6 +142,28 @@ namespace GeneLibrary.Dialog
 
         // Events
         internal event GeneLibrary.Common.UpdateId OnDataLoad;
+
+        private void dgvAllelies_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void dgvAllelies_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl editBox = sender as DataGridViewTextBoxEditingControl;
+            if (editBox != null)
+            {
+                if (Regex.IsMatch(editBox.Text, "[^1234567890.]"))
+                {
+                    editBox.ForeColor = Color.Red;
+                    Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
+                }
+                else
+                    editBox.ForeColor = SystemColors.WindowText;
+            }
+
+        }
+
 
     
     }

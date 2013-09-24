@@ -206,6 +206,7 @@
             this.dgrAllele.TabIndex = 0;
             this.dgrAllele.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgrAllele_CellFormatting);
             this.dgrAllele.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgrAllele_EditingControlShowing);
+            this.dgrAllele.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgrAllele_KeyPress);
             // 
             // MethodForm
             // 

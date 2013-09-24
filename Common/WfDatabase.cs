@@ -218,6 +218,7 @@ namespace WFDatabase
                 cmd.ExecuteNonQuery();
             }
         }
+
         // Constructors
         private OracleWork() { }
     }

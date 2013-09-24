@@ -94,7 +94,7 @@ namespace GeneLibrary.Items
     {
         // Private fields
         private LocuseItemGate _gate = GateFactory.LocuseItemGate();
-        private List<ComboBoxItem> _allelies = new List<ComboBoxItem>();
+        private List<ChangedAllele> _allelies = new List<ChangedAllele>();
 
 
         // Constructors
@@ -123,16 +123,37 @@ namespace GeneLibrary.Items
         // Property
         public int Id { get; set; }
         public string Name { get; set; }
-        public Collection<ComboBoxItem> Allelies
+        public Collection<ChangedAllele> Allelies
         {
             get
             {
-                return new Collection<ComboBoxItem>(_allelies);
+                return new Collection<ChangedAllele>(_allelies);
             }
         }
-
+        public bool LocusNameIsChanged { get; set; }
     }
 
+    public class ChangedAllele
+    {
+        public int Id 
+        {
+            get { return _id; }
+            set { _id = value;} 
+        }
+        public string Name { get; set; }
+        public double Val { get; set; }
+        public ChangedLocusState State 
+        {
+            get { return _state; }
+            set { _state = value; } 
+        }
+
+        private int _id = 0;
+        private ChangedLocusState _state = ChangedLocusState.None;
+    }
+
+    public enum ChangedLocusState { Added, Edited, Deleted, None }
+    
     public abstract class LocuseVocabularyGate
     {
         public abstract void Open(DataTable dataTable);
@@ -174,80 +195,13 @@ namespace GeneLibrary.Items
     }
     public class LocuseItemGateOracle : LocuseItemGate
     {
-        // Private members
-        //private static void LoadRoles(RoleItem roleItem)
-        //{
-        //    String sql = "select id, name from modern.roles where id <> :id";
-        //    OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection);
-        //    WFOracle.AddInParameter("id", OracleType.Number, roleItem.Id, cmd, false);
-
-        //    using (OracleDataReader rdr = cmd.ExecuteReader())
-        //    {
-        //        roleItem.Roles.Clear();
-        //        while (rdr.Read())
-        //        {
-        //            roleItem.Roles.Add(new ComboBoxItem(Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture), rdr["name"].ToString()));
-        //        }
-        //    }
-        //}
-        //private static void LoadRight(RoleItem roleItem)
-        //{
-        //    string sql =
-        //        " select t.id, (select note from modern.protect_function where id = t.id) note from (" +
-        //        " select pf.id from modern.protect_function pf where id <> 1" +
-        //        " minus (select func_id from modern.action_roles where role_id = :role_id)) t";
-        //    OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection);
-        //    WFOracle.AddInParameter("role_id", OracleType.Number, roleItem.Id, cmd, false);
-
-        //    using (OracleDataReader rdr = cmd.ExecuteReader())
-        //    {
-        //        roleItem.AllRight.Clear();
-        //        while (rdr.Read())
-        //        {
-        //            roleItem.AllRight.Add(new ComboBoxItem(Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture), rdr["note"].ToString()));
-        //        }
-        //    }
-        //}
-        //private static void LoadAcceptRight(RoleItem roleItem)
-        //{
-        //    String sql =
-        //        " select pf.id, pf.note from modern.action_roles ar, modern.protect_function pf" +
-        //        " where ar.role_id = :role_id and ar.func_id = pf.id";
-        //    OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection);
-        //    WFOracle.AddInParameter("role_id", OracleType.Number, roleItem.Id, cmd, false);
-
-        //    using (OracleDataReader rdr = cmd.ExecuteReader())
-        //    {
-        //        roleItem.AcceptRight.Clear();
-        //        while (rdr.Read())
-        //        {
-        //            roleItem.AcceptRight.Add(new ComboBoxItem(Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture), rdr["note"].ToString()));
-        //        }
-        //    }
-        //}
-        //private static void LoadRightInDb(RoleItem roleItem, int roleId)
-        //{
-        //    OracleCommand cmd = new OracleCommand("begin modern.prk_tab.role_right_del(:a_role_id); end;", WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
-        //    cmd.CommandType = CommandType.Text;
-        //    WFOracle.AddInParameter("a_role_id", OracleType.Number, roleId, cmd, false);
-        //    cmd.ExecuteNonQuery();
-
-        //    cmd.Parameters.Clear();
-        //    cmd.CommandText = "begin modern.prk_tab.role_right_ins(:a_role_id, :a_func_id); end;";
-        //    OracleParameter role_id = cmd.Parameters.Add("a_role_id", OracleType.Number);
-        //    role_id.Value = roleId;
-        //    OracleParameter func_id = cmd.Parameters.Add("a_func_id", OracleType.Number);
-        //    foreach (ComboBoxItem cbi in roleItem.AcceptRight)
-        //    {
-        //        func_id.Value = cbi.Id;
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //}
-
         // Public interface
         public override void Open(LocuseItem locusItem)
         {
-            String sql = "select id, name from modern.locus where id = :id";
+            String sql = " select l.id locus_id, l.name locus_name, a.id allele_id, a.name allele_name, a.val" +
+                         " from modern.locus l left join modern.allele a on l.id = a.locus_id" +
+                         " where l.id = :id order by val";
+
             OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection);
             WFOracle.AddInParameter("id", OracleType.Number, locusItem.Id, cmd, false);
 
@@ -255,8 +209,27 @@ namespace GeneLibrary.Items
             {
                 if (rdr.Read())
                 {
-                    locusItem.Id = Convert.ToInt32(rdr["id"], CultureInfo.InvariantCulture);
-                    locusItem.Name = rdr["name"].ToString();
+
+                    locusItem.Id = Convert.ToInt32(rdr["locus_id"], CultureInfo.InvariantCulture);
+                    locusItem.Name = rdr["locus_name"].ToString();
+                    locusItem.Allelies.Clear();
+                    if (!String.IsNullOrEmpty(rdr["allele_id"].ToString()))
+                    {
+                        locusItem.Allelies.Add(new ChangedAllele() {
+                                Id = Convert.ToInt32(rdr["allele_id"], CultureInfo.InvariantCulture),
+                                Name = rdr["allele_name"].ToString(),
+                                Val = Convert.ToDouble(rdr["val"], CultureInfo.InvariantCulture)
+                            });
+                        while (rdr.Read())
+                        {
+                            locusItem.Allelies.Add(new ChangedAllele()
+                            {
+                                Id = Convert.ToInt32(rdr["allele_id"], CultureInfo.InvariantCulture),
+                                Name = rdr["allele_name"].ToString(),
+                                Val = Convert.ToDouble(rdr["val"], CultureInfo.InvariantCulture)
+                            });
+                        }
+                    }
                 }
             }
 
@@ -264,7 +237,7 @@ namespace GeneLibrary.Items
             //LoadRight(roleItem);
             //LoadAcceptRight(roleItem);
         }
-        public override int Insert(LocuseItem roleItem)
+        public override int Insert(LocuseItem locusItem)
         {
             string sql = "begin :res := modern.prk_tab.locus_ins(:a_name, :curr_user); end;";
             OracleParameter prmRes;
@@ -272,11 +245,40 @@ namespace GeneLibrary.Items
             WFOracle.DB.StartTransaction();
             try
             {
+
                 // Создание нового локуса
                 OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
                 cmd.CommandType = CommandType.Text;
-                WFOracle.AddInParameter("a_name", OracleType.NVarChar, roleItem.Name, cmd, false);
+                WFOracle.AddInParameter("a_name", OracleType.NVarChar, locusItem.Name, cmd, false);
                 WFOracle.AddInParameter("curr_user", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
+                cmd.ExecuteNonQuery();
+
+                locusItem.Id = Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
+
+                // Создание новых аллелей
+                cmd.CommandText = "begin :res := modern.prk_tab.allele_ins(:a_locus_id, :a_name, :a_val); end;";
+                StringBuilder note = new StringBuilder(String.Format("Изменения состава аллелей для локуса ID='{0}':\r\n", locusItem.Id));
+                foreach (ChangedAllele item in locusItem.Allelies)
+                {
+                    cmd.Parameters.Clear();
+                    WFOracle.AddInParameter("a_locus_id", OracleType.Number, locusItem.Id, cmd, false);
+                    WFOracle.AddInParameter("a_name", OracleType.NVarChar, item.Name, cmd, false);
+                    WFOracle.AddInParameter("a_val", OracleType.Number, item.Val, cmd, false);
+                    prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
+                    cmd.ExecuteNonQuery();
+
+                    int allele_id = Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
+                    note.Append(String.Format("Создана аллель ID={0}, Имя = {1}, Значение = {2}\r\n", allele_id, item.Name, item.Val));
+                }
+
+                // Создание истории
+                cmd.CommandText = "begin :res := modern.prk_tab.set_locus_history(:a_id, :history_action, :expert_id, :note); end;";
+                cmd.Parameters.Clear();
+                WFOracle.AddInParameter("a_id", OracleType.Number, locusItem.Id, cmd, false);
+                WFOracle.AddInParameter("history_action", OracleType.Number, 15, cmd, false);
+                WFOracle.AddInParameter("expert_id", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                WFOracle.AddInParameter("note", OracleType.NVarChar, note.ToString(), cmd, true);
                 prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
                 cmd.ExecuteNonQuery();
 
@@ -287,19 +289,88 @@ namespace GeneLibrary.Items
                 WFOracle.DB.Rollback();
                 throw;
             }
-            return Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
+            return locusItem.Id;
         }
         public override void Update(LocuseItem locusItem)
         {
             string sql = "modern.prk_tab.locus_upd";
             try
             {
+                StringBuilder note = new StringBuilder();
+
                 WFOracle.DB.StartTransaction();
                 OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
                 cmd.CommandType = CommandType.StoredProcedure;
                 WFOracle.AddInParameter("a_id", OracleType.Number, locusItem.Id, cmd, false);
                 WFOracle.AddInParameter("a_name", OracleType.NVarChar, locusItem.Name, cmd, false);
                 WFOracle.AddInParameter("curr_user", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+
+                if (locusItem.LocusNameIsChanged)
+                {
+                    cmd.ExecuteNonQuery();
+                    note.Append(String.Format("Изменение локуса ID='{0}':\r\n", locusItem.Id));
+                }
+
+                // Добавление новых аллелей
+                OracleParameter prmRes;
+                note.Append(String.Format("Изменения состава аллелей для локуса ID='{0}':\r\n", locusItem.Id));
+                foreach (ChangedAllele item in locusItem.Allelies.Where(n=>n.State == ChangedLocusState.Added))
+                {
+                    cmd.CommandText = "begin :res := modern.prk_tab.allele_ins(:a_locus_id, :a_name, :a_val); end;";
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Clear();
+                    WFOracle.AddInParameter("a_locus_id", OracleType.Number, locusItem.Id, cmd, false);
+                    WFOracle.AddInParameter("a_name", OracleType.NVarChar, item.Name, cmd, false);
+                    WFOracle.AddInParameter("a_val", OracleType.Number, item.Val, cmd, false);
+                    prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
+                    cmd.ExecuteNonQuery();
+
+                    item.State = ChangedLocusState.None;
+                    item.Id = Convert.ToInt32(prmRes.Value, CultureInfo.InvariantCulture);
+                    note.Append(String.Format("Создана аллель ID={0}, Имя = {1}, Значение = {2}\r\n", item.Id, item.Name, item.Val));
+                }
+
+                // Редактирование существующих
+                foreach (ChangedAllele item in locusItem.Allelies.Where(n => n.State == ChangedLocusState.Edited))
+                {
+                    cmd.CommandText = "modern.prk_tab.allele_upd";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    WFOracle.AddInParameter("a_id", OracleType.Number, item.Id, cmd, false);
+                    WFOracle.AddInParameter("a_name", OracleType.NVarChar, item.Name, cmd, false);
+                    WFOracle.AddInParameter("a_val", OracleType.Number, item.Val, cmd, false);
+                    
+                    cmd.ExecuteNonQuery();
+                    note.Append(String.Format("Изменена аллель ID={0}, Имя = {1}, Значение = {2}\r\n", item.Id, item.Name, item.Val));
+                    item.State = ChangedLocusState.None;
+                }
+
+                // Удаление несуществующих
+                foreach (ChangedAllele item in locusItem.Allelies.Where(n => n.State == ChangedLocusState.Deleted))
+                {
+                    cmd.CommandText = "modern.prk_tab.allele_del";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    WFOracle.AddInParameter("a_id", OracleType.Number, item.Id, cmd, false);
+                    cmd.ExecuteNonQuery();
+                    note.Append(String.Format("Удалена аллель ID={0}\r\n", item.Id));
+
+                }
+
+                ChangedAllele[] notDeletedLocus = locusItem.Allelies.Where(n => n.State != ChangedLocusState.Deleted).ToArray();
+                locusItem.Allelies.Clear();
+                foreach (ChangedAllele item in notDeletedLocus)
+                    locusItem.Allelies.Add(item);
+
+                // Создание истории
+                cmd.CommandText = "begin :res := modern.prk_tab.set_locus_history(:a_id, :history_action, :expert_id, :note); end;";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Clear();
+                WFOracle.AddInParameter("a_id", OracleType.Number, locusItem.Id, cmd, false);
+                WFOracle.AddInParameter("history_action", OracleType.Number, 15, cmd, false);
+                WFOracle.AddInParameter("expert_id", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                WFOracle.AddInParameter("note", OracleType.NVarChar, note.ToString(), cmd, true);
+                prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
                 cmd.ExecuteNonQuery();
 
                 WFOracle.DB.Commit();

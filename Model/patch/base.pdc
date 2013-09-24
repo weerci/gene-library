@@ -33,3 +33,10 @@ create index MODERN.HIST_TYPE_FX on MODERN.HISTORY (his_type_id);
 alter table MODERN.HISTORY
   add constraint HISTORY_TYPE_FK foreign key (HIS_TYPE_ID)
   references MODERN.history_type (ID);
+
+create sequence MODERN.ALLELE_SEQ
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 1000
+increment by 1
+cache 20;

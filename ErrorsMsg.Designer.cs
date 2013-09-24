@@ -590,6 +590,24 @@ namespace GeneLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на В одном локусе не может быть двух аллелей с одинаковым наименованием.
+        /// </summary>
+        public static string ErrorDublicateAlleleName {
+            get {
+                return ResourceManager.GetString("ErrorDublicateAlleleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Аллель должна иметь название и значение.
+        /// </summary>
+        public static string ErrorEmptyAlleleNameOrVal {
+            get {
+                return ResourceManager.GetString("ErrorEmptyAlleleNameOrVal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на В полях ввода представлены не допустимые значения.
         /// </summary>
         public static string ErrorFieldVal {

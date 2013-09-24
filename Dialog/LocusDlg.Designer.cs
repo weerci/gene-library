@@ -31,11 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LocusForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tbLocus = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAllelies = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllelies)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,18 +52,49 @@
             // 
             // tbLocus
             // 
+            this.tbLocus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbLocus.Location = new System.Drawing.Point(56, 6);
             this.tbLocus.Name = "tbLocus";
-            this.tbLocus.Size = new System.Drawing.Size(335, 20);
+            this.tbLocus.Size = new System.Drawing.Size(236, 20);
             this.tbLocus.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvAllelies
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(376, 424);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvAllelies.AllowUserToResizeColumns = false;
+            this.dgvAllelies.AllowUserToResizeRows = false;
+            this.dgvAllelies.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAllelies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAllelies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.NAME,
+            this.VAL});
+            this.dgvAllelies.Location = new System.Drawing.Point(15, 52);
+            this.dgvAllelies.MultiSelect = false;
+            this.dgvAllelies.Name = "dgvAllelies";
+            this.dgvAllelies.RowHeadersWidth = 26;
+            this.dgvAllelies.Size = new System.Drawing.Size(277, 364);
+            this.dgvAllelies.TabIndex = 2;
+            this.dgvAllelies.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvAllelies_CellBeginEdit);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Column1";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // NAME
+            // 
+            this.NAME.HeaderText = "Имя";
+            this.NAME.Name = "NAME";
+            this.NAME.Width = 140;
+            // 
+            // VAL
+            // 
+            this.VAL.HeaderText = "Значение";
+            this.VAL.Name = "VAL";
             // 
             // label2
             // 
@@ -73,8 +107,9 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(316, 482);
+            this.btnClose.Location = new System.Drawing.Point(217, 422);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 4;
@@ -83,7 +118,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(235, 482);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(136, 422);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
@@ -96,11 +132,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(403, 517);
+            this.ClientSize = new System.Drawing.Size(304, 457);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAllelies);
             this.Controls.Add(this.tbLocus);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -109,7 +145,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "LocusDlg";
             this.Load += new System.EventHandler(this.LocusForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAllelies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,9 +155,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbLocus;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAllelies;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VAL;
     }
 }

@@ -414,4 +414,10 @@ Microsoft Excel (версии 2000-20007)</value>
   <data name="EmptyLocusField" xml:space="preserve">
     <value>Поле "Локус" не должно быть пустым</value>
   </data>
+  <data name="ErrorDublicateAlleleName" xml:space="preserve">
+    <value>В одном локусе не может быть двух аллелей с одинаковым наименованием</value>
+  </data>
+  <data name="ErrorEmptyAlleleNameOrVal" xml:space="preserve">
+    <value>Аллель должна иметь название и значение</value>
+  </data>
 </root>
