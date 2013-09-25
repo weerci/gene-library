@@ -77,7 +77,8 @@
             this.dgvAllelies.RowHeadersWidth = 26;
             this.dgvAllelies.Size = new System.Drawing.Size(277, 364);
             this.dgvAllelies.TabIndex = 2;
-            this.dgvAllelies.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvAllelies_CellBeginEdit);
+            this.dgvAllelies.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvAllele_EditingControlShowing);
+            this.dgvAllelies.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvAllelies_KeyUp);
             // 
             // ID
             // 

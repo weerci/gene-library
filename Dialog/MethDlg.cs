@@ -116,33 +116,35 @@ namespace GeneLibrary.Dialog
             }
 
         }
-        private void dgrAllele_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            DataGridView dataGridView = sender as DataGridView;
-            if (dataGridView != null)
-            {
-                if (dataGridView.SelectedCells.Count > 0)
-                {
-                    DataGridViewCell dataGridViewCell = dataGridView.SelectedCells[0];
+        //private void dgrAllele_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        //{
+        //    DataGridView dataGridView = sender as DataGridView;
+        //    if (dataGridView != null)
+        //    {
+        //        if (dataGridView.SelectedCells.Count > 0)
+        //        {
+        //            DataGridViewCell dataGridViewCell = dataGridView.SelectedCells[0];
 
-                    if (Regex.IsMatch(dataGridViewCell.Value.ToString(), "[^1234567890.]"))
-                    {
-                        dataGridViewCell.Style.ForeColor = Color.Red;
-                        Common.Tools.ShowTip(tbDesc, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
-                    }
-                    else
-                        dataGridViewCell.Style.ForeColor = SystemColors.WindowText;
+        //            if (Regex.IsMatch(dataGridViewCell.Value.ToString(), "[^1234567890.]"))
+        //            {
+        //                dataGridViewCell.Style.ForeColor = Color.Red;
+        //                Common.Tools.ShowTip(tbDesc, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
+        //            }
+        //            else
+        //                dataGridViewCell.Style.ForeColor = SystemColors.WindowText;
 
-                    dgrAllele.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                }
-            }
-        }
-        private void dgrAllele_KeyPress(object sender, KeyPressEventArgs e)
+        //            dgrAllele.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        //        }
+        //    }
+        //}
+
+        #region Обработка ошибок ввода данных в сетку
+        private void dgrAllele_KeyUp(object sender, KeyEventArgs e)
         {
             DataGridViewTextBoxEditingControl editBox = sender as DataGridViewTextBoxEditingControl;
             if (editBox != null)
             {
-                if (Regex.IsMatch(editBox.Text, "[^1234567890.]"))
+                if (Regex.IsMatch(editBox.Text, "[^1234567890.,]"))
                 {
                     editBox.ForeColor = Color.Red;
                     Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
@@ -153,8 +155,19 @@ namespace GeneLibrary.Dialog
         }
         private void dgrAllele_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress += new KeyPressEventHandler(dgrAllele_KeyPress);
+            e.Control.KeyUp += new KeyEventHandler(dgrAllele_KeyUp);
         }
+        #endregion
+
+        private void dgrAllele_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgrAllele.Columns[e.ColumnIndex].Name.ToUpper() == "freq".ToUpper())
+            {
+                if (String.IsNullOrEmpty(e.Value.ToString()))
+                    e.Value = "По умолчанию";
+            }
+        }
+
 
         // Properties
         public bool IsEdit { get; set; }
@@ -187,14 +200,6 @@ namespace GeneLibrary.Dialog
         // Events
         internal event GeneLibrary.Common.UpdateId OnDataLoad;
 
-        private void dgrAllele_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (this.dgrAllele.Columns[e.ColumnIndex].Name.ToUpper() == "freq".ToUpper())
-            {
-                if (String.IsNullOrEmpty(e.Value.ToString()))
-                    e.Value = "По умолчанию";
-            }
-        }
 
     }
 }

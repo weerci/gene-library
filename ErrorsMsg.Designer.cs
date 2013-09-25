@@ -664,6 +664,15 @@ namespace GeneLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Длина строки не должна превышать {0} символов.
+        /// </summary>
+        public static string ErrorStringLength {
+            get {
+                return ResourceManager.GetString("ErrorStringLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Количество несовпадающих аллелей - {0}. Количество аллелей в следе, должно быть {1} или {2}.
         /// </summary>
         public static string ErrorTwoBlend1 {

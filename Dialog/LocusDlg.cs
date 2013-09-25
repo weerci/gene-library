@@ -97,6 +97,41 @@ namespace GeneLibrary.Dialog
                 this.Cursor = Cursors.Default;
             }
         }
+     
+        #region Обработка ошибок ввода данных в сетку
+
+        private void dgvAllele_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyUp += new KeyEventHandler(dgvAllelies_KeyUp);
+        }
+        private void dgvAllelies_KeyUp(object sender, KeyEventArgs e)
+        {
+            DataGridViewTextBoxEditingControl editBox = sender as DataGridViewTextBoxEditingControl;
+            if (editBox != null)
+            {
+                int columnIndex = dgvAllelies.SelectedCells[0].ColumnIndex;
+                if (columnIndex == 2)
+                {
+                    if (Regex.IsMatch(editBox.Text, "[^1234567890.]"))
+                    {
+                        editBox.ForeColor = Color.Red;
+                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, dgvAllelies.Columns[columnIndex].Name), ToolTipIcon.Error, 5000);
+                    }
+                    else
+                        editBox.ForeColor = SystemColors.WindowText;
+                }
+                else if (columnIndex == 1)
+                {
+                    if (editBox.Text.Length > 5)
+                    {
+                        editBox.ForeColor = Color.Red;
+                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(String.Format(ErrorsMsg.ErrorStringLength, 5), dgvAllelies.Columns[columnIndex].Name), ToolTipIcon.Error, 5000);
+                    }
+                }
+            }
+        }
+
+        #endregion
 
         private void SetChangeAllelies()
         {
@@ -143,29 +178,6 @@ namespace GeneLibrary.Dialog
         // Events
         internal event GeneLibrary.Common.UpdateId OnDataLoad;
 
-        private void dgvAllelies_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void dgvAllelies_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            DataGridViewTextBoxEditingControl editBox = sender as DataGridViewTextBoxEditingControl;
-            if (editBox != null)
-            {
-                if (Regex.IsMatch(editBox.Text, "[^1234567890.]"))
-                {
-                    editBox.ForeColor = Color.Red;
-                    Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
-                }
-                else
-                    editBox.ForeColor = SystemColors.WindowText;
-            }
-
-        }
-
-
-    
     }
 
 }
