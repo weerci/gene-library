@@ -893,8 +893,7 @@ namespace GeneLibrary.Dialog
                 if (Regex.IsMatch(textBox.Text, "[^1234567890]"))
                 {
                     textBox.ForeColor = Color.Red;
-                    Common.Tools.ShowTip(textBox, ErrorsMsg.ErrorFormat,
-                        String.Format(ErrorsMsg.NotInteger, fieldCaption), ToolTipIcon.Error, 4000);
+                    Common.Tools.ShowTip(textBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotInteger, fieldCaption), ToolTipIcon.Error);
                 }
                 else
                 {

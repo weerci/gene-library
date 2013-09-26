@@ -250,7 +250,7 @@ CapsLock на клавиатуре.</value>
   <data name="EmptyIk2VictimField" xml:space="preserve">
     <value>Поле "Потерпевший" не должно быть пустым</value>
   </data>
-  <data name="NotNumber" xml:space="preserve">
+  <data name="ErrorNotNumber" xml:space="preserve">
     <value>В поле "{0}" могут содержаться только цифры 
 или знак десятичного разделителя - точка</value>
   </data>
@@ -421,6 +421,6 @@ Microsoft Excel (версии 2000-20007)</value>
     <value>Аллель должна иметь название и значение</value>
   </data>
   <data name="ErrorStringLength" xml:space="preserve">
-    <value>Длина строки не должна превышать {0} символов</value>
+    <value>Длина строки для поля "{0}" не должна превышать {1} символов</value>
   </data>
 </root>

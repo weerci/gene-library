@@ -64,6 +64,7 @@
             this.toolStripMenuItemClassObject = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemKindIkl = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOrgan = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLocuses = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripPreferences = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.mdiClientController1 = new Slusser.Components.MdiClientController();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.tvMdi = new System.Windows.Forms.TreeView();
-            this.toolStripMenuItemLocuses = new System.Windows.Forms.ToolStripMenuItem();
             this.tspBottom.SuspendLayout();
             this.ssMain.SuspendLayout();
             this.tspTop.SuspendLayout();
@@ -378,6 +378,13 @@
             this.toolStripMenuItemOrgan.Text = "Организации";
             this.toolStripMenuItemOrgan.Click += new System.EventHandler(this.toolStripMenuItemOrganization_Click);
             // 
+            // toolStripMenuItemLocuses
+            // 
+            this.toolStripMenuItemLocuses.Name = "toolStripMenuItemLocuses";
+            this.toolStripMenuItemLocuses.Size = new System.Drawing.Size(202, 22);
+            this.toolStripMenuItemLocuses.Text = "Локусы";
+            this.toolStripMenuItemLocuses.Click += new System.EventHandler(this.toolStripMenuItemLocuses_Click);
+            // 
             // ToolStripPreferences
             // 
             this.ToolStripPreferences.Name = "ToolStripPreferences";
@@ -436,13 +443,7 @@
             this.tvMdi.Size = new System.Drawing.Size(206, 466);
             this.tvMdi.TabIndex = 4;
             this.tvMdi.DoubleClick += new System.EventHandler(this.tvMdi_DoubleClick);
-            // 
-            // toolStripMenuItemLocuses
-            // 
-            this.toolStripMenuItemLocuses.Name = "toolStripMenuItemLocuses";
-            this.toolStripMenuItemLocuses.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemLocuses.Text = "Локусы";
-            this.toolStripMenuItemLocuses.Click += new System.EventHandler(this.toolStripMenuItemLocuses_Click);
+            this.tvMdi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvMdi_KeyDown);
             // 
             // Main
             // 
@@ -455,6 +456,7 @@
             this.Controls.Add(this.tspBottom);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.msMain;
             this.Name = "Main";
             this.Text = "Gene Library";

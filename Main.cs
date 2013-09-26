@@ -237,85 +237,90 @@ namespace GeneLibrary
                 #endregion
 
                 #region Создание формы
-                Form newForm;
-                switch (currentNode.Name)
-                {
-                    case "tviIk2New":
-                        NewIk2Card(new Ik2Vocabulary(), 0);
-                        break;
-                    case "tviIklNew":
-                        NewIklCard(new IklVocabulary(), 0);
-                        break;
-                    case "tviMvd":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Mvd, tvMdi.SelectedNode.Text, "tviMvdOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviLin":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Lin, tvMdi.SelectedNode.Text, "tviLinOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviDiv":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Division, tvMdi.SelectedNode.Text, "tviMvdOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviPost":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Post, tvMdi.SelectedNode.Text, "tviPostOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviExp":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Exp, tvMdi.SelectedNode.Text, "tviExpOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviMeth":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Method, tvMdi.SelectedNode.Text, "tviMethOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviUK":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.UK, tvMdi.SelectedNode.Text, "tviUKOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviRole":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Role, tvMdi.SelectedNode.Text, "tviRoleOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviClassObject":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.ClassObject, tvMdi.SelectedNode.Text, "tviClassObjectOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviSort":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Sort, tvMdi.SelectedNode.Text, "tviSortOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviClassIkl":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.ClassIkl, tvMdi.SelectedNode.Text, "tviClassIklOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviOrg":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Organization, tvMdi.SelectedNode.Text, "tviOrgOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    case "tviCardFind":
-                        NewFindCard();
-                        break;
-                    case "tviStudy":
-                        NewStudyForm(0);
-                        break;
-                    case "tviFilter":
-                        toolStripMenuItemSelect_Click(null, null);
-                        break;
-                    case "tviLocus":
-                        newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Locus, tvMdi.SelectedNode.Text, "tviLocusOpen");
-                        OpenMdiForm(newForm);
-                        break;
-                    default:
-                        return;
-                }
+                OpenForm(currentNode);
                 #endregion
             }
             finally
             {
                 tvMdi.EndUpdate();
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void OpenForm(TreeNode currentNode)
+        {
+            Form newForm;
+            switch (currentNode.Name)
+            {
+                case "tviIk2New":
+                    NewIk2Card(new Ik2Vocabulary(), 0);
+                    break;
+                case "tviIklNew":
+                    NewIklCard(new IklVocabulary(), 0);
+                    break;
+                case "tviMvd":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Mvd, tvMdi.SelectedNode.Text, "tviMvdOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviLin":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Lin, tvMdi.SelectedNode.Text, "tviLinOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviDiv":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Division, tvMdi.SelectedNode.Text, "tviMvdOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviPost":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Post, tvMdi.SelectedNode.Text, "tviPostOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviExp":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Exp, tvMdi.SelectedNode.Text, "tviExpOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviMeth":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Method, tvMdi.SelectedNode.Text, "tviMethOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviUK":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.UK, tvMdi.SelectedNode.Text, "tviUKOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviRole":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Role, tvMdi.SelectedNode.Text, "tviRoleOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviClassObject":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.ClassObject, tvMdi.SelectedNode.Text, "tviClassObjectOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviSort":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Sort, tvMdi.SelectedNode.Text, "tviSortOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviClassIkl":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.ClassIkl, tvMdi.SelectedNode.Text, "tviClassIklOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviOrg":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Organization, tvMdi.SelectedNode.Text, "tviOrgOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                case "tviCardFind":
+                    NewFindCard();
+                    break;
+                case "tviStudy":
+                    NewStudyForm(0);
+                    break;
+                case "tviFilter":
+                    toolStripMenuItemSelect_Click(null, null);
+                    break;
+                case "tviLocus":
+                    newForm = new DictionaryForm(GeneLibrary.Common.DictionaryKind.Locus, tvMdi.SelectedNode.Text, "tviLocusOpen");
+                    OpenMdiForm(newForm);
+                    break;
+                default:
+                    break;
             }
         }
         private void toolStripMenuItemStudy_Click(object sender, EventArgs e)
@@ -628,6 +633,13 @@ namespace GeneLibrary
 
         // Fields
         private Slusser.Components.MdiClientController _mdiClientController = new Slusser.Components.MdiClientController();
+
+        private void tvMdi_KeyDown(object sender, KeyEventArgs e)
+        {
+            TreeNode current = tvMdi.SelectedNode;
+            if (current != null && e.KeyCode == Keys.Enter)
+                OpenForm(current);
+        }
 
     }
 

@@ -98,7 +98,7 @@ namespace GeneLibrary.Dialog
                 if (Regex.IsMatch(textBox.Text, "[^1234567890.]"))
                 {
                     textBox.ForeColor = Color.Red;
-                    Common.Tools.ShowTip(textBoxFrequency, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
+                    Common.Tools.ShowTip(textBoxFrequency, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.ErrorNotNumber, label2.Text), ToolTipIcon.Error);
                 }
                 else
                     textBox.ForeColor = SystemColors.WindowText;
@@ -147,7 +147,7 @@ namespace GeneLibrary.Dialog
                 if (Regex.IsMatch(editBox.Text, "[^1234567890.,]"))
                 {
                     editBox.ForeColor = Color.Red;
-                    Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, label2.Text), ToolTipIcon.Error, 4000);
+                    Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.ErrorNotNumber, label2.Text), ToolTipIcon.Error);
                 }
                 else
                     editBox.ForeColor = SystemColors.WindowText;

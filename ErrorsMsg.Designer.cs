@@ -654,6 +654,16 @@ namespace GeneLibrary {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на В поле &quot;{0}&quot; могут содержаться только цифры 
+        ///или знак десятичного разделителя - точка.
+        /// </summary>
+        public static string ErrorNotNumber {
+            get {
+                return ResourceManager.GetString("ErrorNotNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Диапазон для поля &quot;{0}&quot; должен быть 
         ///представлен двумя значениями.
         /// </summary>
@@ -664,7 +674,7 @@ namespace GeneLibrary {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Длина строки не должна превышать {0} символов.
+        ///   Ищет локализованную строку, похожую на Длина строки для поля &quot;{0}&quot; не должна превышать {1} символов.
         /// </summary>
         public static string ErrorStringLength {
             get {
@@ -791,16 +801,6 @@ namespace GeneLibrary {
         public static string NotInteger {
             get {
                 return ResourceManager.GetString("NotInteger", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на В поле &quot;{0}&quot; могут содержаться только цифры 
-        ///или знак десятичного разделителя - точка.
-        /// </summary>
-        public static string NotNumber {
-            get {
-                return ResourceManager.GetString("NotNumber", resourceCulture);
             }
         }
         

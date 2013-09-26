@@ -338,6 +338,10 @@ namespace GeneLibrary.Common
     {
         // Constructor
         private Tools() { }
+        /// <summary>
+        /// Время отображения всплывающей подсказки
+        /// </summary>
+        public static int ShowTipDuration = 2000;
 
         /// <summary>
         /// Переданным контролам назначает обработчик события, для стандартных событий
@@ -372,7 +376,7 @@ namespace GeneLibrary.Common
         /// <param name="text">Текст подсказки</param>
         /// <param name="toolTypeIcon">Иконка подсказки</param>
         /// <param name="duration">Длительность отображения в миллисекундах, если задано значение 0 - подсказка отображается до тех пор, пока пользователь на нее не кликнет</param>
-        public static void ShowTip(Control control, string title, string text, ToolTipIcon toolTypeIcon, int duration)
+        public static void ShowTip(Control control, string title, string text, ToolTipIcon toolTypeIcon)
         {
             ToolTip toolTip = new ToolTip();
             toolTip.ToolTipIcon = toolTypeIcon;
@@ -380,7 +384,7 @@ namespace GeneLibrary.Common
             toolTip.ToolTipTitle = title;
             //toolTip.IsBalloon = true;
             toolTip.Active = true;
-            toolTip.Show(text, control, control.Width / 2, control.Height / 2, 800);
+            toolTip.Show(text, control, control.Width / 2, control.Height / 2, Tools.ShowTipDuration);
         }
         /// <summary>
         /// Удаляет все элементы списка из комбобокса, добавляет значение "Нет данных" (id = -1), и позиционируется на него

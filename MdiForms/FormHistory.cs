@@ -128,7 +128,7 @@ namespace GeneLibrary.MdiForms
                 {
                     textBox.ForeColor = Color.Red;
                     Common.Tools.ShowTip(textBox, ErrorsMsg.ErrorFormat,
-                        String.Format(ErrorsMsg.NotValidIntegerEnum, label4.Text), ToolTipIcon.Error, 4000);
+                        String.Format(ErrorsMsg.NotValidIntegerEnum, label4.Text), ToolTipIcon.Error);
                 }
                 else
                 {

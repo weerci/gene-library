@@ -115,7 +115,7 @@ namespace GeneLibrary.Dialog
                     if (Regex.IsMatch(editBox.Text, "[^1234567890.]"))
                     {
                         editBox.ForeColor = Color.Red;
-                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.NotNumber, dgvAllelies.Columns[columnIndex].Name), ToolTipIcon.Error, 5000);
+                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.ErrorNotNumber, dgvAllelies.Columns[columnIndex].HeaderText), ToolTipIcon.Error);
                     }
                     else
                         editBox.ForeColor = SystemColors.WindowText;
@@ -125,7 +125,7 @@ namespace GeneLibrary.Dialog
                     if (editBox.Text.Length > 5)
                     {
                         editBox.ForeColor = Color.Red;
-                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(String.Format(ErrorsMsg.ErrorStringLength, 5), dgvAllelies.Columns[columnIndex].Name), ToolTipIcon.Error, 5000);
+                        Common.Tools.ShowTip(editBox, ErrorsMsg.ErrorFormat, String.Format(ErrorsMsg.ErrorStringLength, dgvAllelies.Columns[columnIndex].HeaderText, 5), ToolTipIcon.Error);
                     }
                 }
             }
