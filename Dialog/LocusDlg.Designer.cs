@@ -144,7 +144,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LocusForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "LocusDlg";
+            this.Text = "Локус";
             this.Load += new System.EventHandler(this.LocusForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllelies)).EndInit();
             this.ResumeLayout(false);

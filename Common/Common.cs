@@ -793,10 +793,10 @@ namespace GeneLibrary.Common
         /// </summary>
         /// <param name="profileId">Идентификатор профиля</param>
         /// <returns>Профиль с указанным пользователем идентификатором</returns>
-        public static Profiles GetProfileById(int profileId)
+        public static Profiles GetProfileById(int profileId, int methodId)
         {
             Profiles profile = new Profiles();
-            profile.Load(profileId, GeneLibraryConst.DefaultMethod);
+            profile.Load(profileId, methodId);
             return profile;
         }
         /// <summary>

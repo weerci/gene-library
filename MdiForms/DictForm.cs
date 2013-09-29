@@ -263,6 +263,56 @@ namespace GeneLibrary.MdiForms
                 }
             }
         }
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            switch (_dictKind)
+            {
+                case DictionaryKind.Division:
+                    Common.Tools.GetHelp("mf_dict_department", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Exp:
+                    Common.Tools.GetHelp("mf_dict_expert", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Lin:
+                    Common.Tools.GetHelp("mf_dict_lin", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Method:
+                    Common.Tools.GetHelp("mf_dict_meth", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Mvd:
+                    Common.Tools.GetHelp("mf_dict_mvd", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Post:
+                    Common.Tools.GetHelp("mf_dict_post", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.UK:
+                    Common.Tools.GetHelp("mf_dict_UK", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Role:
+                    Common.Tools.GetHelp("mf_adimn_role", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Organization:
+                    Common.Tools.GetHelp("mf_dict_organ", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Sort:
+                    Common.Tools.GetHelp("mf_dict_sort", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.ClassObject:
+                    Common.Tools.GetHelp("mf_dict_class_object", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.ClassIkl:
+                    Common.Tools.GetHelp("mf_class_ikl", HelpNavigator.Topic);
+                    break;
+                case DictionaryKind.Locus:
+                    Common.Tools.GetHelp("mf_dict_locuses", HelpNavigator.Topic);
+                    break;
+            }
+        }
+        private void DictionaryForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+                helpToolStripButton_Click(null, null);
+        }
         private void dgr_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             OnOpenDict(null, null);

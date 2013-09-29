@@ -31,6 +31,9 @@ namespace GeneLibrary.Dialog
         private void FormStudy_Load(object sender, EventArgs e)
         {
             EnabledControl();
+            _methodVocabulary.Open();
+            FillComboBox(new ComboBox[] {tscbBlendMethod.ComboBox, tscbStripChildOneParetnMethod.ComboBox, tscbStripMethod.ComboBox, tscbSuppParentMethod.ComboBox,
+                tscbTooBlendMethods.ComboBox, tscbTwoParentMethod.ComboBox});
         }
         // Отрисовка контрола
         private void panel_Paint(object sender, PaintEventArgs e)
@@ -176,17 +179,14 @@ namespace GeneLibrary.Dialog
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                ResearchGridDecorator researchGridDecorator =
-                    new ResearchGridDecorator(new Research(), ActiveGridViewDirect, ActiveGridViewRatio);
+                ResearchGridDecorator researchGridDecorator = new ResearchGridDecorator(new Research(getMetodIdFromCombobox()), ActiveGridViewDirect, ActiveGridViewRatio);
                 switch (ActiveTab.Name)
                 {
                     case "panelDirect":
                         researchGridDecorator.DirectIdent(textBoxDirect.Text, labelDirectKin.Text);
                         break;
                     case "panelChildOneParent":
-                        researchGridDecorator.OneChildAndParent(
-                            textBoxChildKin.Text, textBoxKnownParent.Text,
-                            labelChildForOneParent.Text, labelKnowParent.Text);
+                        researchGridDecorator.OneChildAndParent(textBoxChildKin.Text, textBoxKnownParent.Text, labelChildForOneParent.Text, labelKnowParent.Text);
                         break;
                     case "panelChildTwoParent":
                         researchGridDecorator.TwoParent(
@@ -582,6 +582,39 @@ namespace GeneLibrary.Dialog
             }
         }
         
+        // Вызов справки
+        private void toolStripHelp_Click(object sender, EventArgs e)
+        {
+            ToolStripButton tsb = sender as ToolStripButton;
+            if (tsb != null)
+            {
+                switch (tsb.Name)
+                {
+                    case "tsbDirectHelp":
+                        Common.Tools.GetHelp("mf_study_method1", HelpNavigator.Topic);
+                        break;
+                    case "tsbChildOneParentHelp":
+                        Common.Tools.GetHelp("mf_study_method2", HelpNavigator.Topic);
+                        break;
+                    case "tsbChildTwoParent":
+                        Common.Tools.GetHelp("mf_study_method3", HelpNavigator.Topic);
+                        break;
+                    case "tsbTwoUnknownParent":
+                        Common.Tools.GetHelp("mf_study_method4", HelpNavigator.Topic);
+                        break;
+                    case "tsbBlendHelp":
+                        Common.Tools.GetHelp("sf_study_mehod5", HelpNavigator.Topic);
+                        break;
+                    case "tsbTwoBlendHelp":
+                        Common.Tools.GetHelp("sf_study_method6", HelpNavigator.Topic);
+                        break;
+
+                    default:
+                        return;
+                }
+            }
+        }
+
         // События формы для Direct
         private void tabControlDirectFind_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -592,9 +625,9 @@ namespace GeneLibrary.Dialog
                 {
                     listViewProfilesDirect.BeginUpdate();
                     Tools.FillListViewProfilesData(
-                        Tools.GetProfileById(Tools.GetIntFromText(textBoxDirect.Text, labelDirectKin.Text)),
+                        Tools.GetProfileById(Tools.GetIntFromText(textBoxDirect.Text, labelDirectKin.Text), getMetodIdFromCombobox()),
                         Tools.GetProfileById(Convert.ToInt32(dataGridViewDirectFind.SelectedRows[0].Cells["profile_id"].Value,
-                            CultureInfo.InstalledUICulture)),
+                            CultureInfo.InstalledUICulture), getMetodIdFromCombobox()),
                         listViewProfilesDirect
                         );
                     listViewProfilesDirect.EndUpdate();
@@ -617,9 +650,10 @@ namespace GeneLibrary.Dialog
                     int shiftThridProfileName;
 
                     Tools.FillListViewTreeProfiles(
-                        Tools.GetProfileById(Tools.GetIntFromText(textBoxChildKin.Text, labelChildForOneParent.Text)),
-                        Tools.GetProfileById(Tools.GetIntFromText(textBoxKnownParent.Text, labelKnowParent.Text)),
-                        Tools.GetProfileById(Convert.ToInt32(dataGridViewChildOneParentFound.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture)),
+                        Tools.GetProfileById(Tools.GetIntFromText(textBoxChildKin.Text, labelChildForOneParent.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(textBoxKnownParent.Text, labelKnowParent.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Convert.ToInt32(dataGridViewChildOneParentFound.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture)
+                        , getMetodIdFromCombobox()),
                         listViewChildOneParent, out shiftSecondProfileName, out shiftThridProfileName);
                     
                     label7.Left = shiftSecondProfileName;
@@ -645,9 +679,9 @@ namespace GeneLibrary.Dialog
                     int shiftThridProfileName;
 
                     Tools.FillListViewTreeProfiles(
-                        Tools.GetProfileById(Tools.GetIntFromText(tbChildIdTwoParent.Text, label12.Text)),
-                        Tools.GetProfileById(Tools.GetIntFromText(tbKnownParentTwoParent.Text, labelKnownParentTwoParent.Text)),
-                        Tools.GetProfileById(Convert.ToInt32(dgvDirectFindTwoParent.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture)),
+                        Tools.GetProfileById(Tools.GetIntFromText(tbChildIdTwoParent.Text, label12.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(tbKnownParentTwoParent.Text, labelKnownParentTwoParent.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Convert.ToInt32(dgvDirectFindTwoParent.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture), getMetodIdFromCombobox()),
                         lvTwoParent, out shiftSecondProfileName, out shiftThridProfileName);
 
                     lbKnownParent.Left = shiftSecondProfileName;
@@ -673,9 +707,9 @@ namespace GeneLibrary.Dialog
                     int shiftThridProfileName;
 
                     Tools.FillListViewTreeProfiles(
-                        Tools.GetProfileById(Convert.ToInt32(dgvSuppParentFind.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture)),
-                        Tools.GetProfileById(Tools.GetIntFromText(tbFirstSuppParent.Text, label16.Text)),
-                        Tools.GetProfileById(Tools.GetIntFromText(tbSecondSuppParent.Text, label15.Text)),
+                        Tools.GetProfileById(Convert.ToInt32(dgvSuppParentFind.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(tbFirstSuppParent.Text, label16.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(tbSecondSuppParent.Text, label15.Text), getMetodIdFromCombobox()),
                         lvSuppParent, out shiftSecondProfileName, out shiftThridProfileName);
 
                     label31.Text = String.Format(ResourceStudy.child, dgvSuppParentFind.SelectedRows[0].Cells["profile_id"].Value.ToString());
@@ -699,9 +733,8 @@ namespace GeneLibrary.Dialog
                 {
                     lvBlend.BeginUpdate();
                     Tools.FillListViewProfilesData(
-                        Tools.GetProfileById(Convert.ToInt32(dgvFindBlend.SelectedRows[0].Cells["profile_id"].Value,
-                            CultureInfo.InstalledUICulture)),
-                        Tools.GetProfileById(Tools.GetIntFromText(tbBlend.Text, label20.Text)),
+                        Tools.GetProfileById(Convert.ToInt32(dgvFindBlend.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(tbBlend.Text, label20.Text), getMetodIdFromCombobox()),
                         lvBlend
                         );
                     lvBlend.EndUpdate();
@@ -725,9 +758,9 @@ namespace GeneLibrary.Dialog
                     int shiftThridProfileName;
 
                     Tools.FillListViewTreeProfiles(
-                        Tools.GetProfileById(Convert.ToInt32(dgvTwoBlendFind.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture)),
-                        Tools.GetProfileById(Tools.GetIntFromText(textBoxTwoBlendKnown.Text, label22.Text)),
-                        Tools.GetProfileById(Tools.GetIntFromText(textBoxTwoBlendUnknown.Text, label24.Text)),
+                        Tools.GetProfileById(Convert.ToInt32(dgvTwoBlendFind.SelectedRows[0].Cells["profile_id"].Value, CultureInfo.InstalledUICulture), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(textBoxTwoBlendKnown.Text, label22.Text), getMetodIdFromCombobox()),
+                        Tools.GetProfileById(Tools.GetIntFromText(textBoxTwoBlendUnknown.Text, label24.Text), getMetodIdFromCombobox()),
                         lvTwoBlend, out shiftSecondProfileName, out shiftThridProfileName);
                     lvTwoBlend.EndUpdate();
 
@@ -785,6 +818,7 @@ namespace GeneLibrary.Dialog
         // Fields
         private Panel activeContent;
         private Panel activeTab;
+        private MethodVocabulary _methodVocabulary = new MethodVocabulary();
 
         // Private methods
         private void DrawTabText(Panel panel, PaintEventArgs e)
@@ -1007,47 +1041,65 @@ namespace GeneLibrary.Dialog
                     nudTwoBlendError.Enabled = btnTwoBlendKnown.Enabled && btnTwoBlendUnknown.Enabled;
                     nudTwoBlendLocusCount.Enabled = btnTwoBlendKnown.Enabled && btnTwoBlendUnknown.Enabled;
                     if (tcTwoBlend.SelectedIndex == 0)
-                        tsbTwoBlendPrint.Enabled = dgvTwoBlendDirect.Rows.Count > 0;
+                        tsbTwoBlendPrint1.Enabled = dgvTwoBlendDirect.Rows.Count > 0;
                     else
-                        tsbTwoBlendPrint.Enabled = dgvTwoBlendRatio.Rows.Count > 0;
+                        tsbTwoBlendPrint1.Enabled = dgvTwoBlendRatio.Rows.Count > 0;
                     break; 
                     #endregion
                 default:
                     break;
             }
         }
-
-        private void toolStripHelp_Click(object sender, EventArgs e)
+        private void FillComboBox(ComboBox[] comboBoxes)
         {
-            ToolStripButton tsb = sender as ToolStripButton;
-            if (tsb != null)
-            {
-                switch (tsb.Name)
-                {
-                    case "tsbDirectHelp":
-                        Common.Tools.GetHelp("mf_study_method1", HelpNavigator.Topic);
-                        break;
-                    case "tsbChildOneParentHelp":
-                        Common.Tools.GetHelp("mf_study_method2", HelpNavigator.Topic);
-                        break;
-                    case "tsbChildTwoParent":
-                        Common.Tools.GetHelp("mf_study_method3", HelpNavigator.Topic);
-                        break;
-                    case "tsbTwoUnknownParent":
-                        Common.Tools.GetHelp("mf_study_method4", HelpNavigator.Topic);
-                        break;
-                    case "tsbBlendHelp":
-                        Common.Tools.GetHelp("sf_study_mehod5", HelpNavigator.Topic);
-                        break;
-                    case "tsbTwoBlendHelp":
-                        Common.Tools.GetHelp("sf_study_method6", HelpNavigator.Topic);
-                        break;
+            ComboBoxItem[] comboBoxItemArray = (from DataRow dataRow in _methodVocabulary.DT.Rows
+                                                select new GeneLibrary.Common.ComboBoxItem(
+                                                  Convert.ToInt32(dataRow["ID"], CultureInfo.InvariantCulture),
+                                                  String.Format(CultureInfo.InvariantCulture, "{0}", dataRow["NAME"].ToString()))).ToArray<GeneLibrary.Common.ComboBoxItem>();
 
-                    default:
-                        return;
-                }
+            foreach (ComboBox item in comboBoxes)
+            {
+                item.DisplayMember = "name";
+                item.Items.Clear();
+                item.Items.AddRange(comboBoxItemArray);
+                if (item.Items.Count > 0)
+                    item.SelectedIndex = 0;
             }
         }
+        private int getMetodIdFromCombobox()
+        {
+            ComboBoxItem cbItem = null;
+            switch (ActiveTab.Name)
+            {
+                case "panelDirect":
+                    cbItem = tscbStripMethod.ComboBox.Items[tscbStripMethod.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                case "panelChildOneParent":
+                    cbItem = tscbStripChildOneParetnMethod.ComboBox.Items[tscbStripChildOneParetnMethod.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                case "panelChildTwoParent":
+                    cbItem = tscbTwoParentMethod.ComboBox.Items[tscbTwoParentMethod.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                case "panelChildTwoUnknownParent":
+                    cbItem = tscbSuppParentMethod.ComboBox.Items[tscbSuppParentMethod.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                case "panelBlend":
+                    cbItem = tscbBlendMethod.ComboBox.Items[tscbBlendMethod.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                case "panelTwoBlend":
+                    cbItem = tscbTooBlendMethods.ComboBox.Items[tscbTooBlendMethods.ComboBox.SelectedIndex] as ComboBoxItem;
+                    break;
+                default:
+                    cbItem.Id = 1;
+                    break;
+            }
+
+            if (cbItem != null)
+                return cbItem.Id;
+            else
+                return -1;
+        }
+
 
     }
 }

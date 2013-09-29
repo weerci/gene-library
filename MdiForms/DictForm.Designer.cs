@@ -45,6 +45,7 @@
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.dataGridVocabulary = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVocabulary)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripPanel1
@@ -185,6 +186,7 @@
             this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.ToolTipText = "Помощь";
+            this.helpToolStripButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
             // 
             // dataGridVocabulary
             // 
@@ -221,13 +223,16 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.toolStripPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "DictionaryForm";
             this.ShowInTaskbar = false;
             this.Text = "Справочники";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DictForm_FormClosed);
             this.Load += new System.EventHandler(this.DictForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DictionaryForm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVocabulary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

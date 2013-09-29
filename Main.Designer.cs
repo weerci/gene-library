@@ -217,15 +217,15 @@
             // toolStripMenuItemNewIkl
             // 
             this.toolStripMenuItemNewIkl.Name = "toolStripMenuItemNewIkl";
-            this.toolStripMenuItemNewIkl.Size = new System.Drawing.Size(191, 22);
-            this.toolStripMenuItemNewIkl.Text = "Новая карточка ИКЛ";
+            this.toolStripMenuItemNewIkl.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemNewIkl.Text = "Новая карточка ИКЛ...";
             this.toolStripMenuItemNewIkl.Click += new System.EventHandler(this.ToolStripMenuItemNewIkl_Click);
             // 
             // toolStripMenuItemNewIk2
             // 
             this.toolStripMenuItemNewIk2.Name = "toolStripMenuItemNewIk2";
-            this.toolStripMenuItemNewIk2.Size = new System.Drawing.Size(191, 22);
-            this.toolStripMenuItemNewIk2.Text = "Новая карточка ИК-2";
+            this.toolStripMenuItemNewIk2.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItemNewIk2.Text = "Новая карточка ИК-2...";
             this.toolStripMenuItemNewIk2.Click += new System.EventHandler(this.ToolStripMenuItemNewIk2_Click);
             // 
             // tsmFindAndEdit
@@ -294,95 +294,95 @@
             // toolStripMenuItemCodeMVD
             // 
             this.toolStripMenuItemCodeMVD.Name = "toolStripMenuItemCodeMVD";
-            this.toolStripMenuItemCodeMVD.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemCodeMVD.Text = "Коды МВД";
+            this.toolStripMenuItemCodeMVD.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemCodeMVD.Text = "Коды МВД...";
             this.toolStripMenuItemCodeMVD.Visible = false;
             this.toolStripMenuItemCodeMVD.Click += new System.EventHandler(this.toolStripMenuItemCodeMVD_Click);
             // 
             // toolStripMenuItemCodeLin
             // 
             this.toolStripMenuItemCodeLin.Name = "toolStripMenuItemCodeLin";
-            this.toolStripMenuItemCodeLin.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemCodeLin.Text = "Коды райлинорганов";
+            this.toolStripMenuItemCodeLin.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemCodeLin.Text = "Коды райлинорганов...";
             this.toolStripMenuItemCodeLin.Visible = false;
             this.toolStripMenuItemCodeLin.Click += new System.EventHandler(this.toolStripMenuItemCodeLin_Click);
             // 
             // toolStripMenuItemOrganization
             // 
             this.toolStripMenuItemOrganization.Name = "toolStripMenuItemOrganization";
-            this.toolStripMenuItemOrganization.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemOrganization.Text = "Список подразделений";
+            this.toolStripMenuItemOrganization.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemOrganization.Text = "Список подразделений...";
             this.toolStripMenuItemOrganization.Visible = false;
             this.toolStripMenuItemOrganization.Click += new System.EventHandler(this.toolStripMenuItemDivizion_Click);
             // 
             // toolStripMenuItemPost
             // 
             this.toolStripMenuItemPost.Name = "toolStripMenuItemPost";
-            this.toolStripMenuItemPost.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemPost.Text = "Должности";
+            this.toolStripMenuItemPost.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemPost.Text = "Должности...";
             this.toolStripMenuItemPost.Visible = false;
             this.toolStripMenuItemPost.Click += new System.EventHandler(this.toolStripMenuItemPost_Click);
             // 
             // toolStripMenuItemExperts
             // 
             this.toolStripMenuItemExperts.Name = "toolStripMenuItemExperts";
-            this.toolStripMenuItemExperts.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemExperts.Text = "Эксперты";
+            this.toolStripMenuItemExperts.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemExperts.Text = "Эксперты...";
             this.toolStripMenuItemExperts.Visible = false;
             this.toolStripMenuItemExperts.Click += new System.EventHandler(this.toolStripMenuItemExperts_Click);
             // 
             // toolStripMenuItemMethods
             // 
             this.toolStripMenuItemMethods.Name = "toolStripMenuItemMethods";
-            this.toolStripMenuItemMethods.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemMethods.Text = "Методы расчета";
+            this.toolStripMenuItemMethods.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemMethods.Text = "Методы расчета...";
             this.toolStripMenuItemMethods.Visible = false;
             this.toolStripMenuItemMethods.Click += new System.EventHandler(this.toolStripMenuItemMethods_Click);
             // 
             // toolStripMenuItemUK
             // 
             this.toolStripMenuItemUK.Name = "toolStripMenuItemUK";
-            this.toolStripMenuItemUK.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemUK.Text = "Статьи УК";
+            this.toolStripMenuItemUK.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemUK.Text = "Статьи УК...";
             this.toolStripMenuItemUK.Visible = false;
             this.toolStripMenuItemUK.Click += new System.EventHandler(this.ToolStripMenuItemUK_Click);
             // 
             // toolStripMenuItemKindObject
             // 
             this.toolStripMenuItemKindObject.Name = "toolStripMenuItemKindObject";
-            this.toolStripMenuItemKindObject.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemKindObject.Text = "Виды объекта";
+            this.toolStripMenuItemKindObject.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemKindObject.Text = "Виды объекта...";
             this.toolStripMenuItemKindObject.Visible = false;
             this.toolStripMenuItemKindObject.Click += new System.EventHandler(this.toolStripMenuItemKindObject_Click);
             // 
             // toolStripMenuItemClassObject
             // 
             this.toolStripMenuItemClassObject.Name = "toolStripMenuItemClassObject";
-            this.toolStripMenuItemClassObject.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemClassObject.Text = "Категории объекта";
+            this.toolStripMenuItemClassObject.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemClassObject.Text = "Категории объекта...";
             this.toolStripMenuItemClassObject.Visible = false;
             this.toolStripMenuItemClassObject.Click += new System.EventHandler(this.toolStripMenuItemClassObject_Click);
             // 
             // toolStripMenuItemKindIkl
             // 
             this.toolStripMenuItemKindIkl.Name = "toolStripMenuItemKindIkl";
-            this.toolStripMenuItemKindIkl.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemKindIkl.Text = "Категории ИКЛ";
+            this.toolStripMenuItemKindIkl.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemKindIkl.Text = "Категории ИКЛ...";
             this.toolStripMenuItemKindIkl.Visible = false;
             this.toolStripMenuItemKindIkl.Click += new System.EventHandler(this.toolStripMenuItemKindIkl_Click);
             // 
             // toolStripMenuItemOrgan
             // 
             this.toolStripMenuItemOrgan.Name = "toolStripMenuItemOrgan";
-            this.toolStripMenuItemOrgan.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemOrgan.Text = "Организации";
+            this.toolStripMenuItemOrgan.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemOrgan.Text = "Организации...";
             this.toolStripMenuItemOrgan.Click += new System.EventHandler(this.toolStripMenuItemOrganization_Click);
             // 
             // toolStripMenuItemLocuses
             // 
             this.toolStripMenuItemLocuses.Name = "toolStripMenuItemLocuses";
-            this.toolStripMenuItemLocuses.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItemLocuses.Text = "Локусы";
+            this.toolStripMenuItemLocuses.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItemLocuses.Text = "Локусы...";
             this.toolStripMenuItemLocuses.Click += new System.EventHandler(this.toolStripMenuItemLocuses_Click);
             // 
             // ToolStripPreferences

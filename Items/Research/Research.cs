@@ -11,6 +11,12 @@ namespace GeneLibrary.Items.Research
 {
     class Research
     {
+        public Research(){         }
+        public Research(int methodId)
+        {
+            _methodId = methodId;
+        }
+
         // Прямая идентификация
         public virtual void DirectIdent(string cardId, string fildName)
         {
@@ -21,7 +27,7 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
             this.ratioResult = new ResearchResult();
 
-            Profiles profileChild = Tools.GetProfileById(cardId);
+            Profiles profileChild = Tools.GetProfileById(cardId, MethodId);
             var locuses = profileChild.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             if (locuses.Count() == 0)
                 throw new WFException(ErrType.Message, ErrorsMsg.LocusesListIsEmpty);
@@ -62,9 +68,7 @@ namespace GeneLibrary.Items.Research
         }
         
         // Исследование родства ребенка и одного предполагаемого родителя
-        public virtual void OneChildAndParent(
-            string cardChildId,   string cardParentId, 
-            string fildChildName, string fildParentName)
+        public virtual void OneChildAndParent(string cardChildId,   string cardParentId, string fildChildName, string fildParentName)
         {
             OneChildAndParent(Tools.GetIntFromText(cardChildId, fildChildName), Tools.GetIntFromText(cardParentId, fildParentName));
         }
@@ -73,8 +77,8 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
             this.ratioResult = new ResearchResult();
 
-            Profiles profileChild = Tools.GetProfileById(cardChildId);
-            Profiles profileParent = Tools.GetProfileById(cardParentId);
+            Profiles profileChild = Tools.GetProfileById(cardChildId, MethodId);
+            Profiles profileParent = Tools.GetProfileById(cardParentId, MethodId);
 
             var child = profileChild.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             var parent = profileParent.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
@@ -187,9 +191,9 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
             this.ratioResult = new ResearchResult();
 
-            Profiles profileChild = Tools.GetProfileById(cardChildId);
-            Profiles profileKnownParent = Tools.GetProfileById(cardKnownParentId);
-            Profiles profileUnknownParent = Tools.GetProfileById(cardUnknownParentId);
+            Profiles profileChild = Tools.GetProfileById(cardChildId, _methodId);
+            Profiles profileKnownParent = Tools.GetProfileById(cardKnownParentId, _methodId);
+            Profiles profileUnknownParent = Tools.GetProfileById(cardUnknownParentId, _methodId);
 
             var child = profileChild.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             var parentKnown = profileKnownParent.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
@@ -322,9 +326,9 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
             this.ratioResult = new ResearchResult();
 
-            Profiles profileChild = Tools.GetProfileById(cardChaildId);
-            Profiles profileFirstParent = Tools.GetProfileById(cardFirstParentId);
-            Profiles profileSecondParent = Tools.GetProfileById(cardSecondParentId);
+            Profiles profileChild = Tools.GetProfileById(cardChaildId, _methodId);
+            Profiles profileFirstParent = Tools.GetProfileById(cardFirstParentId, _methodId);
+            Profiles profileSecondParent = Tools.GetProfileById(cardSecondParentId, _methodId);
 
             var child = profileChild.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             var parentFirst = profileFirstParent.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
@@ -433,8 +437,8 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
             this.ratioResult = new ResearchResult();
 
-            Profiles profileBlend = Tools.GetProfileById(blendId);
-            Profiles profilePerson = Tools.GetProfileById(personId);
+            Profiles profileBlend = Tools.GetProfileById(blendId, _methodId);
+            Profiles profilePerson = Tools.GetProfileById(personId, _methodId);
 
             var blend = profileBlend.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             var person = profilePerson.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
@@ -519,9 +523,9 @@ namespace GeneLibrary.Items.Research
             this.probablyResult = new ResearchResult();
 //            this.ratioResult = new ResearchResult();
 
-            Profiles profileBlend = Tools.GetProfileById(blendId);
-            Profiles profilePersonOne = Tools.GetProfileById(personOneId);
-            Profiles profilePersonSecond = Tools.GetProfileById(personSecondId);
+            Profiles profileBlend = Tools.GetProfileById(blendId, _methodId);
+            Profiles profilePersonOne = Tools.GetProfileById(personOneId, _methodId);
+            Profiles profilePersonSecond = Tools.GetProfileById(personSecondId, _methodId);
 
             var blend = profileBlend.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
             var personOne = profilePersonOne.Locus.Where(n => n.CheckedAlleleCount > 0 && n.Name != "Amelogenin");
@@ -658,18 +662,26 @@ namespace GeneLibrary.Items.Research
         // Properties
         public virtual ResearchResult ProbablyResult { get { return probablyResult; } }
         public virtual ResearchResult RatioResult { get { return ratioResult; } }
+        public int MethodId { get { return _methodId; } }
 
         // Fields
         private ResearchResult probablyResult;
         private ResearchResult ratioResult;
+        private int _methodId = GeneLibraryConst.DefaultMethod; 
     }
 
     class ResearchDecorator : Research
     {
         // Constructors
-        public ResearchDecorator(Research research)
+        public ResearchDecorator(Research research, int methodId) : base(methodId)
         {
             this.research = research;   
+        }
+
+        public ResearchDecorator(Research research)
+        {
+            // TODO: Complete member initialization
+            this.research = research;
         }
 
         // Interface
