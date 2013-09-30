@@ -1055,7 +1055,7 @@ namespace GeneLibrary.Dialog
             ComboBoxItem[] comboBoxItemArray = (from DataRow dataRow in _methodVocabulary.DT.Rows
                                                 select new GeneLibrary.Common.ComboBoxItem(
                                                   Convert.ToInt32(dataRow["ID"], CultureInfo.InvariantCulture),
-                                                  String.Format(CultureInfo.InvariantCulture, "{0}", dataRow["NAME"].ToString()))).ToArray<GeneLibrary.Common.ComboBoxItem>();
+                                                  String.Format(CultureInfo.InvariantCulture, "{0}", dataRow["NAME"].ToString()))).OrderBy(n => n.Id).ToArray<GeneLibrary.Common.ComboBoxItem>();
 
             foreach (ComboBox item in comboBoxes)
             {

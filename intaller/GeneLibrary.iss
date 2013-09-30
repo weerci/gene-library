@@ -2,7 +2,7 @@
 ; ИСПОЛЬЗУЙТЕ ДОКУМЕНТАЦИЮ ДЛЯ ПОДРОБНОСТЕЙ ИСПОЛЬЗОВАНИЯ INNO SETUP!
 
 #define MyAppName "GeneLibrary"
-#define MyAppVersion "1.32"
+#define MyAppVersion "1.33"
 #define MyAppPublisher "CoreLab"
 #define MyAppURL "https://googledrive.com/host/0B49CBXu70uZAbmlid0NYaGxwQ0k/"
 #define MyAppExeName "GeneLibrary.exe"
@@ -13,7 +13,7 @@ WizardImageFile=A4dna.bmp
 ; Примечание: Значение AppId идентифицирует это приложение.
 ; Не используйте одно и тоже значение в разных установках.
 ; (Для генерации значения GUID, нажмите Инструменты | Генерация GUID.)
-AppId={{8A447213-B5CC-43C7-959C-B0CC0B39DDE5}
+AppId={{C8108F6B-E26B-480B-A802-0BD42FB114AF}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -24,7 +24,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\GeneLibrary
 DefaultGroupName=GeneLibrary
 OutputDir=D:\datadi\programming\exe\gl
-OutputBaseFilename=GeneLibrarySetup132
+OutputBaseFilename=GeneLibrarySetup133
 SetupIconFile=D:\datadi\programming\src\GeneLibrary\gene-library\res\16.ico
 Compression=lzma
 SolidCompression=yes
@@ -33,19 +33,23 @@ AppMutex=23E0E3CB-4A33-4A23-AA40-8501D5E16E08
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; 
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; 
-
 [Files]
 Source: ISAlliance.dll; DestDir: {app};
 Source: "D:\datadi\programming\exe\gl\GeneLibrary.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\GeneLibrary.chm"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\GeneLibrary.ver"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\datadi\programming\exe\gl\GeneLibrary.vshost.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\MdiClientController.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Microsoft.Office.Interop.Excel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\VS2005ToolBox.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patch\base.pdc"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patch\prk_card.pdc"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patch\prk_tab.pdc"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\base.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
+Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_card.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
+Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_tab.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
+Source: "D:\datadi\programming\exe\gl\Шаблоны\исследования.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
+Source: "D:\datadi\programming\exe\gl\Шаблоны\таблица_генотипов.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
+Source: "D:\datadi\programming\exe\gl\Шаблоны\форма_ик2.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
+Source: "D:\datadi\programming\exe\gl\Шаблоны\форма_икл.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
+
+
 ; Примечание: Не используйте "Flags: ignoreversion" для системных файлов
 
 [Icons]

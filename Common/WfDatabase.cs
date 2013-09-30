@@ -218,7 +218,19 @@ namespace WFDatabase
                 cmd.ExecuteNonQuery();
             }
         }
+        public static void OracleDeleteSimpleWithUserInfo(string sql, int[] ids, string id)
+        {
+            OracleCommand cmd = new OracleCommand(sql, WFOracle.DB.OracleConnection, WFOracle.DB.OracleTransaction);
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            foreach (int i in ids)
+            {
+                cmd.Parameters.Clear();
+                WFOracle.AddInParameter(id, OracleType.Number, i, cmd, false);
+                WFOracle.AddInParameter("curr_user", OracleType.Number, GateFactory.LogOnBase().Id, cmd, true);
+                cmd.ExecuteNonQuery();
+            }
+        }
         // Constructors
         private OracleWork() { }
     }

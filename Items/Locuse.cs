@@ -171,7 +171,7 @@ namespace GeneLibrary.Items
             WFOracle.DB.StartTransaction();
             try
             {
-                OracleWork.OracleDeleteSimple("modern.prk_tab.locus_del", ids, "a_id");
+                OracleWork.OracleDeleteSimpleWithUserInfo("modern.prk_tab.locus_del", ids, "a_id");
                 WFOracle.DB.Commit();
             }
             catch
