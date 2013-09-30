@@ -117,33 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Themes 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Themes 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="IsPartValue" xml:space="preserve">
-    <value>Поиск по части слова</value>
+  <data name="FieldReport" xml:space="preserve">
+    <value>Поля отображаемые в отчете</value>
   </data>
   <data name="cardExpertConclusion" xml:space="preserve">
     <value>Заключение эксперта</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Paste.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="areaFindIkl" xml:space="preserve">
-    <value>Карты ИКЛ</value>
   </data>
   <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Delete.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardAncillary" xml:space="preserve">
-    <value>Служебные отметки</value>
+  <data name="UnSecurity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\UnSecurity.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="View Doc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\View Doc.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardAreaFind" xml:space="preserve">
+    <value>Область поиска</value>
   </data>
   <data name="cardObject" xml:space="preserve">
     <value>Объект</value>
@@ -151,11 +142,14 @@
   <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Save.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Calendar Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Month.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Calendar Multiweek" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Multiweek.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Link" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Link.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardAncillary" xml:space="preserve">
+    <value>Служебные отметки</value>
   </data>
   <data name="Forward Email" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward Email.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,32 +157,29 @@
   <data name="Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Refresh.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Stop 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardSuspect" xml:space="preserve">
+    <value>Проверяемое лицо</value>
   </data>
   <data name="Rename - Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Rename - Edit.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardIklCategory" xml:space="preserve">
-    <value>Категория</value>
+  <data name="Send" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardId" xml:space="preserve">
-    <value>КИН</value>
+  <data name="Stop 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Address Book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Address Book.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Advanced Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Advanced Options.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardConcent" xml:space="preserve">
+    <value>Концентрация ДНК</value>
   </data>
   <data name="DataOn" xml:space="preserve">
     <value>данные на</value>
   </data>
   <data name="Security" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Security.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="filterNameIk2" xml:space="preserve">
-    <value>Карточки ИК-2</value>
   </data>
   <data name="New Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Folder.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +190,11 @@
   <data name="Extensions" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Extensions.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bookmarks 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 4.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Table 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Table 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bookmarks 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Anchor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Anchor.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,14 +202,14 @@
   <data name="Favourites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Favourites.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Send" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Link.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calendar Week" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Week.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardAreaFind" xml:space="preserve">
-    <value>Область поиска</value>
+  <data name="Fonts 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Chat 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Chat 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,11 +217,8 @@
   <data name="filterCard" xml:space="preserve">
     <value>Установленные фильтры</value>
   </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cardIk2Category" xml:space="preserve">
-    <value>Категория</value>
+  <data name="cardAddress" xml:space="preserve">
+    <value>Адрес (место проишествия)</value>
   </data>
   <data name="Cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Cut.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,41 +229,44 @@
   <data name="cardVictim" xml:space="preserve">
     <value>Потерпевший</value>
   </data>
+  <data name="filterNameIkl" xml:space="preserve">
+    <value>Карточки ИКЛ</value>
+  </data>
   <data name="cardPersonInfo" xml:space="preserve">
     <value>Сведения о лице</value>
   </data>
   <data name="MessageBoxTitle" xml:space="preserve">
     <value>Gene LIbrary</value>
   </data>
-  <data name="cardConcent" xml:space="preserve">
-    <value>Концентрация ДНК</value>
+  <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Stop.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="areaFindIk2" xml:space="preserve">
-    <value>Карты ИК-2</value>
+  <data name="Add Window 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Window 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back - Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back - Previous.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Get Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Get Mail.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="View Doc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\View Doc.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Send 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Add Tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Tab.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Email Display" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email Display.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardAmount" xml:space="preserve">
-    <value>Количество ДНК</value>
+  <data name="Spell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Spell.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Go" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Go.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SaveAndGo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\SaveAndGo.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardIk2Number" xml:space="preserve">
-    <value>№ ИК-2</value>
+  <data name="Quote 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Quote 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Properties" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Properties.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,11 +277,17 @@
   <data name="Contacts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Contacts.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bookmarks 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bookmarks 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NoDate" xml:space="preserve">
+    <value>Нет данных</value>
   </data>
   <data name="UnknownCardType" xml:space="preserve">
     <value>Не определен тип дочерней формы</value>
+  </data>
+  <data name="Write" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Write.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Quote" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Quote.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,41 +295,44 @@
   <data name="ConnectedUser" xml:space="preserve">
     <value>Пользователь:</value>
   </data>
-  <data name="cardDepartment" xml:space="preserve">
-    <value>Карта оформлена</value>
-  </data>
   <data name="cardUkNumber" xml:space="preserve">
     <value>Статья и часть УК</value>
-  </data>
-  <data name="FieldReport" xml:space="preserve">
-    <value>Поля отображаемые в отчете</value>
-  </data>
-  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Copy.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bookmarks 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 3.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="areaFindArchive" xml:space="preserve">
-    <value>Архивы</value>
-  </data>
-  <data name="_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\32.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cardAddress" xml:space="preserve">
-    <value>Адрес (место проишествия)</value>
   </data>
   <data name="cardNumber" xml:space="preserve">
     <value>Номер карты</value>
   </data>
-  <data name="Quote 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Quote 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardExpert" xml:space="preserve">
+    <value>Эксперт</value>
   </data>
-  <data name="cardExamDate" xml:space="preserve">
-    <value>Дата экспертизы</value>
+  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Copy.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cardIk2Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="ConfirmDictDel" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить 
+выбранные элементы?</value>
+  </data>
+  <data name="areaFindArchive" xml:space="preserve">
+    <value>Архивы</value>
+  </data>
+  <data name="rsGlobErrorMsg" xml:space="preserve">
+    <value>Ошибка системы!
+Произошла ошибка, которая не может быть обработана. 
+Возможно эта ошибка связана с отсутствием связи с базой данных, исчерпанием системных ресурсов или неправильной работой сторонних приложений. Ниже представлена более подробная информация об ошибке. Если причина возникновения ошибки не ясна и ошибка повторяется, отправьте информацию об ошибке разработчикам системы.</value>
+  </data>
+  <data name="IsPartValue" xml:space="preserve">
+    <value>Поиск по части слова</value>
   </data>
   <data name="Add Window 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Window 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cardCodeLin" xml:space="preserve">
+    <value>Код горрайлиноргана</value>
+  </data>
+  <data name="cardCrimNumber" xml:space="preserve">
+    <value>№ Уголовного дела</value>
   </data>
   <data name="Forward - Next" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward - Next.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,56 +340,53 @@
   <data name="File" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\File.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fonts 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardIk2Sort" xml:space="preserve">
+    <value>Вид объекта</value>
   </data>
   <data name="Add Card" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Card.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardIklNumber" xml:space="preserve">
-    <value>№ ИКЛ</value>
-  </data>
-  <data name="ConfirmDictDel" xml:space="preserve">
-    <value>Вы уверены, что хотите удалить 
-выбранные элементы?</value>
+  <data name="Advanced Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Advanced Options.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cardCreateData" xml:space="preserve">
     <value>Дата заполнения</value>
   </data>
-  <data name="cardExpert" xml:space="preserve">
-    <value>Эксперт</value>
+  <data name="cardId" xml:space="preserve">
+    <value>КИН</value>
   </data>
-  <data name="cardSize" xml:space="preserve">
-    <value>Размер пятна</value>
+  <data name="_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\32.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add Bookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Bookmark.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Go" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Go.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardCrimDate" xml:space="preserve">
-    <value>Дата совершения преступления</value>
+  <data name="Add Separator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Separator.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardCodeLin" xml:space="preserve">
-    <value>Код горрайлиноргана</value>
+  <data name="New Doc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Doc.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rsGlobErrorMsg" xml:space="preserve">
-    <value>Ошибка системы!
-Произошла ошибка, которая не может быть обработана. 
-Возможно эта ошибка связана с отсутствием связи с базой данных, исчерпанием системных ресурсов или неправильной работой сторонних приложений. Ниже представлена более подробная информация об ошибке. Если причина возникновения ошибки не ясна и ошибка повторяется, отправьте информацию об ошибке разработчикам системы.</value>
+  <data name="cardDepartment" xml:space="preserve">
+    <value>Карта оформлена</value>
   </data>
-  <data name="Back 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="areaFindIkl" xml:space="preserve">
+    <value>Карты ИКЛ</value>
   </data>
   <data name="H. Line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\H. Line.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Browse 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 3.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Forward 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Attach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Attach.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Email App Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email App Icon.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add Tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Tab.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cardSize" xml:space="preserve">
+    <value>Размер пятна</value>
   </data>
   <data name="Themes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Themes.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -394,17 +394,23 @@
   <data name="Add to Favourites" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add to Favourites.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Forward 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Forward 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Email App Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Email App Icon.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardExpertSign" xml:space="preserve">
-    <value>Подпись эксперта</value>
+  <data name="Calendar Day" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Day.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bookmarks 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 3.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Block Junk Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Block Junk Mail.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Write" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Write.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardExpertSign" xml:space="preserve">
+    <value>Подпись эксперта</value>
   </data>
   <data name="Add Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Folder.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -418,59 +424,50 @@
   <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Print.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fonts 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fonts 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Fonts 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bookmarks 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add Bookmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Bookmark.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Table 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Table 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardIk2Number" xml:space="preserve">
+    <value>№ ИК-2</value>
   </data>
-  <data name="Reply to All" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Reply to All.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Download.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Chat.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardCodeAccount" xml:space="preserve">
-    <value>Код вида учета</value>
-  </data>
-  <data name="NoDate" xml:space="preserve">
-    <value>Нет данных</value>
+  <data name="filterNameIk2" xml:space="preserve">
+    <value>Карточки ИК-2</value>
   </data>
   <data name="Move" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Move.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardSuspect" xml:space="preserve">
-    <value>Проверяемое лицо</value>
-  </data>
-  <data name="Add Separator" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Separator.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Send Later" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Send Later.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reply to All" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Reply to All.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AllData" xml:space="preserve">
     <value>Все</value>
   </data>
-  <data name="IsReportShow" xml:space="preserve">
-    <value>Отображать в отчете</value>
-  </data>
-  <data name="filterNameIkl" xml:space="preserve">
-    <value>Карточки ИКЛ</value>
+  <data name="Bookmarks 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Bookmarks 4.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="List" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\List.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Calendar Day" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Day.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardIklNumber" xml:space="preserve">
+    <value>№ ИКЛ</value>
   </data>
   <data name="NewIkl" xml:space="preserve">
     <value>Новая карта ИКЛ</value>
   </data>
-  <data name="Browse 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Browse 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reply" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Reply.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -478,49 +475,56 @@
   <data name="cardConclusion" xml:space="preserve">
     <value>Установленные совпадения</value>
   </data>
-  <data name="New Window" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Window.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Browse 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="New Doc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Doc.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardCodeAccount" xml:space="preserve">
+    <value>Код вида учета</value>
+  </data>
+  <data name="cardExamDate" xml:space="preserve">
+    <value>Дата экспертизы</value>
   </data>
   <data name="cardOrgan" xml:space="preserve">
     <value>Орган назначивший экспертизу</value>
   </data>
-  <data name="cardCrimNumber" xml:space="preserve">
-    <value>№ Уголовного дела</value>
+  <data name="IsReportShow" xml:space="preserve">
+    <value>Отображать в отчете</value>
   </data>
-  <data name="Calendar Month" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Calendar Month.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Browse 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 3.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Publish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Publish.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Back - Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Back - Previous.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardCrimDate" xml:space="preserve">
+    <value>Дата совершения преступления</value>
   </data>
-  <data name="Spell" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Spell.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardAmount" xml:space="preserve">
+    <value>Количество ДНК</value>
   </data>
-  <data name="Add Window 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Add Window 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Download" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Download.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UnSecurity" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\UnSecurity.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardIklCategory" xml:space="preserve">
+    <value>Категория</value>
   </data>
   <data name="cardExamNumber" xml:space="preserve">
     <value>Номер экспертизы</value>
   </data>
-  <data name="cardIk2Sort" xml:space="preserve">
-    <value>Вид объекта</value>
+  <data name="New Window" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\New Window.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Browse 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Browse 1.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Themes 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Themes 2.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SaveAndGo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\SaveAndGo.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="areaFindIk2" xml:space="preserve">
+    <value>Карты ИК-2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DNA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\intaller\DNA.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

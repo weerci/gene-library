@@ -719,6 +719,7 @@
   <ItemGroup>
     <Content Include="16.ico" />
     <Content Include="Images\ProfileFile.PNG" />
+    <None Include="intaller\DNA.bmp" />
     <Content Include="Model\modern.pdb" />
     <Content Include="Model\Перенос базы данных.txt" />
     <Content Include="Model\Создание новой базы данных.txt" />

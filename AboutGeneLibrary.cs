@@ -20,7 +20,7 @@ namespace GeneLibrary
             this.Text = String.Format("{0} ", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             string[] arrayVersion = AssemblyVersion.Split('.');
-            this.labelVersion.Text = String.Format("Версия {0} ", String.Format("{0}.{1}", arrayVersion[0], arrayVersion[1]));
+            this.labelVersion.Text = String.Format("Версия {0} ", String.Format("{0}.{1}.{2}.{3}", arrayVersion[0], arrayVersion[1], arrayVersion[2], arrayVersion[3]));
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
@@ -124,6 +124,10 @@ namespace GeneLibrary
             {
                 throw new WFException(ErrType.Message, String.Format(ErrorsMsg.FileNotFound, filePath));
             }
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://googledrive.com/host/0B49CBXu70uZAbmlid0NYaGxwQ0k/");
         }
 
  
