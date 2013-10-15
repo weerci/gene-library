@@ -2,7 +2,7 @@
 ; ИСПОЛЬЗУЙТЕ ДОКУМЕНТАЦИЮ ДЛЯ ПОДРОБНОСТЕЙ ИСПОЛЬЗОВАНИЯ INNO SETUP!
 
 #define MyAppName "GeneLibrary"
-#define MyAppVersion "1.33"
+#define MyAppVersion "1.33.0.1"
 #define MyAppPublisher "CoreLab"
 #define MyAppURL "https://googledrive.com/host/0B49CBXu70uZAbmlid0NYaGxwQ0k/"
 #define MyAppExeName "GeneLibrary.exe"
@@ -24,7 +24,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\GeneLibrary
 DefaultGroupName=GeneLibrary
 OutputDir=D:\datadi\programming\exe\gl
-OutputBaseFilename=GeneLibrarySetup133
+OutputBaseFilename=GeneLibrarySetup13301
 SetupIconFile=D:\datadi\programming\src\GeneLibrary\gene-library\res\16.ico
 Compression=lzma
 SolidCompression=yes
@@ -41,6 +41,8 @@ Source: "D:\datadi\programming\exe\gl\GeneLibrary.ver"; DestDir: "{app}"; Flags:
 Source: "D:\datadi\programming\exe\gl\MdiClientController.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Microsoft.Office.Interop.Excel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\VS2005ToolBox.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Dll\oci.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Dll\tnsnames.ora"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\base.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
 Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_card.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
 Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_tab.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
@@ -48,7 +50,6 @@ Source: "D:\datadi\programming\exe\gl\Шаблоны\исследования.xlt"; DestDir: "{app}
 Source: "D:\datadi\programming\exe\gl\Шаблоны\таблица_генотипов.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Шаблоны\форма_ик2.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Шаблоны\форма_икл.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
-
 
 ; Примечание: Не используйте "Flags: ignoreversion" для системных файлов
 
