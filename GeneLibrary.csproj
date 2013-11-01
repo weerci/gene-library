@@ -26,7 +26,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <ApplicationIcon>res\16.ico</ApplicationIcon>
+    <ApplicationIcon>Безымянный.ico</ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -665,9 +665,6 @@
     <None Include="Model\PatchDB\base.pdc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Model\PatchDB\prk_card.pdc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Model\PatchDB\prk_tab.pdc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -717,8 +714,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="16.ico" />
+    <Content Include="DNA.ico" />
     <Content Include="Images\ProfileFile.PNG" />
+    <Content Include="Безымянный.ico" />
     <None Include="intaller\DNA.bmp" />
     <Content Include="Model\modern.pdb" />
     <Content Include="Model\Перенос базы данных.txt" />

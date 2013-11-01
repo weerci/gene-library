@@ -72,8 +72,8 @@
             this.listBoxAllRight.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxAllRight.Size = new System.Drawing.Size(239, 316);
             this.listBoxAllRight.TabIndex = 8;
-            this.listBoxAllRight.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxAllRight_MouseDoubleClick);
             this.listBoxAllRight.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.listBoxAllRight.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxAllRight_MouseDoubleClick);
             // 
             // buttonAccept
             // 
@@ -108,8 +108,8 @@
             this.listBoxAcceptRight.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxAcceptRight.Size = new System.Drawing.Size(239, 316);
             this.listBoxAcceptRight.TabIndex = 14;
-            this.listBoxAcceptRight.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxAcceptRight_MouseDoubleClick);
             this.listBoxAcceptRight.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.listBoxAcceptRight.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxAcceptRight_MouseDoubleClick);
             // 
             // label1
             // 

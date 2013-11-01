@@ -1,113 +1,10 @@
------------------------------------------------------
--- Export file for user MODERN                     --
--- Created by Администратор on 25.09.2013, 5:28:57 --
------------------------------------------------------
+------------------------------------------------------
+-- Export file for user MODERN                      --
+-- Created by Администратор on 31.10.2013, 23:20:28 --
+------------------------------------------------------
 
+set define off
 spool prk_tab.log
-
-prompt
-prompt Creating package PRK_TAB
-prompt ========================
-prompt
-create or replace package modern.prk_tab is
-
-    function set_locus_history(a_id in number, history_action in number, expert_id in number, note in nvarchar2) return number;
-      
-  -- Работа со справочниками
-    -- Справочник "Коды МВД"
-    function mvd_ins(a_name in nvarchar2, a_short_name in nvarchar2, a_code in nvarchar2) return number;
-    procedure mvd_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2, a_code in nvarchar2);
-    procedure mvd_del(a_id number);
-
-    -- Справочник "Коды райлиноргана"
-    function lin_ins(a_code in nvarchar2, a_organ in nvarchar2) return number;
-    procedure lin_upd(a_id in number, a_code in nvarchar2, a_organ in nvarchar2);
-    procedure lin_del(a_id number);
-
-    -- Справочник "Список экспертных подразделений"
-    function division_ins(a_name in nvarchar2, a_address in nvarchar2, a_phone in nvarchar2) return number;
-    procedure division_upd(a_id in number, a_name in nvarchar2, a_address in nvarchar2, a_phone in nvarchar2);
-    procedure division_del(a_id in number);
-
-    -- Справочник "Список должностей"
-    function post_ins(a_name in nvarchar2) return number;
-    procedure post_upd(a_id in number, a_name in nvarchar2);
-    procedure post_del(a_id in number);
-
-    -- Справочник "Список экспертов"
-    function exp_ins(a_div_id in number, a_post_id in number, a_surname in nvarchar2,
-      a_name in nvarchar2, a_patronic in nvarchar2, a_login in nvarchar2, a_sign in nvarchar2) return number;
-    procedure exp_upd(a_id in number, a_div_id in number, a_post_id in number, a_surname in nvarchar2,
-      a_name in nvarchar2, a_patronic in nvarchar2, a_login in nvarchar2, a_sign in nvarchar2);
-    procedure exp_del(a_id in number,  a_curr_user in number);
-    procedure exp_change_password(a_id in number, a_password in nvarchar2);
-    function exp_check_password(a_id in number, a_password in nvarchar2) return number;
-
-    -- Справочник "Список методов расчета"
-    function method_ins(a_name in nvarchar2, a_def_freq in number, a_desc in nvarchar2) return number;
-    procedure freq_ins(a_allele_id in number, a_method_id in number, a_freq in number);
-    procedure method_upd(a_id in number, a_name in nvarchar2, a_def_freq in number, a_desc in nvarchar2);
-    procedure freq_upd(a_method_id in number, a_allele_id in number, a_freq in number);
-    procedure method_del(a_id in number);
-    procedure freq_del(a_method_id in number, a_allele_id in number);
-    procedure methods_freq_del(a_id in number);
-
-    -- Справочник "Список локусов"
-    function locus_ins(a_name in nvarchar2, curr_user in number) return number;
-    procedure locus_upd(a_id in number, a_name in nvarchar2, curr_user in number);
-    procedure locus_del(a_id in number, curr_user in number);
-    function allele_ins(a_locus_id in number, a_name in nvarchar2, a_val in number) return number;
-    procedure allele_upd(a_id in number, a_name in nvarchar2, a_val in number);
-    procedure allele_del(a_id in number);
-
-    -- Справочник "Статьи УК"
-    function uk_artcl_ins(a_artcl in nvarchar2, a_note in nvarchar2, a_parent_id in number) return number;
-    function uk_text_ins(a_note in nvarchar2, a_parent_id in number) return number;
-    procedure uk_artcl_upd(a_id in number, a_artcl in nvarchar2, a_note in nvarchar2, a_parent_id in number);
-    procedure uk_text_upd(a_id in number, a_note in nvarchar2, a_parent_id in number);
-    procedure uk_item_del(a_id in number);
-
-    -- Справочник "Роли пользователя"
-    function role_ins(a_name in nvarchar2) return number;
-    procedure role_upd(a_id in number, a_name in nvarchar2);
-    procedure role_del(a_id in number);
-
-    -- Справочник "Организации"
-    function org_ins(a_note in nvarchar2) return number;
-    procedure org_upd(a_id in number, a_note in nvarchar2);
-    procedure org_del(a_id in number);
-
-    -- Справочник "Вид объекта"
-    function sort_ins(a_name in nvarchar2, a_short_name in nvarchar2) return number;
-    procedure sort_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2);
-    procedure sort_del(a_id in number);
-
-    -- Справочник "Категории объекта"
-    function class_obj_ins(a_name in nvarchar2, a_short_name in nvarchar2) return number;
-    procedure class_obj_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2);
-    procedure class_obj_del(a_id in number);
-
-    -- Справочник "Категории карточки ИКЛ"
-    function class_ikl_ins(a_name in nvarchar2, a_short_name in nvarchar2) return number;
-    procedure class_ikl_upd(a_id in number, a_name in nvarchar2, a_short_name in nvarchar2);
-    procedure class_ikl_del(a_id in number);
-
-    -- Назначение прав ролям
-    procedure role_right_del(a_role_id in number);
-    procedure role_right_ins(a_role_id in number, a_func_id in number);
-
-    -- Назначение прав пользователям
-    procedure right_user_del(a_user_id in number);
-    procedure right_user_ins(a_user_id in number, a_func_id in number, a_permission in number);
-    procedure role_user_ins(a_user_id in number, a_role_id in number);
-
-    -- Работа с фильтрами
-    function filter_ins(a_name in nvarchar2, a_text in nclob) return number;
-    procedure filter_upd(a_id in number, a_name in nvarchar2, a_text in nvarchar2);
-    procedure filter_del(a_id in number);
-
-end ;
-/
 
 prompt
 prompt Creating package body PRK_TAB
@@ -133,7 +30,7 @@ create or replace package body modern.prk_tab is
 
     return new_hist_id;
   end;
-  
+
   -- Работа со справочниками
     -- Справочник "Коды МВД"
     function mvd_ins(a_name in nvarchar2, a_short_name in nvarchar2, a_code in nvarchar2) return number is
@@ -344,11 +241,11 @@ create or replace package body modern.prk_tab is
       insert into modern.locus(id, name, history_id) values (locus_id, a_name, hist_id);
       return locus_id;
     end;
-    
+
     procedure locus_upd(a_id in number, a_name in nvarchar2, curr_user in number) is
       hist_id number;
     begin
-      hist_id := set_locus_history(a_id, 14, curr_user, 
+      hist_id := set_locus_history(a_id, 14, curr_user,
       ' Изменение локуса ID="'||a_id||' Новые данные: Наименование= "'||a_name||'"');
 
     update modern.locus l
@@ -357,26 +254,28 @@ create or replace package body modern.prk_tab is
       where
         l.id = a_id;
     end;
-    
+
     procedure locus_del(a_id in number, curr_user in number) is
       hist_id number;
     begin
-      hist_id := set_locus_history(a_id, 16, curr_user, 'Удаление локуса ID='||a_id);           
+      hist_id := set_locus_history(a_id, 16, curr_user, 'Удаление локуса ID='||a_id);
+      delete FROM modern.allele_freq af 
+             WHERE af.allele_id IN (SELECT a."ID" FROM modern.allele a WHERE a.locus_id = a_id);  
       delete from modern.allele a where a.locus_id = a_id;
       delete from modern.locus l where l.id = a_id;
 		end;
-    
+
     function allele_ins(a_locus_id in number, a_name in nvarchar2, a_val in number) return number is
       allele_id number;
     begin
       select modern.allele_seq.nextval into allele_id from dual;
-      insert into modern.allele(id, locus_id, name, val, history_id, old_allele_id) values (allele_id, a_locus_id, a_name, a_val, -1000, -100);      
+      insert into modern.allele(id, locus_id, name, val, history_id, old_allele_id) values (allele_id, a_locus_id, a_name, a_val, -1000, -100);
       return allele_id;
     end;
 
     procedure allele_upd(a_id in number, a_name in nvarchar2, a_val in number) is
     begin
-      update modern.allele a 
+      update modern.allele a
       set a.name = a_name, a.val = a.val
       where a.id = a_id;
     end;

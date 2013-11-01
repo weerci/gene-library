@@ -123,7 +123,7 @@
   <data name="cardExpertConclusion" xml:space="preserve">
     <value>Заключение эксперта</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Paste.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -355,9 +355,6 @@
   <data name="cardId" xml:space="preserve">
     <value>КИН</value>
   </data>
-  <data name="_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\32.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Go" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Go.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -502,9 +499,6 @@
   <data name="cardAmount" xml:space="preserve">
     <value>Количество ДНК</value>
   </data>
-  <data name="_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\16.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\icandy_junior_toolbar_icons_win\iCandy Junior Toolbar Icons win\The Icons\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -523,7 +517,6 @@
   <data name="areaFindIk2" xml:space="preserve">
     <value>Карты ИК-2</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="DNA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\intaller\DNA.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -78,9 +78,9 @@
             // 
             // tcUK
             // 
-            this.tcUK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcUK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tcUK.Controls.Add(this.tpArtcl);
             this.tcUK.Controls.Add(this.tpTexts);
             this.tcUK.Location = new System.Drawing.Point(0, 0);
@@ -209,7 +209,7 @@
             this.tbText.Size = new System.Drawing.Size(487, 352);
             this.tbText.TabIndex = 1;
             // 
-            // UKDlg
+            // UKForm
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,7 +223,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "UKDlg";
+            this.Name = "UKForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Статьи УК";

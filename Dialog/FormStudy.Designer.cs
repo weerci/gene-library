@@ -37,6 +37,45 @@
             this.panelChildOneParent = new System.Windows.Forms.Panel();
             this.panelDirect = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.panelContentTwoBlend = new System.Windows.Forms.Panel();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.tcTwoBlend = new System.Windows.Forms.TabControl();
+            this.tpTwoBlendDirect = new System.Windows.Forms.TabPage();
+            this.dgvTwoBlendDirect = new System.Windows.Forms.DataGridView();
+            this.tpTwoBlendRatio = new System.Windows.Forms.TabPage();
+            this.dgvTwoBlendRatio = new System.Windows.Forms.DataGridView();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnTwoBlendIk2 = new System.Windows.Forms.Button();
+            this.btnTwoBlendKnown = new System.Windows.Forms.Button();
+            this.btnTwoBlendUnknown = new System.Windows.Forms.Button();
+            this.textBoxTwoBlendKnown = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.textBoxTwoBlendUnknown = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBoxTwoBlendIk2 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.tsbTwoBlendGo = new System.Windows.Forms.ToolStripButton();
+            this.tsbTwoBlendPrint1 = new System.Windows.Forms.ToolStripButton();
+            this.tscbTooBlendMethods = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbTwoBlendHelp = new System.Windows.Forms.ToolStripButton();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.nudTwoBlendError = new System.Windows.Forms.NumericUpDown();
+            this.label39 = new System.Windows.Forms.Label();
+            this.nudTwoBlendLocusCount = new System.Windows.Forms.NumericUpDown();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tcTwoBlendFind = new System.Windows.Forms.TabControl();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.dgvTwoBlendFind = new System.Windows.Forms.DataGridView();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.lvTwoBlend = new System.Windows.Forms.ListView();
+            this.btnTwoBlendFind = new System.Windows.Forms.Button();
             this.panelContentChildTwoUnknownParent = new System.Windows.Forms.Panel();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tcSuppParent = new System.Windows.Forms.TabControl();
@@ -198,45 +237,6 @@
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonDirect = new System.Windows.Forms.Button();
-            this.panelContentTwoBlend = new System.Windows.Forms.Panel();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.tcTwoBlend = new System.Windows.Forms.TabControl();
-            this.tpTwoBlendDirect = new System.Windows.Forms.TabPage();
-            this.dgvTwoBlendDirect = new System.Windows.Forms.DataGridView();
-            this.tpTwoBlendRatio = new System.Windows.Forms.TabPage();
-            this.dgvTwoBlendRatio = new System.Windows.Forms.DataGridView();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnTwoBlendIk2 = new System.Windows.Forms.Button();
-            this.btnTwoBlendKnown = new System.Windows.Forms.Button();
-            this.btnTwoBlendUnknown = new System.Windows.Forms.Button();
-            this.textBoxTwoBlendKnown = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBoxTwoBlendUnknown = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBoxTwoBlendIk2 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.tsbTwoBlendGo = new System.Windows.Forms.ToolStripButton();
-            this.tsbTwoBlendPrint1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tscbTooBlendMethods = new System.Windows.Forms.ToolStripComboBox();
-            this.tsbTwoBlendHelp = new System.Windows.Forms.ToolStripButton();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.nudTwoBlendError = new System.Windows.Forms.NumericUpDown();
-            this.label39 = new System.Windows.Forms.Label();
-            this.nudTwoBlendLocusCount = new System.Windows.Forms.NumericUpDown();
-            this.label34 = new System.Windows.Forms.Label();
-            this.tcTwoBlendFind = new System.Windows.Forms.TabControl();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.dgvTwoBlendFind = new System.Windows.Forms.DataGridView();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.lvTwoBlend = new System.Windows.Forms.ListView();
-            this.btnTwoBlendFind = new System.Windows.Forms.Button();
             this.panelContentBlend = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tcBlend = new System.Windows.Forms.TabControl();
@@ -292,6 +292,24 @@
             this.btnFindBlend = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             this.panelRight.SuspendLayout();
+            this.panelContentTwoBlend.SuspendLayout();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            this.tcTwoBlend.SuspendLayout();
+            this.tpTwoBlendDirect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendDirect)).BeginInit();
+            this.tpTwoBlendRatio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendRatio)).BeginInit();
+            this.panel9.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendLocusCount)).BeginInit();
+            this.tcTwoBlendFind.SuspendLayout();
+            this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendFind)).BeginInit();
+            this.tabPage16.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panelContentChildTwoUnknownParent.SuspendLayout();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -361,24 +379,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLocusCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
-            this.panelContentTwoBlend.SuspendLayout();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.tcTwoBlend.SuspendLayout();
-            this.tpTwoBlendDirect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendDirect)).BeginInit();
-            this.tpTwoBlendRatio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendRatio)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendLocusCount)).BeginInit();
-            this.tcTwoBlendFind.SuspendLayout();
-            this.tabPage15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendFind)).BeginInit();
-            this.tabPage16.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.panelContentBlend.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -486,6 +486,471 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(636, 687);
             this.panelRight.TabIndex = 1;
+            // 
+            // panelContentTwoBlend
+            // 
+            this.panelContentTwoBlend.BackColor = System.Drawing.SystemColors.Window;
+            this.panelContentTwoBlend.Controls.Add(this.splitContainer4);
+            this.panelContentTwoBlend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContentTwoBlend.Location = new System.Drawing.Point(0, 0);
+            this.panelContentTwoBlend.Name = "panelContentTwoBlend";
+            this.panelContentTwoBlend.Size = new System.Drawing.Size(636, 687);
+            this.panelContentTwoBlend.TabIndex = 1;
+            this.panelContentTwoBlend.Visible = false;
+            this.panelContentTwoBlend.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer4.Location = new System.Drawing.Point(5, 5);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.splitContainer4.Panel1.Controls.Add(this.tcTwoBlend);
+            this.splitContainer4.Panel1.Controls.Add(this.panel9);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.Window;
+            this.splitContainer4.Panel2.Controls.Add(this.nudTwoBlendError);
+            this.splitContainer4.Panel2.Controls.Add(this.label39);
+            this.splitContainer4.Panel2.Controls.Add(this.nudTwoBlendLocusCount);
+            this.splitContainer4.Panel2.Controls.Add(this.label34);
+            this.splitContainer4.Panel2.Controls.Add(this.tcTwoBlendFind);
+            this.splitContainer4.Panel2.Controls.Add(this.btnTwoBlendFind);
+            this.splitContainer4.Size = new System.Drawing.Size(626, 676);
+            this.splitContainer4.SplitterDistance = 374;
+            this.splitContainer4.TabIndex = 3;
+            // 
+            // tcTwoBlend
+            // 
+            this.tcTwoBlend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcTwoBlend.Controls.Add(this.tpTwoBlendDirect);
+            this.tcTwoBlend.Controls.Add(this.tpTwoBlendRatio);
+            this.tcTwoBlend.Location = new System.Drawing.Point(6, 114);
+            this.tcTwoBlend.Name = "tcTwoBlend";
+            this.tcTwoBlend.SelectedIndex = 0;
+            this.tcTwoBlend.Size = new System.Drawing.Size(612, 257);
+            this.tcTwoBlend.TabIndex = 1;
+            // 
+            // tpTwoBlendDirect
+            // 
+            this.tpTwoBlendDirect.Controls.Add(this.dgvTwoBlendDirect);
+            this.tpTwoBlendDirect.Location = new System.Drawing.Point(4, 22);
+            this.tpTwoBlendDirect.Name = "tpTwoBlendDirect";
+            this.tpTwoBlendDirect.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTwoBlendDirect.Size = new System.Drawing.Size(604, 231);
+            this.tpTwoBlendDirect.TabIndex = 0;
+            this.tpTwoBlendDirect.Text = "Прямая идентификация";
+            this.tpTwoBlendDirect.UseVisualStyleBackColor = true;
+            // 
+            // dgvTwoBlendDirect
+            // 
+            this.dgvTwoBlendDirect.AllowUserToAddRows = false;
+            this.dgvTwoBlendDirect.AllowUserToDeleteRows = false;
+            this.dgvTwoBlendDirect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTwoBlendDirect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTwoBlendDirect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTwoBlendDirect.Location = new System.Drawing.Point(3, 3);
+            this.dgvTwoBlendDirect.Name = "dgvTwoBlendDirect";
+            this.dgvTwoBlendDirect.ReadOnly = true;
+            this.dgvTwoBlendDirect.RowHeadersWidth = 16;
+            this.dgvTwoBlendDirect.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTwoBlendDirect.Size = new System.Drawing.Size(598, 225);
+            this.dgvTwoBlendDirect.StandardTab = true;
+            this.dgvTwoBlendDirect.TabIndex = 1;
+            // 
+            // tpTwoBlendRatio
+            // 
+            this.tpTwoBlendRatio.Controls.Add(this.dgvTwoBlendRatio);
+            this.tpTwoBlendRatio.Location = new System.Drawing.Point(4, 22);
+            this.tpTwoBlendRatio.Name = "tpTwoBlendRatio";
+            this.tpTwoBlendRatio.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTwoBlendRatio.Size = new System.Drawing.Size(604, 231);
+            this.tpTwoBlendRatio.TabIndex = 1;
+            this.tpTwoBlendRatio.Text = "Отношение правдоподобия";
+            this.tpTwoBlendRatio.UseVisualStyleBackColor = true;
+            // 
+            // dgvTwoBlendRatio
+            // 
+            this.dgvTwoBlendRatio.AllowUserToAddRows = false;
+            this.dgvTwoBlendRatio.AllowUserToDeleteRows = false;
+            this.dgvTwoBlendRatio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTwoBlendRatio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTwoBlendRatio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTwoBlendRatio.Location = new System.Drawing.Point(3, 3);
+            this.dgvTwoBlendRatio.Name = "dgvTwoBlendRatio";
+            this.dgvTwoBlendRatio.ReadOnly = true;
+            this.dgvTwoBlendRatio.RowHeadersWidth = 16;
+            this.dgvTwoBlendRatio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTwoBlendRatio.Size = new System.Drawing.Size(598, 225);
+            this.dgvTwoBlendRatio.StandardTab = true;
+            this.dgvTwoBlendRatio.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Window;
+            this.panel9.Controls.Add(this.btnTwoBlendIk2);
+            this.panel9.Controls.Add(this.btnTwoBlendKnown);
+            this.panel9.Controls.Add(this.btnTwoBlendUnknown);
+            this.panel9.Controls.Add(this.textBoxTwoBlendKnown);
+            this.panel9.Controls.Add(this.label22);
+            this.panel9.Controls.Add(this.textBoxTwoBlendUnknown);
+            this.panel9.Controls.Add(this.label24);
+            this.panel9.Controls.Add(this.textBoxTwoBlendIk2);
+            this.panel9.Controls.Add(this.label26);
+            this.panel9.Controls.Add(this.toolStrip4);
+            this.panel9.Controls.Add(this.textBox8);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(624, 119);
+            this.panel9.TabIndex = 0;
+            // 
+            // btnTwoBlendIk2
+            // 
+            this.btnTwoBlendIk2.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
+            this.btnTwoBlendIk2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTwoBlendIk2.Location = new System.Drawing.Point(462, 43);
+            this.btnTwoBlendIk2.Name = "btnTwoBlendIk2";
+            this.btnTwoBlendIk2.Size = new System.Drawing.Size(23, 23);
+            this.btnTwoBlendIk2.TabIndex = 2;
+            this.btnTwoBlendIk2.UseVisualStyleBackColor = true;
+            this.btnTwoBlendIk2.Click += new System.EventHandler(this.buttonShowCard_Click);
+            // 
+            // btnTwoBlendKnown
+            // 
+            this.btnTwoBlendKnown.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
+            this.btnTwoBlendKnown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTwoBlendKnown.Location = new System.Drawing.Point(591, 43);
+            this.btnTwoBlendKnown.Name = "btnTwoBlendKnown";
+            this.btnTwoBlendKnown.Size = new System.Drawing.Size(23, 23);
+            this.btnTwoBlendKnown.TabIndex = 4;
+            this.btnTwoBlendKnown.UseVisualStyleBackColor = true;
+            this.btnTwoBlendKnown.Click += new System.EventHandler(this.buttonShowCard_Click);
+            // 
+            // btnTwoBlendUnknown
+            // 
+            this.btnTwoBlendUnknown.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
+            this.btnTwoBlendUnknown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTwoBlendUnknown.Location = new System.Drawing.Point(591, 86);
+            this.btnTwoBlendUnknown.Name = "btnTwoBlendUnknown";
+            this.btnTwoBlendUnknown.Size = new System.Drawing.Size(23, 23);
+            this.btnTwoBlendUnknown.TabIndex = 6;
+            this.btnTwoBlendUnknown.UseVisualStyleBackColor = true;
+            this.btnTwoBlendUnknown.Click += new System.EventHandler(this.buttonShowCard_Click);
+            // 
+            // textBoxTwoBlendKnown
+            // 
+            this.textBoxTwoBlendKnown.Location = new System.Drawing.Point(495, 45);
+            this.textBoxTwoBlendKnown.Name = "textBoxTwoBlendKnown";
+            this.textBoxTwoBlendKnown.Size = new System.Drawing.Size(90, 20);
+            this.textBoxTwoBlendKnown.TabIndex = 3;
+            this.textBoxTwoBlendKnown.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(492, 29);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(121, 13);
+            this.label22.TabIndex = 6;
+            this.label22.Text = "КИН известного лица:";
+            // 
+            // textBoxTwoBlendUnknown
+            // 
+            this.textBoxTwoBlendUnknown.Location = new System.Drawing.Point(389, 88);
+            this.textBoxTwoBlendUnknown.Name = "textBoxTwoBlendUnknown";
+            this.textBoxTwoBlendUnknown.Size = new System.Drawing.Size(196, 20);
+            this.textBoxTwoBlendUnknown.TabIndex = 5;
+            this.textBoxTwoBlendUnknown.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(385, 70);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(153, 13);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "КИН предполагаемого лица:";
+            // 
+            // textBoxTwoBlendIk2
+            // 
+            this.textBoxTwoBlendIk2.Location = new System.Drawing.Point(389, 45);
+            this.textBoxTwoBlendIk2.Name = "textBoxTwoBlendIk2";
+            this.textBoxTwoBlendIk2.Size = new System.Drawing.Size(67, 20);
+            this.textBoxTwoBlendIk2.TabIndex = 1;
+            this.textBoxTwoBlendIk2.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(386, 29);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(66, 13);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "КИН следа:";
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbTwoBlendGo,
+            this.tsbTwoBlendPrint1,
+            this.tscbTooBlendMethods,
+            this.toolStripSeparator5,
+            this.tsbTwoBlendHelp});
+            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.toolStrip4.Size = new System.Drawing.Size(624, 25);
+            this.toolStrip4.TabIndex = 0;
+            this.toolStrip4.Text = "toolStrip4";
+            // 
+            // tsbTwoBlendGo
+            // 
+            this.tsbTwoBlendGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbTwoBlendGo.Enabled = false;
+            this.tsbTwoBlendGo.Image = global::GeneLibrary.Properties.Resources.Advanced_Options;
+            this.tsbTwoBlendGo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTwoBlendGo.Name = "tsbTwoBlendGo";
+            this.tsbTwoBlendGo.Size = new System.Drawing.Size(23, 22);
+            this.tsbTwoBlendGo.ToolTipText = "Выполнить";
+            this.tsbTwoBlendGo.Click += new System.EventHandler(this.ToolStripButtonGo_Click);
+            // 
+            // tsbTwoBlendPrint1
+            // 
+            this.tsbTwoBlendPrint1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbTwoBlendPrint1.Enabled = false;
+            this.tsbTwoBlendPrint1.Image = ((System.Drawing.Image)(resources.GetObject("tsbTwoBlendPrint1.Image")));
+            this.tsbTwoBlendPrint1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTwoBlendPrint1.Name = "tsbTwoBlendPrint1";
+            this.tsbTwoBlendPrint1.Size = new System.Drawing.Size(23, 22);
+            this.tsbTwoBlendPrint1.Text = "&Print";
+            this.tsbTwoBlendPrint1.ToolTipText = "Печать";
+            this.tsbTwoBlendPrint1.Click += new System.EventHandler(this.printToolStripButton_Click);
+            // 
+            // tscbTooBlendMethods
+            // 
+            this.tscbTooBlendMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbTooBlendMethods.Name = "tscbTooBlendMethods";
+            this.tscbTooBlendMethods.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbTwoBlendHelp
+            // 
+            this.tsbTwoBlendHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbTwoBlendHelp.Image = ((System.Drawing.Image)(resources.GetObject("tsbTwoBlendHelp.Image")));
+            this.tsbTwoBlendHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTwoBlendHelp.Name = "tsbTwoBlendHelp";
+            this.tsbTwoBlendHelp.Size = new System.Drawing.Size(23, 22);
+            this.tsbTwoBlendHelp.Text = "He&lp";
+            this.tsbTwoBlendHelp.Click += new System.EventHandler(this.toolStripHelp_Click);
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox8.Location = new System.Drawing.Point(6, 31);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(373, 85);
+            this.textBox8.TabIndex = 0;
+            this.textBox8.TabStop = false;
+            this.textBox8.Text = resources.GetString("textBox8.Text");
+            // 
+            // nudTwoBlendError
+            // 
+            this.nudTwoBlendError.Location = new System.Drawing.Point(159, 8);
+            this.nudTwoBlendError.Name = "nudTwoBlendError";
+            this.nudTwoBlendError.Size = new System.Drawing.Size(52, 20);
+            this.nudTwoBlendError.TabIndex = 17;
+            this.nudTwoBlendError.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(14, 12);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(141, 13);
+            this.label39.TabIndex = 16;
+            this.label39.Text = "Количество несовпадений";
+            // 
+            // nudTwoBlendLocusCount
+            // 
+            this.nudTwoBlendLocusCount.Location = new System.Drawing.Point(375, 8);
+            this.nudTwoBlendLocusCount.Name = "nudTwoBlendLocusCount";
+            this.nudTwoBlendLocusCount.Size = new System.Drawing.Size(54, 20);
+            this.nudTwoBlendLocusCount.TabIndex = 7;
+            this.nudTwoBlendLocusCount.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(229, 12);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(140, 13);
+            this.label34.TabIndex = 15;
+            this.label34.Text = "Количество локусов учета";
+            // 
+            // tcTwoBlendFind
+            // 
+            this.tcTwoBlendFind.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tcTwoBlendFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tcTwoBlendFind.Controls.Add(this.tabPage15);
+            this.tcTwoBlendFind.Controls.Add(this.tabPage16);
+            this.tcTwoBlendFind.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tcTwoBlendFind.ItemSize = new System.Drawing.Size(80, 18);
+            this.tcTwoBlendFind.Location = new System.Drawing.Point(6, 34);
+            this.tcTwoBlendFind.Multiline = true;
+            this.tcTwoBlendFind.Name = "tcTwoBlendFind";
+            this.tcTwoBlendFind.SelectedIndex = 0;
+            this.tcTwoBlendFind.Size = new System.Drawing.Size(610, 255);
+            this.tcTwoBlendFind.TabIndex = 14;
+            this.tcTwoBlendFind.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlFind_DrawItem);
+            this.tcTwoBlendFind.SelectedIndexChanged += new System.EventHandler(this.tcTwoBlendFind_SelectedIndexChanged);
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Controls.Add(this.dgvTwoBlendFind);
+            this.tabPage15.Location = new System.Drawing.Point(4, 4);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(602, 229);
+            this.tabPage15.TabIndex = 0;
+            this.tabPage15.Text = "Результат поиска";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // dgvTwoBlendFind
+            // 
+            this.dgvTwoBlendFind.AllowDrop = true;
+            this.dgvTwoBlendFind.AllowUserToAddRows = false;
+            this.dgvTwoBlendFind.AllowUserToDeleteRows = false;
+            this.dgvTwoBlendFind.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTwoBlendFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTwoBlendFind.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTwoBlendFind.Location = new System.Drawing.Point(3, 3);
+            this.dgvTwoBlendFind.Name = "dgvTwoBlendFind";
+            this.dgvTwoBlendFind.ReadOnly = true;
+            this.dgvTwoBlendFind.RowHeadersWidth = 16;
+            this.dgvTwoBlendFind.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTwoBlendFind.Size = new System.Drawing.Size(596, 223);
+            this.dgvTwoBlendFind.TabIndex = 13;
+            // 
+            // tabPage16
+            // 
+            this.tabPage16.Controls.Add(this.panel12);
+            this.tabPage16.Controls.Add(this.lvTwoBlend);
+            this.tabPage16.Location = new System.Drawing.Point(4, 4);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(602, 229);
+            this.tabPage16.TabIndex = 1;
+            this.tabPage16.Text = "Профили";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label35);
+            this.panel12.Controls.Add(this.label36);
+            this.panel12.Controls.Add(this.label37);
+            this.panel12.Controls.Add(this.label38);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(596, 20);
+            this.panel12.TabIndex = 4;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label35.Location = new System.Drawing.Point(359, 3);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(32, 13);
+            this.label35.TabIndex = 3;
+            this.label35.Text = "След";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label36.Location = new System.Drawing.Point(221, 3);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(121, 13);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "Предполагаемое лицо";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label37.Location = new System.Drawing.Point(103, 3);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(89, 13);
+            this.label37.TabIndex = 1;
+            this.label37.Text = "Известное лицо";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label38.Location = new System.Drawing.Point(23, 3);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(38, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Локус";
+            // 
+            // lvTwoBlend
+            // 
+            this.lvTwoBlend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvTwoBlend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lvTwoBlend.FullRowSelect = true;
+            this.lvTwoBlend.GridLines = true;
+            this.lvTwoBlend.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.lvTwoBlend.Location = new System.Drawing.Point(3, 24);
+            this.lvTwoBlend.Name = "lvTwoBlend";
+            this.lvTwoBlend.Size = new System.Drawing.Size(596, 206);
+            this.lvTwoBlend.TabIndex = 3;
+            this.lvTwoBlend.UseCompatibleStateImageBehavior = false;
+            this.lvTwoBlend.View = System.Windows.Forms.View.Details;
+            // 
+            // btnTwoBlendFind
+            // 
+            this.btnTwoBlendFind.Enabled = false;
+            this.btnTwoBlendFind.Location = new System.Drawing.Point(539, 7);
+            this.btnTwoBlendFind.Name = "btnTwoBlendFind";
+            this.btnTwoBlendFind.Size = new System.Drawing.Size(75, 23);
+            this.btnTwoBlendFind.TabIndex = 8;
+            this.btnTwoBlendFind.Text = "Поиск";
+            this.btnTwoBlendFind.UseVisualStyleBackColor = true;
+            this.btnTwoBlendFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // panelContentChildTwoUnknownParent
             // 
@@ -2287,471 +2752,6 @@
             this.buttonDirect.UseVisualStyleBackColor = true;
             this.buttonDirect.Click += new System.EventHandler(this.buttonFind_Click);
             // 
-            // panelContentTwoBlend
-            // 
-            this.panelContentTwoBlend.BackColor = System.Drawing.SystemColors.Window;
-            this.panelContentTwoBlend.Controls.Add(this.splitContainer4);
-            this.panelContentTwoBlend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContentTwoBlend.Location = new System.Drawing.Point(0, 0);
-            this.panelContentTwoBlend.Name = "panelContentTwoBlend";
-            this.panelContentTwoBlend.Size = new System.Drawing.Size(636, 687);
-            this.panelContentTwoBlend.TabIndex = 1;
-            this.panelContentTwoBlend.Visible = false;
-            this.panelContentTwoBlend.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer4.Location = new System.Drawing.Point(5, 5);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.splitContainer4.Panel1.Controls.Add(this.tcTwoBlend);
-            this.splitContainer4.Panel1.Controls.Add(this.panel9);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.Window;
-            this.splitContainer4.Panel2.Controls.Add(this.nudTwoBlendError);
-            this.splitContainer4.Panel2.Controls.Add(this.label39);
-            this.splitContainer4.Panel2.Controls.Add(this.nudTwoBlendLocusCount);
-            this.splitContainer4.Panel2.Controls.Add(this.label34);
-            this.splitContainer4.Panel2.Controls.Add(this.tcTwoBlendFind);
-            this.splitContainer4.Panel2.Controls.Add(this.btnTwoBlendFind);
-            this.splitContainer4.Size = new System.Drawing.Size(626, 676);
-            this.splitContainer4.SplitterDistance = 374;
-            this.splitContainer4.TabIndex = 3;
-            // 
-            // tcTwoBlend
-            // 
-            this.tcTwoBlend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tcTwoBlend.Controls.Add(this.tpTwoBlendDirect);
-            this.tcTwoBlend.Controls.Add(this.tpTwoBlendRatio);
-            this.tcTwoBlend.Location = new System.Drawing.Point(6, 114);
-            this.tcTwoBlend.Name = "tcTwoBlend";
-            this.tcTwoBlend.SelectedIndex = 0;
-            this.tcTwoBlend.Size = new System.Drawing.Size(612, 257);
-            this.tcTwoBlend.TabIndex = 1;
-            // 
-            // tpTwoBlendDirect
-            // 
-            this.tpTwoBlendDirect.Controls.Add(this.dgvTwoBlendDirect);
-            this.tpTwoBlendDirect.Location = new System.Drawing.Point(4, 22);
-            this.tpTwoBlendDirect.Name = "tpTwoBlendDirect";
-            this.tpTwoBlendDirect.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTwoBlendDirect.Size = new System.Drawing.Size(604, 231);
-            this.tpTwoBlendDirect.TabIndex = 0;
-            this.tpTwoBlendDirect.Text = "Прямая идентификация";
-            this.tpTwoBlendDirect.UseVisualStyleBackColor = true;
-            // 
-            // dgvTwoBlendDirect
-            // 
-            this.dgvTwoBlendDirect.AllowUserToAddRows = false;
-            this.dgvTwoBlendDirect.AllowUserToDeleteRows = false;
-            this.dgvTwoBlendDirect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTwoBlendDirect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTwoBlendDirect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTwoBlendDirect.Location = new System.Drawing.Point(3, 3);
-            this.dgvTwoBlendDirect.Name = "dgvTwoBlendDirect";
-            this.dgvTwoBlendDirect.ReadOnly = true;
-            this.dgvTwoBlendDirect.RowHeadersWidth = 16;
-            this.dgvTwoBlendDirect.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTwoBlendDirect.Size = new System.Drawing.Size(598, 225);
-            this.dgvTwoBlendDirect.StandardTab = true;
-            this.dgvTwoBlendDirect.TabIndex = 1;
-            // 
-            // tpTwoBlendRatio
-            // 
-            this.tpTwoBlendRatio.Controls.Add(this.dgvTwoBlendRatio);
-            this.tpTwoBlendRatio.Location = new System.Drawing.Point(4, 22);
-            this.tpTwoBlendRatio.Name = "tpTwoBlendRatio";
-            this.tpTwoBlendRatio.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTwoBlendRatio.Size = new System.Drawing.Size(604, 231);
-            this.tpTwoBlendRatio.TabIndex = 1;
-            this.tpTwoBlendRatio.Text = "Отношение правдоподобия";
-            this.tpTwoBlendRatio.UseVisualStyleBackColor = true;
-            // 
-            // dgvTwoBlendRatio
-            // 
-            this.dgvTwoBlendRatio.AllowUserToAddRows = false;
-            this.dgvTwoBlendRatio.AllowUserToDeleteRows = false;
-            this.dgvTwoBlendRatio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTwoBlendRatio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTwoBlendRatio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTwoBlendRatio.Location = new System.Drawing.Point(3, 3);
-            this.dgvTwoBlendRatio.Name = "dgvTwoBlendRatio";
-            this.dgvTwoBlendRatio.ReadOnly = true;
-            this.dgvTwoBlendRatio.RowHeadersWidth = 16;
-            this.dgvTwoBlendRatio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTwoBlendRatio.Size = new System.Drawing.Size(598, 225);
-            this.dgvTwoBlendRatio.StandardTab = true;
-            this.dgvTwoBlendRatio.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.Window;
-            this.panel9.Controls.Add(this.btnTwoBlendIk2);
-            this.panel9.Controls.Add(this.btnTwoBlendKnown);
-            this.panel9.Controls.Add(this.btnTwoBlendUnknown);
-            this.panel9.Controls.Add(this.textBoxTwoBlendKnown);
-            this.panel9.Controls.Add(this.label22);
-            this.panel9.Controls.Add(this.textBoxTwoBlendUnknown);
-            this.panel9.Controls.Add(this.label24);
-            this.panel9.Controls.Add(this.textBoxTwoBlendIk2);
-            this.panel9.Controls.Add(this.label26);
-            this.panel9.Controls.Add(this.toolStrip4);
-            this.panel9.Controls.Add(this.textBox8);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(624, 119);
-            this.panel9.TabIndex = 0;
-            // 
-            // btnTwoBlendIk2
-            // 
-            this.btnTwoBlendIk2.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
-            this.btnTwoBlendIk2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTwoBlendIk2.Location = new System.Drawing.Point(462, 43);
-            this.btnTwoBlendIk2.Name = "btnTwoBlendIk2";
-            this.btnTwoBlendIk2.Size = new System.Drawing.Size(23, 23);
-            this.btnTwoBlendIk2.TabIndex = 2;
-            this.btnTwoBlendIk2.UseVisualStyleBackColor = true;
-            this.btnTwoBlendIk2.Click += new System.EventHandler(this.buttonShowCard_Click);
-            // 
-            // btnTwoBlendKnown
-            // 
-            this.btnTwoBlendKnown.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
-            this.btnTwoBlendKnown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTwoBlendKnown.Location = new System.Drawing.Point(591, 43);
-            this.btnTwoBlendKnown.Name = "btnTwoBlendKnown";
-            this.btnTwoBlendKnown.Size = new System.Drawing.Size(23, 23);
-            this.btnTwoBlendKnown.TabIndex = 4;
-            this.btnTwoBlendKnown.UseVisualStyleBackColor = true;
-            this.btnTwoBlendKnown.Click += new System.EventHandler(this.buttonShowCard_Click);
-            // 
-            // btnTwoBlendUnknown
-            // 
-            this.btnTwoBlendUnknown.BackgroundImage = global::GeneLibrary.Properties.Resources.Write;
-            this.btnTwoBlendUnknown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTwoBlendUnknown.Location = new System.Drawing.Point(591, 86);
-            this.btnTwoBlendUnknown.Name = "btnTwoBlendUnknown";
-            this.btnTwoBlendUnknown.Size = new System.Drawing.Size(23, 23);
-            this.btnTwoBlendUnknown.TabIndex = 6;
-            this.btnTwoBlendUnknown.UseVisualStyleBackColor = true;
-            this.btnTwoBlendUnknown.Click += new System.EventHandler(this.buttonShowCard_Click);
-            // 
-            // textBoxTwoBlendKnown
-            // 
-            this.textBoxTwoBlendKnown.Location = new System.Drawing.Point(495, 45);
-            this.textBoxTwoBlendKnown.Name = "textBoxTwoBlendKnown";
-            this.textBoxTwoBlendKnown.Size = new System.Drawing.Size(90, 20);
-            this.textBoxTwoBlendKnown.TabIndex = 3;
-            this.textBoxTwoBlendKnown.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(492, 29);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(121, 13);
-            this.label22.TabIndex = 6;
-            this.label22.Text = "КИН известного лица:";
-            // 
-            // textBoxTwoBlendUnknown
-            // 
-            this.textBoxTwoBlendUnknown.Location = new System.Drawing.Point(389, 88);
-            this.textBoxTwoBlendUnknown.Name = "textBoxTwoBlendUnknown";
-            this.textBoxTwoBlendUnknown.Size = new System.Drawing.Size(196, 20);
-            this.textBoxTwoBlendUnknown.TabIndex = 5;
-            this.textBoxTwoBlendUnknown.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(385, 70);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(153, 13);
-            this.label24.TabIndex = 2;
-            this.label24.Text = "КИН предполагаемого лица:";
-            // 
-            // textBoxTwoBlendIk2
-            // 
-            this.textBoxTwoBlendIk2.Location = new System.Drawing.Point(389, 45);
-            this.textBoxTwoBlendIk2.Name = "textBoxTwoBlendIk2";
-            this.textBoxTwoBlendIk2.Size = new System.Drawing.Size(67, 20);
-            this.textBoxTwoBlendIk2.TabIndex = 1;
-            this.textBoxTwoBlendIk2.TextChanged += new System.EventHandler(this.checkTextBoxValueAsCardId);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(386, 29);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(66, 13);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "КИН следа:";
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbTwoBlendGo,
-            this.tsbTwoBlendPrint1,
-            this.tscbTooBlendMethods,
-            this.toolStripSeparator5,
-            this.tsbTwoBlendHelp});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip4.Size = new System.Drawing.Size(624, 25);
-            this.toolStrip4.TabIndex = 0;
-            this.toolStrip4.Text = "toolStrip4";
-            // 
-            // tsbTwoBlendGo
-            // 
-            this.tsbTwoBlendGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbTwoBlendGo.Enabled = false;
-            this.tsbTwoBlendGo.Image = global::GeneLibrary.Properties.Resources.Advanced_Options;
-            this.tsbTwoBlendGo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbTwoBlendGo.Name = "tsbTwoBlendGo";
-            this.tsbTwoBlendGo.Size = new System.Drawing.Size(23, 22);
-            this.tsbTwoBlendGo.ToolTipText = "Выполнить";
-            this.tsbTwoBlendGo.Click += new System.EventHandler(this.ToolStripButtonGo_Click);
-            // 
-            // tsbTwoBlendPrint1
-            // 
-            this.tsbTwoBlendPrint1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbTwoBlendPrint1.Enabled = false;
-            this.tsbTwoBlendPrint1.Image = ((System.Drawing.Image)(resources.GetObject("tsbTwoBlendPrint1.Image")));
-            this.tsbTwoBlendPrint1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbTwoBlendPrint1.Name = "tsbTwoBlendPrint1";
-            this.tsbTwoBlendPrint1.Size = new System.Drawing.Size(23, 22);
-            this.tsbTwoBlendPrint1.Text = "&Print";
-            this.tsbTwoBlendPrint1.ToolTipText = "Печать";
-            this.tsbTwoBlendPrint1.Click += new System.EventHandler(this.printToolStripButton_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tscbTooBlendMethods
-            // 
-            this.tscbTooBlendMethods.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscbTooBlendMethods.Name = "tscbTooBlendMethods";
-            this.tscbTooBlendMethods.Size = new System.Drawing.Size(121, 25);
-            // 
-            // tsbTwoBlendHelp
-            // 
-            this.tsbTwoBlendHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbTwoBlendHelp.Image = ((System.Drawing.Image)(resources.GetObject("tsbTwoBlendHelp.Image")));
-            this.tsbTwoBlendHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbTwoBlendHelp.Name = "tsbTwoBlendHelp";
-            this.tsbTwoBlendHelp.Size = new System.Drawing.Size(23, 22);
-            this.tsbTwoBlendHelp.Text = "He&lp";
-            this.tsbTwoBlendHelp.Click += new System.EventHandler(this.toolStripHelp_Click);
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Location = new System.Drawing.Point(6, 31);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(373, 85);
-            this.textBox8.TabIndex = 0;
-            this.textBox8.TabStop = false;
-            this.textBox8.Text = resources.GetString("textBox8.Text");
-            // 
-            // nudTwoBlendError
-            // 
-            this.nudTwoBlendError.Location = new System.Drawing.Point(159, 8);
-            this.nudTwoBlendError.Name = "nudTwoBlendError";
-            this.nudTwoBlendError.Size = new System.Drawing.Size(52, 20);
-            this.nudTwoBlendError.TabIndex = 17;
-            this.nudTwoBlendError.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(14, 12);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(141, 13);
-            this.label39.TabIndex = 16;
-            this.label39.Text = "Количество несовпадений";
-            // 
-            // nudTwoBlendLocusCount
-            // 
-            this.nudTwoBlendLocusCount.Location = new System.Drawing.Point(375, 8);
-            this.nudTwoBlendLocusCount.Name = "nudTwoBlendLocusCount";
-            this.nudTwoBlendLocusCount.Size = new System.Drawing.Size(54, 20);
-            this.nudTwoBlendLocusCount.TabIndex = 7;
-            this.nudTwoBlendLocusCount.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(229, 12);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(140, 13);
-            this.label34.TabIndex = 15;
-            this.label34.Text = "Количество локусов учета";
-            // 
-            // tcTwoBlendFind
-            // 
-            this.tcTwoBlendFind.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tcTwoBlendFind.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tcTwoBlendFind.Controls.Add(this.tabPage15);
-            this.tcTwoBlendFind.Controls.Add(this.tabPage16);
-            this.tcTwoBlendFind.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tcTwoBlendFind.ItemSize = new System.Drawing.Size(80, 18);
-            this.tcTwoBlendFind.Location = new System.Drawing.Point(6, 34);
-            this.tcTwoBlendFind.Multiline = true;
-            this.tcTwoBlendFind.Name = "tcTwoBlendFind";
-            this.tcTwoBlendFind.SelectedIndex = 0;
-            this.tcTwoBlendFind.Size = new System.Drawing.Size(610, 255);
-            this.tcTwoBlendFind.TabIndex = 14;
-            this.tcTwoBlendFind.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControlFind_DrawItem);
-            this.tcTwoBlendFind.SelectedIndexChanged += new System.EventHandler(this.tcTwoBlendFind_SelectedIndexChanged);
-            // 
-            // tabPage15
-            // 
-            this.tabPage15.Controls.Add(this.dgvTwoBlendFind);
-            this.tabPage15.Location = new System.Drawing.Point(4, 4);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(602, 229);
-            this.tabPage15.TabIndex = 0;
-            this.tabPage15.Text = "Результат поиска";
-            this.tabPage15.UseVisualStyleBackColor = true;
-            // 
-            // dgvTwoBlendFind
-            // 
-            this.dgvTwoBlendFind.AllowDrop = true;
-            this.dgvTwoBlendFind.AllowUserToAddRows = false;
-            this.dgvTwoBlendFind.AllowUserToDeleteRows = false;
-            this.dgvTwoBlendFind.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTwoBlendFind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTwoBlendFind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTwoBlendFind.Location = new System.Drawing.Point(3, 3);
-            this.dgvTwoBlendFind.Name = "dgvTwoBlendFind";
-            this.dgvTwoBlendFind.ReadOnly = true;
-            this.dgvTwoBlendFind.RowHeadersWidth = 16;
-            this.dgvTwoBlendFind.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTwoBlendFind.Size = new System.Drawing.Size(596, 223);
-            this.dgvTwoBlendFind.TabIndex = 13;
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.Controls.Add(this.panel12);
-            this.tabPage16.Controls.Add(this.lvTwoBlend);
-            this.tabPage16.Location = new System.Drawing.Point(4, 4);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(602, 229);
-            this.tabPage16.TabIndex = 1;
-            this.tabPage16.Text = "Профили";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.label35);
-            this.panel12.Controls.Add(this.label36);
-            this.panel12.Controls.Add(this.label37);
-            this.panel12.Controls.Add(this.label38);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(3, 3);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(596, 20);
-            this.panel12.TabIndex = 4;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label35.Location = new System.Drawing.Point(359, 3);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(32, 13);
-            this.label35.TabIndex = 3;
-            this.label35.Text = "След";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label36.Location = new System.Drawing.Point(221, 3);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(121, 13);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "Предполагаемое лицо";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label37.Location = new System.Drawing.Point(103, 3);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(89, 13);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "Известное лицо";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label38.Location = new System.Drawing.Point(23, 3);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(38, 13);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Локус";
-            // 
-            // lvTwoBlend
-            // 
-            this.lvTwoBlend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvTwoBlend.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lvTwoBlend.FullRowSelect = true;
-            this.lvTwoBlend.GridLines = true;
-            this.lvTwoBlend.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.lvTwoBlend.Location = new System.Drawing.Point(3, 24);
-            this.lvTwoBlend.Name = "lvTwoBlend";
-            this.lvTwoBlend.Size = new System.Drawing.Size(596, 206);
-            this.lvTwoBlend.TabIndex = 3;
-            this.lvTwoBlend.UseCompatibleStateImageBehavior = false;
-            this.lvTwoBlend.View = System.Windows.Forms.View.Details;
-            // 
-            // btnTwoBlendFind
-            // 
-            this.btnTwoBlendFind.Enabled = false;
-            this.btnTwoBlendFind.Location = new System.Drawing.Point(539, 7);
-            this.btnTwoBlendFind.Name = "btnTwoBlendFind";
-            this.btnTwoBlendFind.Size = new System.Drawing.Size(75, 23);
-            this.btnTwoBlendFind.TabIndex = 8;
-            this.btnTwoBlendFind.Text = "Поиск";
-            this.btnTwoBlendFind.UseVisualStyleBackColor = true;
-            this.btnTwoBlendFind.Click += new System.EventHandler(this.buttonFind_Click);
-            // 
             // panelContentBlend
             // 
             this.panelContentBlend.BackColor = System.Drawing.SystemColors.Window;
@@ -3283,6 +3283,28 @@
             this.Load += new System.EventHandler(this.FormStudy_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
+            this.panelContentTwoBlend.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            this.splitContainer4.ResumeLayout(false);
+            this.tcTwoBlend.ResumeLayout(false);
+            this.tpTwoBlendDirect.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendDirect)).EndInit();
+            this.tpTwoBlendRatio.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendRatio)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendLocusCount)).EndInit();
+            this.tcTwoBlendFind.ResumeLayout(false);
+            this.tabPage15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendFind)).EndInit();
+            this.tabPage16.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panelContentChildTwoUnknownParent.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -3368,28 +3390,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLocusCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
-            this.panelContentTwoBlend.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
-            this.splitContainer4.ResumeLayout(false);
-            this.tcTwoBlend.ResumeLayout(false);
-            this.tpTwoBlendDirect.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendDirect)).EndInit();
-            this.tpTwoBlendRatio.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendRatio)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTwoBlendLocusCount)).EndInit();
-            this.tcTwoBlendFind.ResumeLayout(false);
-            this.tabPage15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTwoBlendFind)).EndInit();
-            this.tabPage16.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.panelContentBlend.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);

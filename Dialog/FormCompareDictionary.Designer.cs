@@ -36,14 +36,15 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCompare = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompared)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxComparer
             // 
             this.textBoxComparer.AllowDrop = true;
-            this.textBoxComparer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxComparer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxComparer.Location = new System.Drawing.Point(15, 41);
             this.textBoxComparer.Name = "textBoxComparer";
             this.textBoxComparer.ReadOnly = true;
@@ -76,9 +77,9 @@
             this.dataGridViewCompared.AllowDrop = true;
             this.dataGridViewCompared.AllowUserToAddRows = false;
             this.dataGridViewCompared.AllowUserToDeleteRows = false;
-            this.dataGridViewCompared.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewCompared.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewCompared.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCompared.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCompared.ColumnHeadersVisible = false;
@@ -146,6 +147,7 @@
             this.Text = "Сопоставление справочников";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormCompareDictionary_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCompared)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

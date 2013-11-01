@@ -107,22 +107,22 @@
             // toolStripMenuItemVertical
             // 
             this.toolStripMenuItemVertical.Name = "toolStripMenuItemVertical";
-            this.toolStripMenuItemVertical.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItemVertical.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItemVertical.Text = "По вертикали";
             this.toolStripMenuItemVertical.Click += new System.EventHandler(this.toolStripMenuItemVertical_Click);
             // 
             // toolStripMenuItemHorizontal
             // 
             this.toolStripMenuItemHorizontal.Name = "toolStripMenuItemHorizontal";
-            this.toolStripMenuItemHorizontal.Size = new System.Drawing.Size(165, 22);
+            this.toolStripMenuItemHorizontal.Size = new System.Drawing.Size(163, 22);
             this.toolStripMenuItemHorizontal.Text = "По горизонтали";
             this.toolStripMenuItemHorizontal.Click += new System.EventHandler(this.toolStripMenuItemHorizontal_Click);
             // 
             // tabControlCards
             // 
-            this.tabControlCards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlCards.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlCards.Controls.Add(this.tabPageCard);
             this.tabControlCards.Controls.Add(this.tabPagePreview);
             this.tabControlCards.Location = new System.Drawing.Point(12, 33);
@@ -163,8 +163,8 @@
             this.dataGridViewCards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCards.Size = new System.Drawing.Size(484, 220);
             this.dataGridViewCards.TabIndex = 5;
-            this.dataGridViewCards.DragOver += new System.Windows.Forms.DragEventHandler(this.dataGridViewCards_DragOver);
             this.dataGridViewCards.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridViewCards_DragDrop);
+            this.dataGridViewCards.DragOver += new System.Windows.Forms.DragEventHandler(this.dataGridViewCards_DragOver);
             // 
             // ID
             // 

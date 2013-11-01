@@ -331,7 +331,7 @@ namespace GeneLibrary.Items
             StringBuilder stringBuilder = new StringBuilder();
             foreach (Locus locus in result)
                 stringBuilder.AppendLine(String.Format(resDataNames.ChangeCardProfile, cardId, locus.Name + ";" + (from Allele allele in locus.Allele where allele.Checked select allele.Name).Aggregate((first, second) => first + ";" + second)));
-            WFOracle.AddInParameter("note", OracleType.NVarChar, stringBuilder.ToString(), cmd, false);
+            WFOracle.AddInParameter("note", OracleType.NClob, stringBuilder.ToString(), cmd, false);
             prmRes = WFOracle.AddOutParameter("res", OracleType.Number, cmd);
             cmd.ExecuteNonQuery();
 

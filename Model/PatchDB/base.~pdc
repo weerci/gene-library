@@ -12,5 +12,3 @@ create table MODERN.VERSIONS  (
 
 comment on table MODERN.VERSIONS is
 'Содержит записи о версии релизов базы данных';
-
-INSERT INTO modern.versions("ID", "NAME", d_create) VALUES (1, 'version 1.4.0.1', CURRENT_DATE);

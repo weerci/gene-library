@@ -35,3 +35,4 @@ using System.Resources;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.4.0.1")]
 [assembly: NeutralResourcesLanguageAttribute("ru-RU")]
+[assembly: AssemblyFileVersionAttribute("1.4.0.1")]

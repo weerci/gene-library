@@ -2,7 +2,7 @@
 ; ИСПОЛЬЗУЙТЕ ДОКУМЕНТАЦИЮ ДЛЯ ПОДРОБНОСТЕЙ ИСПОЛЬЗОВАНИЯ INNO SETUP!
 
 #define MyAppName "GeneLibrary"
-#define MyAppVersion "1.33"
+#define MyAppVersion "1.4.0.1"
 #define MyAppPublisher "CoreLab"
 #define MyAppURL "https://googledrive.com/host/0B49CBXu70uZAbmlid0NYaGxwQ0k/"
 #define MyAppExeName "GeneLibrary.exe"
@@ -24,8 +24,8 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\GeneLibrary
 DefaultGroupName=GeneLibrary
 OutputDir=D:\datadi\programming\exe\gl
-OutputBaseFilename=GeneLibrarySetup133
-SetupIconFile=D:\datadi\programming\src\GeneLibrary\gene-library\res\16.ico
+OutputBaseFilename=gl_setup_{#MyAppVersion}
+SetupIconFile=D:\datadi\programming\src\GeneLibrary\gene-library\Images\DNA256.png
 Compression=lzma
 SolidCompression=yes
 AppMutex=23E0E3CB-4A33-4A23-AA40-8501D5E16E08
@@ -42,7 +42,6 @@ Source: "D:\datadi\programming\exe\gl\MdiClientController.dll"; DestDir: "{app}"
 Source: "D:\datadi\programming\exe\gl\Microsoft.Office.Interop.Excel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\VS2005ToolBox.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\base.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
-Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_card.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
 Source: "D:\datadi\programming\src\GeneLibrary\gene-library\Model\patchdb\prk_tab.pdc"; DestDir: "{app}\patch"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Шаблоны\исследования.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion
 Source: "D:\datadi\programming\exe\gl\Шаблоны\таблица_генотипов.xlt"; DestDir: "{app}\Шаблоны"; Flags: ignoreversion

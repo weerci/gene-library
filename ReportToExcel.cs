@@ -148,20 +148,25 @@ namespace WFExcel
         private void SetCollectionVertical(Excel.Worksheet workSheet, Excel.Range item, Collection<ReportCollection> reportCollections)
         {
             bool withNumber = item.Value2.ToString().StartsWith("~^№");
-            Excel.Range range;
+            int currPostion = item.Row;
+            Excel.Range range = workSheet.get_Range(workSheet.Cells[currPostion + 1, item.Column], workSheet.Cells[currPostion + 1, item.Column]);
+            for (int i = 0; i < reportCollections.Count; i++)
+                range.EntireRow.Insert();
+
             for (int i = 0; i < reportCollections.Count; i++)
             {
-                range = workSheet.get_Range(workSheet.Cells[item.Row + i, item.Column], workSheet.Cells[item.Row + i, item.Column]);
+                range = workSheet.get_Range(workSheet.Cells[currPostion, item.Column], workSheet.Cells[currPostion, item.Column]);
                 if (withNumber)
-                    range.Value2 = String.Format("{0}  {1}", i+1, reportCollections[i].Key);
+                    range.Value2 = String.Format("{0}  {1}", i + 1, reportCollections[i].Key);
                 else
                     range.Value2 = reportCollections[i].Key;
 
                 for (int j = 0; j < reportCollections[i].Value.Count(); j++)
                 {
-                    range = workSheet.get_Range(workSheet.Cells[item.Row + i, item.Column + j + 1], workSheet.Cells[item.Row + i, item.Column + j + 1]);
+                    range = workSheet.get_Range(workSheet.Cells[currPostion, item.Column + j + 1], workSheet.Cells[currPostion, item.Column + j + 1]);
                     range.Value2 = reportCollections[i].Value[j];
                 }
+                currPostion++;
             }
         }
         private void SetCollectionHorisontal(Excel.Worksheet workSheet, Excel.Range item, Collection<ReportCollection> reportCollections)

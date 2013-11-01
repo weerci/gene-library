@@ -1,14 +1,3 @@
------------------------------------------------------
--- Export file for user MODERN                     --
--- Created by Администратор on 24.09.2013, 5:29:22 --
------------------------------------------------------
-
-spool prk_card.log
-
-prompt
-prompt Creating package PKG_CARD
-prompt =========================
-prompt
 create or replace package modern.PKG_CARD is
 
   -- Функции поиска
@@ -82,11 +71,6 @@ create or replace package modern.PKG_CARD is
   procedure extract_from_archive (a_id in number,curr_user in number,note in nclob);
 end;
 /
-
-prompt
-prompt Creating package body PKG_CARD
-prompt ==============================
-prompt
 create or replace package body modern.PKG_CARD is
   -- Получаем историю карточки
   function set_card_history(a_id in number, history_action in number, expert_id in number,
@@ -329,74 +313,23 @@ create or replace package body modern.PKG_CARD is
   begin
     select count(*) into cnt from modern.ikl ikl where ikl.id = a_profile_id;
 
-    if (cnt = 0) then -- карта ик-2
-      for rec in (
-        select prf as profile_id, count(*)-sum(chk) cnt,
-               case when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
-                then 1
-                else 0
-               end card_type,
-               (select card_num from modern.card where id = prf) card_num,
-               (select exam_num from modern.card where id = prf) exam_num
-          from (select a.profile_id as prf,
-                       locus_id,
-                       case
-                         when a.allele_id in
-                              (select allele_id
-                                 from modern.chk_allele
-                                where profile_id = a_profile_id) then
-                          1
-                         else
-                          0
-                       end chk
-                  from modern.chk_allele a
-                 where a.locus_id in (select locus_id
-                                        from modern.chk_allele
-                                       where profile_id = a_profile_id) and a.profile_id <> a_profile_id) t
-         group by prf
-        having (count(*)-sum(chk) < a_allele_count) and modern.locus_cnt(a_profile_id, prf) > a_locus_count
+    for rec in (
+      select prf as profile_id,
+           case when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0 then 1 else 0 end card_type,
+           (select count(*) from modern.chk_allele where profile_id = a_profile_id) - sum(chk) cnt,
+           (select card_num from modern.card where id = prf) card_num,
+           (select exam_num from modern.card where id = prf) exam_num
+      from (select a.profile_id as prf,
+                   locus_id,
+                   case when a.allele_id in (select allele_id  from modern.chk_allele where profile_id = a_profile_id) then 1 else 0 end chk
+              from modern.chk_allele a
+             where a.profile_id <> a_profile_id) t
+      group by prf
+      having((select count(*) from modern.chk_allele where profile_id = a_profile_id) - sum(chk) < a_allele_count) 
+				and modern.locus_cnt(a_profile_id, prf) > a_locus_count
       ) loop
         pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
       end loop;
-    else -- карта ИКЛ
-      for rec in (
-        select prf as profile_id, c-sum(chk) cnt,
-               case
-                 when (select count(*) from modern.ikl ikl where ikl.id = prf) = 0
-                   then 1
-                   else 0
-                 end card_type,
-               (select card_num from modern.card where id = prf) card_num,
-               (select exam_num from modern.card where id = prf) exam_num
-          from (select a.profile_id as prf,
-                       locus_id,
-                       (select count(*)
-                          from modern.chk_allele
-                         where profile_id = a_profile_id
-                           and locus_id in
-                               (select locus_id
-                                  from modern.chk_allele
-                                 where profile_id = a.profile_id)) c,
-                       case
-                         when a.allele_id in
-                              (select allele_id
-                                 from modern.chk_allele
-                                where profile_id = a_profile_id) then
-                          1
-                         else
-                          0
-                       end chk
-                  from modern.chk_allele a
-                 where a.locus_id in (select locus_id
-                                        from modern.chk_allele
-                                       where profile_id = a_profile_id) and a.profile_id <> a_profile_id) t
-         group by prf
-        having (c - sum(chk) < a_allele_count) and modern.locus_cnt(a_profile_id, prf) > a_locus_count
-      ) loop
-        pipe row(t_find_result(rec.profile_id, rec.cnt, rec.card_type, rec.card_num, rec.exam_num));
-      end loop;
-    end if;
-
   end;
 
   function find_half(a_profile_id in number, a_locus_count in number, a_accuracy in int := 0) return tbl_find_result pipelined is
@@ -704,6 +637,3 @@ create or replace package body modern.PKG_CARD is
 
 end;
 /
-
-
-spool off

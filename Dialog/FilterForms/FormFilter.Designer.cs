@@ -33,6 +33,7 @@
             this.toolStripButtonToExcel = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewFilter = new System.Windows.Forms.DataGridView();
             this.toolStripFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripFilter
@@ -89,6 +90,7 @@
             this.Load += new System.EventHandler(this.FormFilter_Load);
             this.toolStripFilter.ResumeLayout(false);
             this.toolStripFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFilter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
