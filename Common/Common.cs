@@ -32,18 +32,15 @@ namespace GeneLibrary.Common
         // Methods
         protected void OnDataLoad(int cardId)
         {
-            if (onDataLoad != null) 
-                onDataLoad(cardId);
+            onDataLoad?.Invoke(cardId);
         }
         protected void OnCloseForm(ComboBoxItem comboBoxItem)
         {
-            if (onCloseForm != null)
-                onCloseForm(comboBoxItem);
+            onCloseForm?.Invoke(comboBoxItem);
         }
         protected void OnUpdateFormId(ComboBoxItem comboBoxItem)
         {
-            if (onUpdateFormId != null)
-                onUpdateFormId(comboBoxItem);
+            onUpdateFormId?.Invoke(comboBoxItem);
         }
 
         // Fields
@@ -341,7 +338,7 @@ namespace GeneLibrary.Common
         /// <summary>
         /// Время отображения всплывающей подсказки
         /// </summary>
-        public static int ShowTipDuration = 2000;
+        const int ShowTipDuration = 2000;
 
         /// <summary>
         /// Переданным контролам назначает обработчик события, для стандартных событий
