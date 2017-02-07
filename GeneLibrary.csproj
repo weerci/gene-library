@@ -26,7 +26,8 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <ApplicationIcon>Безымянный.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -717,7 +718,6 @@
   <ItemGroup>
     <Content Include="DNA.ico" />
     <Content Include="Images\ProfileFile.PNG" />
-    <Content Include="Безымянный.ico" />
     <None Include="intaller\DNA.bmp" />
     <Content Include="Model\modern.pdb" />
     <Content Include="Model\Перенос базы данных.txt" />
