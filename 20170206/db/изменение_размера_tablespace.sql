@@ -1,3 +1,15 @@
+Это нужно выполнить, если не поможет читаем дальше
+ALTER DATABASE
+DATAFILE 'C:\oraclexe\app\oracle\oradata\XE\SYSTEM.DBF'
+RESIZE 1G;
+
+ALTER DATABASE
+DATAFILE 'C:\oraclexe\app\oracle\oradata\XE\SYSTEM.DBF'
+AUTOEXTEND ON NEXT 100M MAXSIZE UNLIMITED;
+
+
+собственно оно, "дальше"
+
 Changing the size of a traditional tablespacemeant resizing its datafiles individually using theALTER DATABASE statement and identifying each datafileto resize by its complete operating system pathname or internal file number:
 
 ALTER DATABASE
